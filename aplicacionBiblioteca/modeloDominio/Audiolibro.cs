@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace modeloDominio
 {
-    public class Class1
+    public class Audiolibro
     {
     }
 }
