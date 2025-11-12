@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace modeloDominio
 {
-    public class Audiolibro
+    public class Audiolibro : Documento
     {
+        public Audiolibro(string isbn) : base(isbn)
+        {
+
+        }
+        public string Formato {  get; set; }
+        public int Duracion {  get; set; }
     }
 }
