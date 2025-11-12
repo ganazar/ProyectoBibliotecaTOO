@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace modeloDominio
 {
-    internal class Documento
+    public class Documento
     {
     }
 }
