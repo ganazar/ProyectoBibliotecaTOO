@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\EjemplarDato.cs" />
+    <Compile Include="Datos\Entity.cs" />
+    <Compile Include="BD\Tabla.cs" />
     <Compile Include="Interfaces\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Datos\" />
     <Folder Include="Repositorios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
