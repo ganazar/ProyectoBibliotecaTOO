@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace modeloDominio
 {
-    internal class PersonalAdquisicion
+    internal class PersonalAdquisicion : Personal
     {
+        public PersonalAdquisicion(String nss) : base(nss)
+        {
+
+        }
     }
 }
