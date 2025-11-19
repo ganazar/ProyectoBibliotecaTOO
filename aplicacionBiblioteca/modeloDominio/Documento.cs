@@ -6,15 +6,53 @@ using System.Threading.Tasks;
 
 namespace modeloDominio
 {
-    public class Documento
+    public abstract class Documento
     {
+        private string isbn;
+        private string titulo;
+        private string autor;
+        private string editorial;
+        private int añoEdicion;
+        private int cantEjemplares;
+
         public Documento(string isbn)
         {
-            ISBN = isbn;
+            this.isbn = isbn;
         }
-        public string ISBN { get; }
-        public string Titulo { get; set; }
-        public string Editorial { get; set; }
-        public int AñoEdicion { get; set; }
+        public Documento(string isbn,string titulo, string autor, string editorial,int añoEdicion)
+        {
+            this.isbn = isbn;
+            this.titulo = titulo;
+            this.autor = autor;
+            this.editorial = editorial;
+            this.añoEdicion = añoEdicion ;
+            this.cantEjemplares = 0;
+        }
+        public string ISBN {
+            get { return this.isbn; }
+        }
+        public string Titulo {
+            get { return this.titulo; }
+            set { this.titulo = value; }
+        }
+        public string Autor {
+            get { return this.autor; }
+            set { this.autor = value; }
+        }
+        public string Editorial {
+            get { return this.editorial; }
+            set { this.editorial = value; }
+        }
+        public int AñoEdicion {
+            get { return this.añoEdicion; }
+            set {this.añoEdicion=value; } 
+        }
+
+        public int CantEjemplares
+        {
+            get { return this.cantEjemplares; }
+            set { this.cantEjemplares = value; }
+        }
+    
     }
 }

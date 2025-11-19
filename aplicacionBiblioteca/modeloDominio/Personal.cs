@@ -8,10 +8,26 @@ namespace modeloDominio
 {
     public abstract class Personal
     {
+        private string nss;
+        private string nombre;
         public Personal(string nss)
         {
-            NSS = nss;
+            this.nss = nss;
         }
-        public string NSS { get; }
+
+        public Personal(string nss, string nombre)
+        {
+            this.nss = nss;
+            this.nombre = nombre;
+        }
+        public string NSS { 
+            get { return nss; } 
+        }
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { this.nombre = value; }
+        }
     }
 }

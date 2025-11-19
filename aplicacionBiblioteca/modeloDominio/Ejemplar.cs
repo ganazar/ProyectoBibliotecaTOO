@@ -8,11 +8,31 @@ namespace modeloDominio
 {
     public class Ejemplar
     {
-        public Ejemplar()
+        private string codEjemplar;
+        private Documento doc;
+        private bool prestado;
+
+        public Ejemplar(Documento doc)
         {
-            
+            this.codEjemplar = doc.Titulo + doc.CantEjemplares;
+            this.prestado = false;
+            doc.CantEjemplares += 1;
         }
-        public Documento Documento { get; set; }
-        public int NumeroEjemplar {  get; set; }
+
+        public string CodEjemplar {
+            get { return this.codEjemplar; }
+        }
+        public Documento Doc
+        {
+            get {return this.doc; }
+            set {this.doc= value; }
+        }
+
+        public bool Prestado
+        {
+            get { return this.prestado; }
+            set { this.prestado = value; }
+        }
+        
     }
 }

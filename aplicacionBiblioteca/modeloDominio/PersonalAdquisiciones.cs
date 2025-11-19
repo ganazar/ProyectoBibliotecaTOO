@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace modeloDominio
 {
-    internal class PersonalSala : Personal
+    internal class PersonalAdquisiciones : Personal
     {
-        public PersonalSala (String nss) : base(nss)
+        public PersonalAdquisiciones(string nss) : base(nss)
         {
 
         }
 
-        public PersonalSala(string nss, string nombre) : base(nss, nombre)
+        public PersonalAdquisiciones(string nss, string nombre) : base(nss, nombre)
         {
+
         }
     }
 }

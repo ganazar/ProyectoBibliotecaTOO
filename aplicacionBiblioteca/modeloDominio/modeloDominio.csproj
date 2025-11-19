@@ -44,8 +44,9 @@
     <Compile Include="Audiolibro.cs" />
     <Compile Include="Documento.cs" />
     <Compile Include="Ejemplar.cs" />
+    <Compile Include="Fisico.cs" />
     <Compile Include="Personal.cs" />
-    <Compile Include="PersonalAdquisicion.cs" />
+    <Compile Include="PersonalAdquisiciones.cs" />
     <Compile Include="PersonalSala.cs" />
     <Compile Include="Prestamo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

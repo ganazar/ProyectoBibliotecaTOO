@@ -8,11 +8,26 @@ namespace modeloDominio
 {
     public class Usuario
     {
+        private string dni;
+        private string nombre;
+
         public Usuario(string dni)
         {
-            DNI = dni;
+            this.dni = dni;
         }
-        public string DNI { get; }
-        public string Nombre { get; set; }
+
+        public Usuario(string dni, string nombre) {
+            this.dni = dni;
+            this.nombre = nombre;
+        }
+        public string DNI
+        {
+            get { return this.dni; }
+        }
+        public string Nombre
+        {
+            get { return this.nombre; }
+            set { this.nombre= value; }
+        }
     }
 }

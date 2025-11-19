@@ -8,11 +8,28 @@ namespace modeloDominio
 {
     public class Audiolibro : Documento
     {
+        private string formato;
+        private int duracion;
         public Audiolibro(string isbn) : base(isbn)
         {
 
         }
-        public string Formato {  get; set; }
-        public int Duracion {  get; set; }
+
+        public Audiolibro(string isbn, int duracion, string formato) : this(isbn)
+        {
+            this.duracion = duracion;
+            this.formato = formato;
+            this.duracion = duracion;
+        }
+
+        public string Formato {
+            get{  return this.formato; }
+            set { this.formato = value; }
+        }
+        public int Duracion
+        {
+            get {return this.duracion; }
+            set {this.duracion=value; }
+        }
     }
 }
