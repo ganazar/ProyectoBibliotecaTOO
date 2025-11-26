@@ -8,7 +8,8 @@ namespace Persistencia.Datos
 {
     internal class EjemplarDato : Entity<string>
     {
-        public EjemplarDato(string codigo) : base(codigo)
+
+        public EjemplarDato(string codigo, string doc) : base(codigo)
         {
 
         }
