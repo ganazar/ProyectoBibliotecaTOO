@@ -41,10 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BD\BD.cs" />
+    <Compile Include="Datos\AudiolibroDato.cs" />
+    <Compile Include="Datos\DocumentoDato.cs" />
     <Compile Include="Datos\EjemplarDato.cs" />
     <Compile Include="Datos\Entity.cs" />
     <Compile Include="BD\Tabla.cs" />
+    <Compile Include="Datos\FisicoDato.cs" />
+    <Compile Include="Datos\PersonalAdquisicionDato.cs" />
     <Compile Include="Datos\PersonalDato.cs" />
+    <Compile Include="Datos\PersonalSalaDato.cs" />
+    <Compile Include="Datos\PrestamoDato.cs" />
+    <Compile Include="Datos\PrestamoEjemplar.cs" />
+    <Compile Include="Datos\UsuarioDato.cs" />
     <Compile Include="Interfaces\IPersistenciaAdquisiciones.cs" />
     <Compile Include="Interfaces\IPersistenciaPersonal.cs" />
     <Compile Include="Interfaces\IPersistenciaSala.cs" />
