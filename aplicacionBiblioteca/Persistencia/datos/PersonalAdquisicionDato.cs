@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Persistencia.Datos
 {
-    internal class PersonalAdquisicionDato
-    {
+    internal class PersonalAdquisicionDato : PersonalDato
+    {   
+        public PersonalAdquisicionDato(string NSS, string nombre) : base(NSS, nombre)
+        {
+
+        }
     }
 }

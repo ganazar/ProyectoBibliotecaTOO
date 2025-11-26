@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace Persistencia.Datos
 {
-    internal class PersonalDato: Entity<string>
+    internal class PersonalDato : Entity<string>
     {
-        public PersonalDato(string NSS) : base(NSS) { 
-             
-        
+        private string nombre;
+
+        public PersonalDato(string NSS, string nombre) : base(NSS) {
+            this.nombre = nombre;
+        }
+        public string Nombre
+        {
+            get { return this.nombre; }
+            set { this.nombre = value; }
         }
     }
 }

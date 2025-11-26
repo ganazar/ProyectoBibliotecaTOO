@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Persistencia.Datos
 {
-    internal class PersonalSalaDato
+    internal class PersonalSalaDato : PersonalDato
     {
+        public PersonalSalaDato(string NSS, string nombre) : base(NSS, nombre)
+        {
+        }
 
     }
 }

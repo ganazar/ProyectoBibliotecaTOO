@@ -8,5 +8,7 @@ namespace Persistencia.Datos
 {
     internal class PrestamoEjemplar
     {
+
     }
 }
+ 
