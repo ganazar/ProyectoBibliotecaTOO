@@ -19,7 +19,6 @@ namespace modeloDominio
         {
             this.duracion = duracion;
             this.formato = formato;
-            this.duracion = duracion;
         }
 
         public string Formato {

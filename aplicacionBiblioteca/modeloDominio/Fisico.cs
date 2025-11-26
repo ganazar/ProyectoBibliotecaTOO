@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace modeloDominio
 {
-    internal class Fisico
+    internal class Fisico : Documento
     {
-        public Fisico() { 
-        
-        }
+        public Fisico(string isbn, string titulo, string autor, string editorial, int añoEdicion) 
+            : base(isbn, titulo, autor, editorial, añoEdicion) 
+        { }
     }
 }
