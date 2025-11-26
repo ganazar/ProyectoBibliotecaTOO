@@ -8,5 +8,6 @@ namespace Persistencia
 {
     public interface IPersistenciaPersonal
     {
+
     }
 }

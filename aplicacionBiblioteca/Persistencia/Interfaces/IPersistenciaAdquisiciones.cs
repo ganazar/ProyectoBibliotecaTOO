@@ -8,5 +8,6 @@ namespace Persistencia.Interfaces
 {
     internal interface IPersistenciaAdquisiciones
     {
+
     }
 }

@@ -37,5 +37,6 @@ namespace Persistencia.Interfaces
         /// <param name="user">Usuario a borrar</param>
         /// <returns>True si se ha borrado correctamente false en caso contrario</returns>
         bool DeleteUsuario(Usuario user);
+
     }
 }
