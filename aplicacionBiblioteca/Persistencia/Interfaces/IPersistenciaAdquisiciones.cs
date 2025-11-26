@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistencia
+namespace Persistencia.Interfaces
 {
-    public class Class1
+    internal interface IPersistenciaAdquisiciones
     {
     }
 }
