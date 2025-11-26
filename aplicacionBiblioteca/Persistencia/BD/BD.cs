@@ -9,7 +9,7 @@ namespace Persistencia.BD
 {
     internal static class BD
     {
-        private static Tabla<string, PersonalAdquisicionesDato> tablaejemplares;
+        private static Tabla<string, PersonalAdquisicionDato> tablaejemplares;
         private static Tabla<string, AudiolibroDato> tablaaudiolibros;
         private static Tabla<string,DocumentoDato> tabladocumentos;
         private static Tabla<string, FisicoDato> tablafisicos;
@@ -20,13 +20,13 @@ namespace Persistencia.BD
         private static Tabla<string, PrestamoEjemplar> tablaprestamosEjemplares;
         private static Tabla<string, UsuarioDato> tablausuarios;
 
-        public static Tabla<string, PersonalAdquisicionesDato> tablaEjemplares
+        public static Tabla<string, PersonalAdquisicionDato> tablaEjemplares
         {
             get
             {
                 if (tablaejemplares == null)
                 {
-                    tablaejemplares = new Tabla<string, PersonalAdquisicionesDato>();
+                    tablaejemplares = new Tabla<string, PersonalAdquisicionDato>();
                 }
                 return tablaejemplares;
 
@@ -37,11 +37,11 @@ namespace Persistencia.BD
         {
             get
             {
-                if (tablaaudiolibro == null)
+                if (tablaaudiolibros == null)
                 {
-                    tablaaudiolibro = new Tabla<string, AudiolibroDato>();
+                    tablaaudiolibros = new Tabla<string, AudiolibroDato>();
                 }
-                return tablaaudiolibro;
+                return tablaaudiolibros;
 
             }
         }
@@ -53,7 +53,7 @@ namespace Persistencia.BD
                 {
                     tabladocumentos = new Tabla<string, DocumentoDato>();
                 }
-                return tabladocumento;
+                return tabladocumentos;
 
             }
         }
