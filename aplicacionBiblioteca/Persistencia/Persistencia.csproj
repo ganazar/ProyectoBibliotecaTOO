@@ -44,6 +44,7 @@
     <Compile Include="Datos\EjemplarDato.cs" />
     <Compile Include="Datos\Entity.cs" />
     <Compile Include="BD\Tabla.cs" />
+    <Compile Include="Datos\PersonalDato.cs" />
     <Compile Include="Interfaces\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
