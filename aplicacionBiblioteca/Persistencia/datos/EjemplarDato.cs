@@ -9,7 +9,7 @@ namespace Persistencia.Datos
 {
     internal class EjemplarDato : Entity<string>
     {
-
+        private 
         public EjemplarDato(string codigo, string doc) : base(codigo)
         {
             this.prestado = prestado;
