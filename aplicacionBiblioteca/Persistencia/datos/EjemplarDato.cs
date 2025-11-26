@@ -1,4 +1,5 @@
-﻿using System;
+﻿using modeloDominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,12 @@ namespace Persistencia.Datos
 {
     internal class EjemplarDato : Entity<string>
     {
-
-        public EjemplarDato(string codigo, string doc) : base(codigo)
+        private bool prestado;
+        private string isbn_doc;
+        public EjemplarDato(string codigo, bool prestado ,string isbn_doc) : base(codigo)
         {
-
+            this.prestado = prestado;
+            this.isbn_doc = isbn_doc;
         }
     }
 }
