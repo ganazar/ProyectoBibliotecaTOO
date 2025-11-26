@@ -45,11 +45,19 @@
     <Compile Include="Datos\Entity.cs" />
     <Compile Include="BD\Tabla.cs" />
     <Compile Include="Datos\PersonalDato.cs" />
-    <Compile Include="Interfaces\Class1.cs" />
+    <Compile Include="Interfaces\IPersistenciaAdquisiciones.cs" />
+    <Compile Include="Interfaces\IPersistenciaPersonal.cs" />
+    <Compile Include="Interfaces\IPersistenciaSala.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositorios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\modeloDominio\modeloDominio.csproj">
+      <Project>{9AA48DDC-4A8D-43F5-8C1D-BCCB737C3E1C}</Project>
+      <Name>modeloDominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
