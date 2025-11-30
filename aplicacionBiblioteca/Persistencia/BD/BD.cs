@@ -11,13 +11,13 @@ namespace Persistencia.BD
     {
         private static Tabla<string, PersonalAdquisicionDato> tablaejemplares;
         private static Tabla<string, AudiolibroDato> tablaaudiolibros;
-        private static Tabla<string,DocumentoDato> tabladocumentos;
+        private static Tabla<string, DocumentoDato> tabladocumentos;
         private static Tabla<string, FisicoDato> tablafisicos;
         private static Tabla<string, PersonalAdquisicionDato> tablapersonalAdquisiciones;
         private static Tabla<string, PersonalDato> tablapersonal;
         private static Tabla<string, PersonalSalaDato> tablapersonalSala;
-        private static Tabla<string, PrestamoDato> tablaprestamos;
-        private static Tabla<string, PrestamoEjemplar> tablaprestamosEjemplares;
+        private static Tabla<ClavePrestamo, PrestamoDato> tablaprestamos;
+        private static Tabla<ClavePrestamoEjemplar, PrestamoEjemplar> tablaprestamosEjemplares;
         private static Tabla<string, UsuarioDato> tablausuarios;
 
         public static Tabla<string, PersonalAdquisicionDato> tablaEjemplares
@@ -84,6 +84,51 @@ namespace Persistencia.BD
             }
         }
 
+        public static Tabla<string, PersonalDato> tablaPersonal
+        {
+            get
+            {
+                if (tablapersonal == null)
+                {
+                    tablapersonal = new Tabla<string, PersonalDato>();
+                }
+                return tablapersonal;
+            }
+        }
+
+        public static Tabla<string, PersonalSalaDato> tablaPersonalSala
+        {
+            get
+            {
+                if (tablapersonalSala == null)
+                {
+                    tablapersonalSala = new Tabla<string, PersonalSalaDato>();
+                }
+                return tablapersonalSala;
+            }
+        }
+        public static Tabla<ClavePrestamo, PrestamoDato> tablaPrestamos
+        {
+            get
+            { 
+                if (tablaprestamos == null)
+                {
+                    tablaprestamos = new Tabla<ClavePrestamo, PrestamoDato>();
+                }
+                return tablaprestamos;
+            }
+        }
+
+        public static Tabla<string, UsuarioDato> tablaUsuarios
+        {
+            get { 
+                if (tablausuarios == null)
+                {
+                    tablausuarios = new Tabla<string, UsuarioDato> ();
+                }
+                return tablausuarios;
+            }
+        }
 
     }
 }

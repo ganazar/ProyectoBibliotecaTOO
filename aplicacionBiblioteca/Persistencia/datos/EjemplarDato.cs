@@ -13,7 +13,6 @@ namespace Persistencia.Datos
         private string isbn_doc;
         public EjemplarDato(string codigo, bool prestado, string isbn_doc) : base(codigo)
         {
-
             this.prestado = prestado;
             this.isbn_doc = isbn_doc;
         }

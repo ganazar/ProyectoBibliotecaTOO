@@ -16,7 +16,11 @@ namespace Persistencia.Datos
             this.dni = dni;
             this.fecha = fecha;
         }
-        public string Dni { get { return this.dni; } }
+        public string Dni { 
+            get { 
+                return this.dni; 
+            } 
+        }
         public DateTime Fecha { get { return this.fecha; } }
     }
 
@@ -27,7 +31,11 @@ namespace Persistencia.Datos
         {
             this.estado = estado;
         }
-        public EstadoPrestamo Estado { get { return this.estado; } }
+        public EstadoPrestamo Estado { 
+            get { 
+                return this.estado; 
+            } 
+        }
     }
 
 }
