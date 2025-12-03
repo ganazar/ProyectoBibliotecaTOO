@@ -119,6 +119,17 @@ namespace Persistencia.BD
             }
         }
 
+        public static Tabla<ClavePrestamoEjemplar,PrestamoEjemplar> tablaPrestamoEjemplar{
+            get
+            {
+                if (tablaprestamosEjemplares == null)
+                {
+                    tablaprestamosEjemplares = new Tabla<ClavePrestamoEjemplar, PrestamoEjemplar> ();
+                }
+                return tablaprestamosEjemplares;
+            }
+        }
+
         public static Tabla<string, UsuarioDato> tablaUsuarios
         {
             get { 
