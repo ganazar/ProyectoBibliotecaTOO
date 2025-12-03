@@ -16,5 +16,16 @@ namespace Persistencia.Datos
             this.prestado = prestado;
             this.isbn_doc = isbn_doc;
         }
+        public string Doc
+        {
+            get { return this.isbn_doc; }
+            set { this.isbn_doc = value; }
+        }
+
+        public bool Prestado
+        {
+            get { return this.prestado; }
+            set { this.prestado = value; }
+        }
     }
 }

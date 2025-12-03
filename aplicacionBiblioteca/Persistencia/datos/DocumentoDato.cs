@@ -19,5 +19,25 @@ namespace Persistencia.Datos
             this.editorial = editorial;
             this.añoEdicion = añoEdicion;
         }
+        public string Titulo
+        {
+            get { return this.titulo; }
+            set { this.titulo = value; }
+        }
+        public string Autor
+        {
+            get { return this.autor; }
+            set { this.autor = value; }
+        }
+        public string Editorial
+        {
+            get { return this.editorial; }
+            set { this.editorial = value; }
+        }
+        public int AñoEdicion
+        {
+            get { return this.añoEdicion; }
+            set { this.añoEdicion = value; }
+        }
     }
 }
