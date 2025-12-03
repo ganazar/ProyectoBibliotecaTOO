@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD\BD.cs" />
+    <Compile Include="BD\Transformers.cs" />
     <Compile Include="Datos\AudiolibroDato.cs" />
     <Compile Include="Datos\DocumentoDato.cs" />
     <Compile Include="Datos\EjemplarDato.cs" />
