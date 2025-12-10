@@ -11,34 +11,34 @@ namespace LogicaNegocio
 {
     public class LNPersonal : ILNPersonal
     {
-        private readonly IPersistenciaPersonal persitencia;
+        private readonly IPersistenciaPersonal persistencia;
         public LNPersonal(IPersistenciaPersonal _persistencia)
         {
-            persitencia = _persistencia;
+            persistencia = _persistencia;
         }
         public Usuario ConsultarUsuario(Usuario user)
         {
-            return persitencia.ReadUsuario(user);
+            return persistencia.ReadUsuario(user);
         }
 
         public Usuario ConsultarUsuarioPorDni(string dni)
         {
-            return persitencia.GetAllUsuarios().First(u => u.DNI.Equals(dni));
+            return persistencia.GetAllUsuarios().First(u => u.DNI.Equals(dni));
         }
 
         public bool DarAltaUsuario(Usuario user)
         {
-            return persitencia.CreateUsuario(user);
+            return persistencia.CreateUsuario(user);
         }
 
         public bool DarBajaUsuario(Usuario user)
         {
-            return persitencia.DeleteUsuario(user);
+            return persistencia.DeleteUsuario(user);
         }
 
         public bool ModificarDatosUsuario(Usuario user)
         {
-            return persitencia.UpdateUsuario(user);
+            return persistencia.UpdateUsuario(user);
         }
     }
 }
