@@ -9,10 +9,15 @@ namespace LogicaNegocio.InterfacesLN
 {
     public interface ILNPersonalAdquisiciones
     {
-        bool AltaUsuario(Usuario u);
-        bool BajaUsuario(Usuario u);
-        Usuario ConsultarUsuario(Usuario u);
-        Usuario ConsultarUsuarioPorDNI(Usuario u);
-        bool ModificarDatosUsuario(Usuario u);
+        Documento MasLeido();
+        Documento ConsultarDocumento();
+        bool DarAltaEjemplar(Ejemplar e);
+        bool DarBajaEjemplar(Ejemplar e);
+        bool DarAltaDocumento(Documento d);
+        bool DarBajaDocumento(Documento d);
+        bool ConsultarDisponibilidadDocumento(Documento d);
+        DateTime ConsultarFechaDisponibilidad(Documento d);
+        List<Ejemplar> ConsultarEjemplaresDocumentos(Documento d);
+
     }
 }
