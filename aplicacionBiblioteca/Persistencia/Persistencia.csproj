@@ -59,10 +59,9 @@
     <Compile Include="Interfaces\IPersistenciaPersonal.cs" />
     <Compile Include="Interfaces\IPersistenciaSala.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\PersistenciaPersonal.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositorios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\modeloDominio\modeloDominio.csproj">
       <Project>{9AA48DDC-4A8D-43F5-8C1D-BCCB737C3E1C}</Project>
