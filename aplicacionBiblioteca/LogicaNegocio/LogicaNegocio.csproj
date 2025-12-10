@@ -54,6 +54,14 @@
       <Project>{9AA48DDC-4A8D-43F5-8C1D-BCCB737C3E1C}</Project>
       <Name>modeloDominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
+      <Project>{73909bc2-8f55-4db7-b549-e2be27f7e13c}</Project>
+      <Name>Persistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentacion\Presentacion.csproj">
+      <Project>{450c1029-cc91-41a6-8120-515705bee111}</Project>
+      <Name>Presentacion</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
