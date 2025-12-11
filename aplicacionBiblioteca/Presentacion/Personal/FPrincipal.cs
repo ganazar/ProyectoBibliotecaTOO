@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using modeloDominio;
 
 namespace Presentacion
 {
-    public partial class Form1 : Form
+    public abstract partial class FPrincipal : Form
     {
-        public Form1()
+        public FPrincipal(Usuario u)
         {
             InitializeComponent();
+            this.Text = u.Nombre + "Gestión de biblioteca";
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FPrincipal_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 }

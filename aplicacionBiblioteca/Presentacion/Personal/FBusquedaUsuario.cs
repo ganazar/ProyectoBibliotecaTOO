@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentacion
+namespace Presentacion.Personal
 {
-    public partial class Form1 : Form
+    public partial class FBusquedaUsuario : Form
     {
-        public Form1()
+        public FBusquedaUsuario()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
