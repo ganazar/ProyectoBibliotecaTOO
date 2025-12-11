@@ -19,12 +19,12 @@ namespace modeloDominio
             this.fechaPrestamo = fecha;
         }
 
-        public Prestamo(Usuario usuario, List<Ejemplar> ejemplares, DateTime fecha, EstadoPrestamo estado)
+        public Prestamo(Usuario usuario, List<Ejemplar> ejemplares, DateTime fecha)
         {
             this.usuario = usuario;
             this.ejemplares = ejemplares;
             this.fechaPrestamo = fecha;
-            this.estado = estado;
+            this.estado = EstadoPrestamo.EnProceso;
         }
 
         public Usuario Usuario

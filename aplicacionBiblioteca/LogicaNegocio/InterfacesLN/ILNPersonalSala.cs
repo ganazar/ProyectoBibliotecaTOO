@@ -25,32 +25,12 @@ namespace LogicaNegocio.InterfacesLN
         List<Prestamo> consultarPrestamosNoDevueltos(Usuario u);
 
         /// <summary>
-        /// Verifica si existe algún ejemplar disponible para préstamo de un documento específico.
-        /// </summary>
-        /// <param name="d">El documento que se desea verificar.</param>
-        /// <returns><c>true</c> si hay al menos un ejemplar disponible; de lo contrario, <c>false</c>.</returns>
-        bool consultarDisponibilidad(Documento d);
-
-        /// <summary>
-        /// Calcula la primera fecha en la que un ejemplar del documento volverá a estar disponible.
-        /// </summary>
-        /// <param name="d">El documento sobre el cual se consulta la fecha.</param>
-        /// <returns>Un objeto <see cref="DateTime"/> indicando la fecha de disponibilidad más próxima.</returns>
-        DateTime fechaDisponible(Documento d);
-
-        /// <summary>
-        /// Identifica el documento que ha sido prestado más veces.
-        /// </summary>
-        /// <returns>El objeto <see cref="Documento"/> con mayor número de prestamos(contando todos sus ejemplares).</returns>
-        Documento masLeido();
-
-        /// <summary>
         /// Registra un nuevo préstamo de un ejemplar a un usuario.
         /// </summary>
         /// <param name="e">El ejemplar específico que será prestado.</param>
         /// <param name="u">El usuario que solicita el préstamo.</param>
         /// <returns>El objeto <see cref="Prestamo"/> generado.</returns>
-        Prestamo iniciarPrestamo(Ejemplar e, Usuario u);
+        Prestamo iniciarPrestamo(List<Ejemplar> le, Usuario u);
 
         /// <summary>
         /// Finaliza el préstamo asociado a un ejemplar, marcándolo como devuelto.

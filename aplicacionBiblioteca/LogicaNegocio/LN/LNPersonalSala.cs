@@ -1,5 +1,6 @@
 ﻿using LogicaNegocio.InterfacesLN;
 using modeloDominio;
+using Persistencia;
 using Persistencia.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,18 @@ namespace LogicaNegocio
 {
     public class LNPersonalSala : ILNPersonalSala
     {
-        List<Prestamo> allPrestamos; //solo para comprobar
-        
+        private readonly IPersistenciaSala persistencia;
+        public LNPersonalSala(IPersistenciaSala _persistencia)
+        {
+            persistencia = _persistencia;
+        }
+
         /// <summary>
         /// Obtiene una lista de los ejemplares que un usuario tiene actualmente en prestamo.
         /// </summary>
         /// <param name="u">El usuario del cual se quieren consultar los ejemplares en prestamo.</param>
         /// <returns>Una lista de objetos <see cref="Ejemplar"/> prestados al usuario.</returns>
-        List<Ejemplar> consultarEjemplaresPrestadosUsuario(Usuario u)
+        public List<Ejemplar> consultarEjemplaresPrestadosUsuario(Usuario u)
         { //List<Ejemplar> l = new List<Ejemplar>();
 
             //foreach (Prestamo p in PersistenciaSala.GetAllPrestamos())
@@ -27,12 +32,15 @@ namespace LogicaNegocio
             //    {
             //        foreach (Ejemplar e in p.Ejemplares)
             //        {
-            //            l.Add(e);
+            //              if (p.FechaDevolucion(e) < DateTime.Today){
+            //                  l.Add(e);
+            //              }
             //        }
             //    }
             //}
 
-            return allPrestamos.Where(p => p.Usuario.DNI == u.DNI).SelectMany(p => p.Ejemplares).ToList();
+            return persistencia.GetAllPrestamos().Where(p => p.Usuario.DNI == u.DNI && p.Estado == EstadoPrestamo.EnProceso)
+                .SelectMany(p => p.Ejemplares).ToList();
         }
 
         /// <summary>
@@ -40,41 +48,10 @@ namespace LogicaNegocio
         /// </summary>
         /// <param name="u">El usuario cuyos préstamos activos se desean consultar.</param>
         /// <returns>Una lista de objetos <see cref="Prestamo"/> que no han finalizado.</returns>
-        List<Prestamo> consultarPrestamosNoDevueltos(Usuario u)
+        public List<Prestamo> consultarPrestamosNoDevueltos(Usuario u)
         {
-            return allPrestamos.Where(p => p.Usuario.DNI == u.DNI).Where(p => p.Estado == EstadoPrestamo.EnProceso).ToList();
+            return persistencia.GetAllPrestamos().Where(p => p.Usuario.DNI == u.DNI && p.Estado == EstadoPrestamo.EnProceso).ToList();
         }
-
-        /// <summary>
-        /// Verifica si existe algún ejemplar disponible para préstamo de un documento específico.
-        /// </summary>
-        /// <param name="d">El documento que se desea verificar.</param>
-        /// <returns><c>true</c> si hay al menos un ejemplar disponible; de lo contrario, <c>false</c>.</returns>
-        public bool consultarDisponibilidad(Documento d)
-        {
-            return allPrestamos.SelectMany(p => p.Ejemplares).Where(e => e.Doc == d).Any(e => e.Prestado == false);
-        }
-
-        /// <summary>
-        /// Calcula la primera fecha en la que un ejemplar del documento volverá a estar disponible.
-        /// </summary>
-        /// <param name="d">El documento sobre el cual se consulta la fecha.</param>
-        /// <returns>Un objeto <see cref="DateTime"/> indicando la fecha de disponibilidad más próxima.</returns>
-        DateTime fechaDisponible(Documento d)
-        {
-            List<Ejemplar> ej = allPrestamos.SelectMany(p => p.Ejemplares).Where(e => e.Doc == d).ToList();
-            
-            foreach (Ejemplar e in p.Ejemplares)
-            {
-                
-            }
-        }
-
-        /// <summary>
-        /// Identifica el documento que ha sido prestado más veces.
-        /// </summary>
-        /// <returns>El objeto <see cref="Documento"/> con mayor número de prestamos(contando todos sus ejemplares).</returns>
-        Documento masLeido();
 
         /// <summary>
         /// Registra un nuevo préstamo de un ejemplar a un usuario.
@@ -82,52 +59,82 @@ namespace LogicaNegocio
         /// <param name="e">El ejemplar específico que será prestado.</param>
         /// <param name="u">El usuario que solicita el préstamo.</param>
         /// <returns>El objeto <see cref="Prestamo"/> generado.</returns>
-        Prestamo iniciarPrestamo(Ejemplar e, Usuario u);
+        public Prestamo iniciarPrestamo(List<Ejemplar> le, Usuario u) {
+            return new Prestamo(u, le, DateTime.Today);
+        }
 
         /// <summary>
         /// Finaliza el préstamo asociado a un ejemplar, marcándolo como devuelto.
         /// </summary>
         /// <param name="e">El ejemplar que está siendo devuelto a la sala.</param>
-        void devolverPrestamo(Ejemplar e);
+        public void devolverPrestamo(Ejemplar e)
+        {
+            Prestamo prestamo = persistencia.GetAllPrestamos().Where(p => p.Ejemplares.Contains(e) && p.Estado == EstadoPrestamo.EnProceso).FirstOrDefault();
+            if (prestamo != null)
+            {
+                prestamo.Ejemplares.Remove(e);
+                if (!prestamo.Ejemplares.Any())
+                {
+                    prestamo.Estado = EstadoPrestamo.Finalizado;
+                }
+            } 
+        }
 
         /// <summary>
         /// Obtiene el usuario asociado a un préstamo específico.
         /// </summary>
         /// <param name="p">El préstamo del cual se quiere conocer el titular.</param>
         /// <returns>El objeto <see cref="Usuario"/> asociado al préstamo.</returns>
-        Usuario usuarioDePrestamo(Prestamo p);
+        public Usuario usuarioDePrestamo(Prestamo p) { 
+            return p.Usuario;
+        }
 
         /// <summary>
         /// Consulta el estado actual de un préstamo (enProceso,Finalizado).
         /// </summary>
         /// <param name="p">El préstamo a verificar.</param>
         /// <returns>Un valor de tipo <see cref="EstadoPrestamo"/>.</returns>
-        EstadoPrestamo estadoPrestamo(Prestamo p);
+        public EstadoPrestamo estadoPrestamo(Prestamo p)
+        {
+            return p.Estado;
+        }
 
         /// <summary>
         /// Obtiene todos los ejemplares de la biblioteca que están en préstamo.
         /// </summary>
         /// <returns>Una lista de <see cref="Ejemplar"/> no devueltos.</returns>
-        List<Ejemplar> ejemplaresNoDevueltos();
+        public List<Ejemplar> ejemplaresNoDevueltos() {
+            return persistencia.GetAllPrestamos().Where(p => p.Estado == EstadoPrestamo.EnProceso).SelectMany(p => p.Ejemplares).ToList();
+        }
 
         /// <summary>
         /// Obtiene el listado de préstamos asociados a un documento específico.
         /// </summary>
         /// <param name="d">El documento del cual se buscan los préstamos.</param>
         /// <returns>Una lista de objetos <see cref="Prestamo"/> relacionados con el documento.</returns>
-        List<Prestamo> PrestamosDocumento(Documento d);
+        public List<Prestamo> PrestamosDocumento(Documento d)
+        {
+            return persistencia.GetAllPrestamos().Where(p => p.Ejemplares.Any(e => e.Doc == d)).ToList();
+        }
 
         /// <summary>
         /// Obtiene todos los préstamos que están activos en el sistema actualmente.
         /// </summary>
         /// <returns>Una lista de objetos <see cref="Prestamo"/> en curso.</returns>
-        List<Prestamo> PrestamosEnProceso();
+        public List<Prestamo> PrestamosEnProceso()
+        {
+            return persistencia.GetAllPrestamos().Where(p => p.Estado == EstadoPrestamo.EnProceso).ToList();
+        }
 
         /// <summary>
         /// Obtiene todos los préstamos cuya fecha de devolución ha expirado.
         /// </summary>
         /// <returns>Una lista de objetos <see cref="Prestamo"/> vencidos.</returns>
-        List<Prestamo> PrestamosVencidos();
+        public List<Prestamo> PrestamosVencidos()
+        {
+            return persistencia.GetAllPrestamos().Where(p => p.Estado == EstadoPrestamo.EnProceso &&
+                    p.Ejemplares.Any(e => p.FechaDevolucion(e) < DateTime.Today)).ToList();
+        }
 
     }
 }
