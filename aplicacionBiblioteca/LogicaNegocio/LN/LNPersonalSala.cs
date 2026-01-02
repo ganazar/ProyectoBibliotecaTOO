@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    public class LNPersonalSala : ILNPersonalSala
+    public class LNPersonalSala : LNPersonal,ILNPersonalSala
     {
         private readonly IPersistenciaSala persistencia;
-        public LNPersonalSala(IPersistenciaSala _persistencia)
+        public LNPersonalSala(IPersistenciaSala _persistencia) :base(_persistencia)
         {
             persistencia = _persistencia;
         }

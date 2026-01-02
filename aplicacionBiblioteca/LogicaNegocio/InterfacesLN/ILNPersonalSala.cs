@@ -8,7 +8,7 @@ using Persistencia;
 
 namespace LogicaNegocio.InterfacesLN
 {
-    internal interface ILNPersonalSala
+    public interface ILNPersonalSala : ILNPersonal
     {
         /// <summary>
         /// Obtiene una lista de los ejemplares que un usuario tiene actualmente en prestamo.

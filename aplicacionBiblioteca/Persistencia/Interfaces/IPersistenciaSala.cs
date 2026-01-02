@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia.Interfaces
 {
-    public interface IPersistenciaSala
+    public interface IPersistenciaSala : IPersistenciaPersonal
     {
         /// <summary>
         /// Añade el Prestamo a la base de datos si no existe todavia

@@ -1,4 +1,10 @@
-﻿using System;
+﻿using LogicaNegocio;
+using LogicaNegocio.InterfacesLN;
+using Persistencia;
+using Persistencia.Interfaces;
+using Presentacion.PersonalSala;
+using Presentacion.PersonalAdquisiciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +18,52 @@ namespace Presentacion
 {
     public partial class Login : Form
     {
-        public Login()
+        private readonly IPersistenciaPersonal _persistencia;
+
+        public Login( IPersistenciaPersonal persistencia)
         {
             InitializeComponent();
+            _persistencia = persistencia;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btEntrar_Click(object sender, EventArgs e)
         {
-            if (radioButtonAdquisiciones.Checked)
+            if (string.IsNullOrEmpty(tbNombre.Text) || string.IsNullOrEmpty(tbContraseña.Text))
             {
-                
+                MessageBox.Show("Debe introducir un usuario y contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbNombre.Text = string.Empty;
+                tbContraseña.Text = string.Empty;
+                tbNombre.Focus();
+            } else
+            {
+                string nombre = tbNombre.Text;
+                if (rbPersonalSala.Checked)
+                {
+                    ILNPersonalSala logica =  new LNPersonalSala((IPersistenciaSala) _persistencia);
+                    FPrincipalSala form = new FPrincipalSala(nombre, logica);
+                    form.Show();
+                }
+                else if (rbPersonalAdquisicion.Checked)
+                {
+                    ILNPersonalAdquisiciones logica = new LNPersonalAdquisiciones((IPersistenciaAdquisiciones) _persistencia);
+                    FPrincipalAdquisicion form = new FPrincipalAdquisicion(nombre, logica);
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un tipo de empleado.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

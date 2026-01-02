@@ -1,4 +1,4 @@
-﻿namespace Presentacion
+﻿namespace Presentacion.Personal
 {
     partial class FPrincipal
     {
@@ -62,20 +62,20 @@
             // altaToolStripMenuItem
             // 
             this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.altaToolStripMenuItem.Text = "Alta";
             this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
             // bajaToolStripMenuItem
             // 
             this.bajaToolStripMenuItem.Name = "bajaToolStripMenuItem";
-            this.bajaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bajaToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.bajaToolStripMenuItem.Text = "Baja ";
             // 
             // busquedaToolStripMenuItem
             // 
             this.busquedaToolStripMenuItem.Name = "busquedaToolStripMenuItem";
-            this.busquedaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.busquedaToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.busquedaToolStripMenuItem.Text = "Búsqueda";
             this.busquedaToolStripMenuItem.Click += new System.EventHandler(this.busquedaToolStripMenuItem_Click);
             // 
@@ -103,12 +103,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bajaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem busquedaToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        protected System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem bajaToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem busquedaToolStripMenuItem;
+        protected System.Windows.Forms.MenuStrip menuStrip1;
     }
 }

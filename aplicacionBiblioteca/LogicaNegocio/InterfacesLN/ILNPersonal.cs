@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace LogicaNegocio.InterfacesLN
 {
-    public interface ILNPersonal
+    public interface ILNPersonal 
     {
         /// <summary>
         /// Registra un nuevo usuario en el sistema de la biblioteca.

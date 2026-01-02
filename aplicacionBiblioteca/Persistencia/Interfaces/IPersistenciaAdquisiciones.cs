@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia.Interfaces
 {
-    public interface IPersistenciaAdquisiciones
+    public interface IPersistenciaAdquisiciones : IPersistenciaPersonal
     {
         /// <summary>
         /// Añade el Audiolibro a la base de datos si no existe todavia

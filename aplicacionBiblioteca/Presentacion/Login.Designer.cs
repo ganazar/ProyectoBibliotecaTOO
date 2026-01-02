@@ -30,103 +30,116 @@
         {
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelContraseña = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.tbContraseña = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonSala = new System.Windows.Forms.RadioButton();
-            this.radioButtonAdquisiciones = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.rbPersonalAdquisicion = new System.Windows.Forms.RadioButton();
+            this.rbPersonalSala = new System.Windows.Forms.RadioButton();
+            this.btEntrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(36, 29);
+            this.labelNombre.Location = new System.Drawing.Point(48, 36);
+            this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(47, 13);
+            this.labelNombre.Size = new System.Drawing.Size(59, 16);
             this.labelNombre.TabIndex = 0;
             this.labelNombre.Text = "Nombre:";
             // 
             // labelContraseña
             // 
             this.labelContraseña.AutoSize = true;
-            this.labelContraseña.Location = new System.Drawing.Point(36, 68);
+            this.labelContraseña.Location = new System.Drawing.Point(48, 84);
+            this.labelContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelContraseña.Name = "labelContraseña";
-            this.labelContraseña.Size = new System.Drawing.Size(64, 13);
+            this.labelContraseña.Size = new System.Drawing.Size(79, 16);
             this.labelContraseña.TabIndex = 1;
             this.labelContraseña.Text = "Contraseña:";
             // 
-            // textBox1
+            // tbNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.tbNombre.Location = new System.Drawing.Point(177, 32);
+            this.tbNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(132, 22);
+            this.tbNombre.TabIndex = 2;
+            this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
-            // textBox2
+            // tbContraseña
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.tbContraseña.Location = new System.Drawing.Point(177, 80);
+            this.tbContraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.tbContraseña.Name = "tbContraseña";
+            this.tbContraseña.Size = new System.Drawing.Size(132, 22);
+            this.tbContraseña.TabIndex = 3;
+            this.tbContraseña.UseSystemPasswordChar = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButtonAdquisiciones);
-            this.groupBox1.Controls.Add(this.radioButtonSala);
-            this.groupBox1.Location = new System.Drawing.Point(39, 120);
+            this.groupBox1.Controls.Add(this.rbPersonalAdquisicion);
+            this.groupBox1.Controls.Add(this.rbPersonalSala);
+            this.groupBox1.Location = new System.Drawing.Point(52, 148);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(194, 92);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(259, 113);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo empleado";
             // 
-            // radioButtonSala
+            // rbPersonalAdquisicion
             // 
-            this.radioButtonSala.AutoSize = true;
-            this.radioButtonSala.Location = new System.Drawing.Point(18, 19);
-            this.radioButtonSala.Name = "radioButtonSala";
-            this.radioButtonSala.Size = new System.Drawing.Size(88, 17);
-            this.radioButtonSala.TabIndex = 0;
-            this.radioButtonSala.TabStop = true;
-            this.radioButtonSala.Text = "Personal sala";
-            this.radioButtonSala.UseVisualStyleBackColor = true;
+            this.rbPersonalAdquisicion.AutoSize = true;
+            this.rbPersonalAdquisicion.Location = new System.Drawing.Point(24, 68);
+            this.rbPersonalAdquisicion.Margin = new System.Windows.Forms.Padding(4);
+            this.rbPersonalAdquisicion.Name = "rbPersonalAdquisicion";
+            this.rbPersonalAdquisicion.Size = new System.Drawing.Size(169, 20);
+            this.rbPersonalAdquisicion.TabIndex = 1;
+            this.rbPersonalAdquisicion.TabStop = true;
+            this.rbPersonalAdquisicion.Text = "Personal adquisiciones";
+            this.rbPersonalAdquisicion.UseVisualStyleBackColor = true;
             // 
-            // radioButtonAdquisiciones
+            // rbPersonalSala
             // 
-            this.radioButtonAdquisiciones.AutoSize = true;
-            this.radioButtonAdquisiciones.Location = new System.Drawing.Point(18, 55);
-            this.radioButtonAdquisiciones.Name = "radioButtonAdquisiciones";
-            this.radioButtonAdquisiciones.Size = new System.Drawing.Size(133, 17);
-            this.radioButtonAdquisiciones.TabIndex = 1;
-            this.radioButtonAdquisiciones.TabStop = true;
-            this.radioButtonAdquisiciones.Text = "Personal adquisiciones";
-            this.radioButtonAdquisiciones.UseVisualStyleBackColor = true;
+            this.rbPersonalSala.AutoSize = true;
+            this.rbPersonalSala.Location = new System.Drawing.Point(24, 23);
+            this.rbPersonalSala.Margin = new System.Windows.Forms.Padding(4);
+            this.rbPersonalSala.Name = "rbPersonalSala";
+            this.rbPersonalSala.Size = new System.Drawing.Size(111, 20);
+            this.rbPersonalSala.TabIndex = 0;
+            this.rbPersonalSala.TabStop = true;
+            this.rbPersonalSala.Text = "Personal sala";
+            this.rbPersonalSala.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btEntrar
             // 
-            this.button1.Location = new System.Drawing.Point(158, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Entrar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btEntrar.Location = new System.Drawing.Point(211, 284);
+            this.btEntrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btEntrar.Name = "btEntrar";
+            this.btEntrar.Size = new System.Drawing.Size(100, 28);
+            this.btEntrar.TabIndex = 5;
+            this.btEntrar.Text = "Entrar";
+            this.btEntrar.UseVisualStyleBackColor = true;
+            this.btEntrar.Click += new System.EventHandler(this.btEntrar_Click);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 283);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(415, 348);
+            this.Controls.Add(this.btEntrar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbContraseña);
+            this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.labelContraseña);
             this.Controls.Add(this.labelNombre);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -138,11 +151,11 @@
 
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelContraseña;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbNombre;
+        private System.Windows.Forms.TextBox tbContraseña;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonSala;
-        private System.Windows.Forms.RadioButton radioButtonAdquisiciones;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton rbPersonalSala;
+        private System.Windows.Forms.RadioButton rbPersonalAdquisicion;
+        private System.Windows.Forms.Button btEntrar;
     }
 }

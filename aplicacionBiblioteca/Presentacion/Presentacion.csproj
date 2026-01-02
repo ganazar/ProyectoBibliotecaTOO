@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="PersonalAdquisiciones\FPrincipalAdquisicion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="PersonalAdquisiciones\FPrincipalAdquisicion.Designer.cs">
+      <DependentUpon>FPrincipalAdquisicion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FPAdquisiciones.cs">
+    <Compile Include="PersonalSala\FPrincipalSala.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FPAdquisiciones.Designer.cs">
-      <DependentUpon>FPAdquisiciones.cs</DependentUpon>
+    <Compile Include="PersonalSala\FPrincipalSala.Designer.cs">
+      <DependentUpon>FPrincipalSala.cs</DependentUpon>
     </Compile>
     <Compile Include="Personal\FAltaUsuario.cs">
       <SubType>Form</SubType>
@@ -88,12 +88,6 @@
     <Compile Include="Personal\FPrincipal.Designer.cs">
       <DependentUpon>FPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FPSala.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FPSala.Designer.cs">
-      <DependentUpon>FPSala.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,8 +96,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="PersonalSala\FPrincipalSala.resx">
+      <DependentUpon>FPrincipalSala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\FAltaUsuario.resx">
       <DependentUpon>FAltaUsuario.cs</DependentUpon>
@@ -119,9 +113,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FPSala.resx">
-      <DependentUpon>FPSala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -162,5 +153,6 @@
       <Name>Persistencia</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

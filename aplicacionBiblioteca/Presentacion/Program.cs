@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Persistencia;
 
 namespace Presentacion
 {
@@ -14,9 +15,10 @@ namespace Presentacion
         [STAThread]
         static void Main()
         {
+            IPersistenciaPersonal BD = new Persistencia.Repositorios.PersistenciaPersonal();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Login(BD));
         }
     }
 }

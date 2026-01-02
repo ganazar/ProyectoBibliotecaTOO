@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio
 {
-    internal class LNPersonalAdquisiciones : ILNPersonalAdquisiciones
+    public class LNPersonalAdquisiciones : LNPersonal, ILNPersonalAdquisiciones
     {
         private readonly IPersistenciaAdquisiciones persistencia;
-        public LNPersonalAdquisiciones(IPersistenciaAdquisiciones _persistencia)
+        public LNPersonalAdquisiciones(IPersistenciaAdquisiciones _persistencia) : base(_persistencia)
         {
             persistencia = _persistencia;
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio.InterfacesLN
 {
-    public interface ILNPersonalAdquisiciones
+    public interface ILNPersonalAdquisiciones : ILNPersonal
     {
         Documento MasLeido();
         Documento ConsultarDocumento();

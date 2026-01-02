@@ -12,17 +12,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentacion
+namespace Presentacion.Personal
 {
-    public abstract partial class FPrincipal : Form
+    public partial class FPrincipal : Form
     {
-        private LogicaNegocio.InterfacesLN.ILNPersonal _logica;
-        public FPrincipal(Usuario u)
+        protected LogicaNegocio.InterfacesLN.ILNPersonal _logica;
+
+        protected FPrincipal()
         {
             InitializeComponent();
-            this.Text = u.Nombre + "Gestión de biblioteca";
-            IPersistenciaPersonal persistencia = new Persistencia.Repositorios.PersistenciaPersonal();
-            _logica = new LNPersonal(persistencia);
+        }
+        protected FPrincipal(string nombre, LogicaNegocio.InterfacesLN.ILNPersonal logica) : this()
+        {
+            this.Text = nombre + "Gestión de biblioteca";
+            _logica = logica;
         }
 
         private void FPrincipal_Load(object sender, EventArgs e)
