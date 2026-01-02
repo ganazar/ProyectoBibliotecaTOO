@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocio.InterfacesLN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,23 @@ namespace Presentacion.Personal
 {
     public partial class FBusquedaUsuario : Form
     {
-        public FBusquedaUsuario()
+        private LogicaNegocio.InterfacesLN.ILNPersonal _logica;
+        private string DNI;
+        public FBusquedaUsuario(string dni, ILNPersonal logica)
         {
             InitializeComponent();
+            DNI = dni;
+            _logica = logica;
+            
+            tbDNI.Text = DNI;
+            tbDNI.Enabled = false;
+            tbNombre.Text = logica.ConsultarUsuarioPorDni(DNI).Nombre;
+            tbNombre.Enabled = false;
+        }
+
+        private void FBusquedaUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

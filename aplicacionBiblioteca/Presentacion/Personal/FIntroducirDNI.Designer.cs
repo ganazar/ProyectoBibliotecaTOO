@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDNI = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lbDNI = new System.Windows.Forms.Label();
             this.btAceptar = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbDNI
             // 
-            this.textBox1.Location = new System.Drawing.Point(196, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 0;
+            this.tbDNI.Location = new System.Drawing.Point(196, 76);
+            this.tbDNI.Name = "tbDNI";
+            this.tbDNI.Size = new System.Drawing.Size(100, 22);
+            this.tbDNI.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -57,7 +57,6 @@
             this.lbDNI.Size = new System.Drawing.Size(90, 16);
             this.lbDNI.TabIndex = 2;
             this.lbDNI.Text = "Introducir DNI:";
-            this.lbDNI.Click += new System.EventHandler(this.label1_Click);
             // 
             // btAceptar
             // 
@@ -67,7 +66,7 @@
             this.btAceptar.TabIndex = 3;
             this.btAceptar.Text = "Aceptar";
             this.btAceptar.UseVisualStyleBackColor = true;
-            this.btAceptar.Click += new System.EventHandler(this.button1_Click);
+            this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
             // 
             // btCancelar
             // 
@@ -77,6 +76,7 @@
             this.btCancelar.TabIndex = 4;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // FIntroducirDNI
             // 
@@ -86,7 +86,7 @@
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAceptar);
             this.Controls.Add(this.lbDNI);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbDNI);
             this.Name = "FIntroducirDNI";
             this.Text = "Introducir DNI";
             this.Load += new System.EventHandler(this.FIntroducirDNI_Load);
@@ -97,7 +97,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDNI;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label lbDNI;
         private System.Windows.Forms.Button btAceptar;

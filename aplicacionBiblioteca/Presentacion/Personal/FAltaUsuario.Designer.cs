@@ -60,7 +60,6 @@
             this.tbDNI.Name = "tbDNI";
             this.tbDNI.Size = new System.Drawing.Size(100, 22);
             this.tbDNI.TabIndex = 2;
-            this.tbDNI.TextChanged += new System.EventHandler(this.tbDNI_TextChanged);
             // 
             // tbNombre
             // 

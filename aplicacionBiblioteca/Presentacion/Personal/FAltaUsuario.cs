@@ -9,17 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Persistencia;
 using LogicaNegocio;
-using LogicaNegocio.InterfacesLN;
 
 namespace Presentacion.Personal
 {
     public partial class FAltaUsuario : Form
     {
-        private LNPersonal _logica;
-        public FAltaUsuario()
+        private LogicaNegocio.InterfacesLN.ILNPersonal _logica;
+        private string DNI;
+        public FAltaUsuario(string dni, LogicaNegocio.InterfacesLN.ILNPersonal logica)
         {
             InitializeComponent();
-            _logica = new LNPersonal();
+            _logica = logica;
+            DNI = dni;
+            tbDNI.Text = DNI;
+            tbDNI.Enabled = false;
         }
 
         private void FAltaUsuario_Load(object sender, EventArgs e)
@@ -27,19 +30,23 @@ namespace Presentacion.Personal
 
         }
 
-        private void tbDNI_TextChanged(object sender, EventArgs e)
-        {
-            //Formato del DNI
-        }
-
         private void btAceptar_Click(object sender, EventArgs e)
         {
-            if()
+            if (string.IsNullOrWhiteSpace(tbNombre.Text))
+            {
+                MessageBox.Show("Debes introducir un nombre para el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (_logica.DarAltaUsuario(new modeloDominio.Usuario(DNI, tbNombre.Text))){
+                    MessageBox.Show("Usuario añadido correctamente", "", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

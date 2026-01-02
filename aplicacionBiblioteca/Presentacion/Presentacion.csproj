@@ -111,6 +111,9 @@
     <EmbeddedResource Include="Personal\FBajaUsuario.resx">
       <DependentUpon>FBajaUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Personal\FBusquedaUsuario.resx">
+      <DependentUpon>FBusquedaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Personal\FIntroducirDNI.resx">
       <DependentUpon>FIntroducirDNI.cs</DependentUpon>
     </EmbeddedResource>
