@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Persistencia;
+using LogicaNegocio;
 
 namespace Presentacion.Personal
 {
@@ -15,6 +17,26 @@ namespace Presentacion.Personal
         public FAltaUsuario()
         {
             InitializeComponent();
+        }
+
+        private void FAltaUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbDNI_TextChanged(object sender, EventArgs e)
+        {
+            //Formato del DNI
+        }
+
+        private void btAceptar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

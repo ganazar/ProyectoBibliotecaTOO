@@ -60,6 +60,7 @@
             this.tbDNI.Name = "tbDNI";
             this.tbDNI.Size = new System.Drawing.Size(100, 22);
             this.tbDNI.TabIndex = 2;
+            this.tbDNI.TextChanged += new System.EventHandler(this.tbDNI_TextChanged);
             // 
             // tbNombre
             // 
@@ -76,6 +77,7 @@
             this.btAceptar.TabIndex = 4;
             this.btAceptar.Text = "Aceptar";
             this.btAceptar.UseVisualStyleBackColor = true;
+            this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
             // 
             // btCancelar
             // 
@@ -85,6 +87,7 @@
             this.btCancelar.TabIndex = 5;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // FAltaUsuario
             // 
@@ -99,6 +102,7 @@
             this.Controls.Add(this.lbNombre);
             this.Name = "FAltaUsuario";
             this.Text = "Alta de usuario";
+            this.Load += new System.EventHandler(this.FAltaUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

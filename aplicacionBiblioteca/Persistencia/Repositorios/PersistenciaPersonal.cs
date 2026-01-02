@@ -11,7 +11,7 @@ namespace Persistencia.Repositorios
     {
         public bool CreateUsuario(Usuario user)
         {
-            BD.BD.tablaUsuarios.Add();
+            throw new NotImplementedException();
         }
 
         public bool DeleteUsuario(Usuario user)

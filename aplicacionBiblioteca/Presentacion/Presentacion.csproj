@@ -146,6 +146,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LogicaNegocio\LogicaNegocio.csproj">
+      <Project>{e208b09f-ece8-4860-8be7-075d47a229ac}</Project>
+      <Name>LogicaNegocio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\modeloDominio\modeloDominio.csproj">
       <Project>{9aa48ddc-4a8d-43f5-8c1d-bccb737c3e1c}</Project>
       <Name>modeloDominio</Name>
