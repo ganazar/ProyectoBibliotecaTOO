@@ -18,26 +18,30 @@ namespace LogicaNegocio
         }
         public Usuario ConsultarUsuario(Usuario user)
         {
+            if (user == null) return null;
             return persistencia.ReadUsuario(user);
         }
 
         public Usuario ConsultarUsuarioPorDni(string dni)
         {
-            return persistencia.GetAllUsuarios().First(u => u.DNI.Equals(dni));
+            return persistencia.GetAllUsuarios().FirstOrDefault(u => u.DNI.Equals(dni));
         }
 
         public bool DarAltaUsuario(Usuario user)
         {
+            if (user == null) return false;
             return persistencia.CreateUsuario(user);
         }
 
         public bool DarBajaUsuario(Usuario user)
         {
+            if (user == null) return false;
             return persistencia.DeleteUsuario(user);
         }
 
         public bool ModificarDatosUsuario(Usuario user)
         {
+            if (user == null) return false;
             return persistencia.UpdateUsuario(user);
         }
     }

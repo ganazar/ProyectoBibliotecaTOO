@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Persistencia;
 using LogicaNegocio;
+using LogicaNegocio.InterfacesLN;
 
 namespace Presentacion.Personal
 {
     public partial class FAltaUsuario : Form
     {
+        private LNPersonal _logica;
         public FAltaUsuario()
         {
             InitializeComponent();
+            _logica = new LNPersonal();
         }
 
         private void FAltaUsuario_Load(object sender, EventArgs e)
@@ -31,7 +34,7 @@ namespace Presentacion.Personal
 
         private void btAceptar_Click(object sender, EventArgs e)
         {
-            
+            if()
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
