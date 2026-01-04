@@ -76,5 +76,11 @@ namespace LogicaNegocio.InterfacesLN
         /// </summary>
         /// <returns>Una lista de objetos <see cref="Prestamo"/> vencidos.</returns>
         List<Prestamo> PrestamosVencidos();
+
+        /// <summary>
+        /// Obtiene el listado completo de todos los préstamos registrados en la base de datos.
+        /// </summary>
+        /// <returns>Una lista genérica (List) con todos los objetos Prestamo encontrados.</returns>
+        List<Prestamo> GetAllPrestamos();
     }
 }

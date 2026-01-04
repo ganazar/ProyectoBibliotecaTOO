@@ -57,5 +57,11 @@ namespace LogicaNegocio.InterfacesLN
         /// Devuelve <c>false</c> si el usuario no se encontró para modificarlo.
         /// </returns>
         bool ModificarDatosUsuario(Usuario user);
+
+        /// <summary>
+        /// Obtiene el listado completo de todos los usuarios registrados en la base de datos.
+        /// </summary>
+        /// <returns>Una lista genérica (List) con todos los objetos Usuario encontrados.</returns>
+        List<Usuario> GetAllUsuarios();
     }
 }

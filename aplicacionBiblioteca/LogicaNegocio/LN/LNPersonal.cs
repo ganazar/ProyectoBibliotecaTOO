@@ -44,5 +44,9 @@ namespace LogicaNegocio
             if (user == null) return false;
             return persistencia.UpdateUsuario(user);
         }
+        public List<Usuario> GetAllUsuarios()
+        {
+            return persistencia.GetAllUsuarios();
+        }
     }
 }

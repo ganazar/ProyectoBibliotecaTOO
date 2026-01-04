@@ -103,5 +103,10 @@ namespace LogicaNegocio.ClasesLN
             return _persistenciaAdq.GetAllDocumentos()
                 .FirstOrDefault(doc => doc.ISBN == isbnMasPopular);
         }
+
+        public List<Documento> GetAllDocumentos()
+        {
+            return _persistenciaAdq.GetAllDocumentos();
+        }
     }
 }

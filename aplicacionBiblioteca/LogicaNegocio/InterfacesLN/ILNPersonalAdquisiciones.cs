@@ -67,5 +67,11 @@ namespace LogicaNegocio.InterfacesLN
         /// <param name="d">El documento del cual se quieren listar las unidades.</param>
         /// <returns>Una lista Ejemplares vinculados al documento.</returns>
         List<Ejemplar> ConsultarEjemplaresDocumentos(Documento d);
+
+        /// <summary>
+        /// Obtiene el listado completo de todos los documentos registrados en la base de datos.
+        /// </summary>
+        /// <returns>Una lista genérica (List) con todos los objetos Documento encontrados.</returns>
+        List<Documento> GetAllDocumentos();
     }
 }

@@ -136,5 +136,9 @@ namespace LogicaNegocio
                     p.Ejemplares.Any(e => p.FechaDevolucion(e) < DateTime.Today)).ToList();
         }
 
+        public List<Prestamo> GetAllPrestamos()
+        {
+            return persistencia.GetAllPrestamos();
+        }
     }
 }
