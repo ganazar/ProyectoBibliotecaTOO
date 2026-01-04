@@ -24,7 +24,7 @@ namespace Presentacion.Personal
         }
         protected FPrincipal(string nombre, LogicaNegocio.InterfacesLN.ILNPersonal logica) : this()
         {
-            this.Text = nombre + "Gestión de biblioteca";
+            this.Text = nombre + " - Gestión de biblioteca";
             _logica = logica;
         }
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)

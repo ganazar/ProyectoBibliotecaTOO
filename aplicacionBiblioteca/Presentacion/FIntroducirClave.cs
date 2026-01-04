@@ -28,6 +28,7 @@ namespace Presentacion.Personal
             if (string.IsNullOrWhiteSpace(tbClave.Text))
             {
                 MessageBox.Show("Introduzca un DNI","Error");
+                return;
             }
 
             clave = tbClave.Text;

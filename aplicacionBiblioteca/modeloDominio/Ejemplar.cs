@@ -19,6 +19,11 @@ namespace modeloDominio
             doc.CantEjemplares += 1;
         }
 
+        public Ejemplar(string codEjemplar)
+        {
+            this.codEjemplar.Equals(codEjemplar);
+        }
+
         public string CodEjemplar {
             get { return this.codEjemplar; }
         }

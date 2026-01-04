@@ -1,4 +1,4 @@
-﻿using modeloDominio;
+﻿    using modeloDominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,6 +94,41 @@ namespace Persistencia.Interfaces
         /// <param name="documento">documento a borrar</param>
         /// <returns>True si se ha borrado correctamente false en caso contrario</returns>
         bool DeleteDocumento(Documento documento);
+
         List<Documento> GetAllDocumentos();
+
+        /// <summary>
+        /// Crea un nuevo ejemplar en el sistema.
+        /// </summary>
+        /// <param name="e">El objeto ejemplar a persistir.</param>
+        /// <returns>True si se creó correctamente; False si ya existe un ejemplar con el mismo código.</returns>
+        bool CreateEjemplar(Ejemplar e);
+
+        /// <summary>
+        /// Recupera la información de un ejemplar específico.
+        /// </summary>
+        /// <param name="e">El ejemplar que contiene el identificador a buscar.</param>
+        /// <returns>El objeto Ejemplar completo con sus datos cargados, o null si no se encuentra.</returns>
+        Ejemplar ReadEjemplar(Ejemplar e);
+
+        /// <summary>
+        /// Actualiza los datos de un ejemplar existente.
+        /// </summary>
+        /// <param name="e">El ejemplar con los datos actualizados.</param>
+        /// <returns>True si la actualización fue exitosa; False si el ejemplar no existe.</returns>
+        bool UpdateEjemplar(Ejemplar e);
+
+        /// <summary>
+        /// Elimina un ejemplar del sistema.
+        /// </summary>
+        /// <param name="e">El ejemplar a eliminar.</param>
+        /// <returns>True si se eliminó correctamente; False si no se encontró en el sistema.</returns>
+        bool DeleteEjemplar(Ejemplar e);
+
+        /// <summary>
+        /// Obtiene la lista completa de todos los ejemplares registrados.
+        /// </summary>
+        /// <returns>Una lista de objetos Ejemplar.</returns>
+        List<Ejemplar> GetAllEjemplares();
     }
 }
