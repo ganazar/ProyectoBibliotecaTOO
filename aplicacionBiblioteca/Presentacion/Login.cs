@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Persistencia.Repositorios;
+using LogicaNegocio.ClasesLN;
 
 namespace Presentacion
 {
