@@ -10,15 +10,17 @@ using System.Windows.Forms;
 
 namespace Presentacion.Personal
 {
-    public partial class FBusquedaUsuario : Form
+    public partial class FBusquedaDni : Form
     {
-        public string Dni { set { tbDNI.Text = value; } }
-        public string Nombre { set { tbNombre.Text = value; } }
-        public FBusquedaUsuario()
+        public FBusquedaDni()
         {
             InitializeComponent();
-            tbDNI.ReadOnly = true;
-            tbNombre.ReadOnly = true;
+
+        }
+
+        private void cbDni_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataBindings 
         }
     }
 }

@@ -40,7 +40,8 @@ namespace Presentacion
                 string nombre = tbNombre.Text;
                 if (rbPersonalSala.Checked)
                 {
-                    ILNPersonalSala logica =  new LNPersonalSala((IPersistenciaSala) _persistencia);
+                    PersistenciaSala p = new PersistenciaSala(); 
+                    ILNPersonalSala logica =  new LNPersonalSala(p );
                     FPrincipalSala form = new FPrincipalSala(nombre, logica);
                     form.Show();
                 }

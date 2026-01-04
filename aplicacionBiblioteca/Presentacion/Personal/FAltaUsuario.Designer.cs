@@ -101,7 +101,6 @@
             this.Controls.Add(this.lbNombre);
             this.Name = "FAltaUsuario";
             this.Text = "Alta de usuario";
-            this.Load += new System.EventHandler(this.FAltaUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

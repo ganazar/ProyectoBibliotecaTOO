@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace Presentacion.Personal
 {
-    public partial class FBusquedaUsuario : Form
+    public partial class FListadoAlfabetico : Form
     {
-        public string Dni { set { tbDNI.Text = value; } }
-        public string Nombre { set { tbNombre.Text = value; } }
-        public FBusquedaUsuario()
+        public FListadoAlfabetico()
         {
             InitializeComponent();
-            tbDNI.ReadOnly = true;
-            tbNombre.ReadOnly = true;
         }
     }
 }

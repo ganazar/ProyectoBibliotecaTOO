@@ -14,20 +14,13 @@ namespace Presentacion.Personal
 {
     public partial class FAltaUsuario : Form
     {
-        private LogicaNegocio.InterfacesLN.ILNPersonal _logica;
-        private string DNI;
-        public FAltaUsuario(string dni, LogicaNegocio.InterfacesLN.ILNPersonal logica)
+        public string Dni { get { return tbDNI.Text; } }
+        public string Nombre { get { return tbNombre.Text; } }
+        public FAltaUsuario(string dni)
         {
             InitializeComponent();
-            _logica = logica;
-            DNI = dni;
-            tbDNI.Text = DNI;
+            tbDNI.Text = dni;
             tbDNI.Enabled = false;
-        }
-
-        private void FAltaUsuario_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btAceptar_Click(object sender, EventArgs e)
@@ -38,14 +31,14 @@ namespace Presentacion.Personal
             }
             else
             {
-                if (_logica.DarAltaUsuario(new modeloDominio.Usuario(DNI, tbNombre.Text))){
-                    MessageBox.Show("Usuario añadido correctamente", "", MessageBoxButtons.OK);
-                }
+                this.DialogResult = DialogResult.OK;
+                Close();
             }
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             Close();
         }
     }

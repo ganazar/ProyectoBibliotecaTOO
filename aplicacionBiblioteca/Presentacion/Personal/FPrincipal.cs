@@ -27,12 +27,6 @@ namespace Presentacion.Personal
             this.Text = nombre + "Gestión de biblioteca";
             _logica = logica;
         }
-
-        private void FPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FIntroducirClave f = new FIntroducirClave("DNI");
@@ -41,7 +35,18 @@ namespace Presentacion.Personal
             {
                 if (_logica.ConsultarUsuarioPorDni(f.Clave) == null)
                 {
-                    FAltaUsuario fAlta = new FAltaUsuario(f.Clave, _logica);
+                    FAltaUsuario fAlta = new FAltaUsuario(f.Clave);
+                    if (fAlta.DialogResult == DialogResult.OK)
+                    {
+                        Usuario u = new Usuario(fAlta.Dni, fAlta.Nombre);
+                        if (_logica.DarAltaUsuario(u))
+                        {
+                            MessageBox.Show("Usuario registrado con éxito");
+                        } else
+                        {
+                            MessageBox.Show("Error al registrar el usuario");
+                        }
+                    }
                 }
                 else
                 {
@@ -58,6 +63,47 @@ namespace Presentacion.Personal
             } 
         }
 
+        private void bajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FIntroducirClave f = new FIntroducirClave("DNI");
+            f.ShowDialog();
+            if (f.DialogResult == DialogResult.OK)
+            {
+                Usuario u = _logica.ConsultarUsuarioPorDni(f.Clave);
+                if (u != null)
+                {
+                    FBajaUsuario fBaja = new FBajaUsuario(u);
+                    /*
+                    fBaja.Dni = u.DNI;
+                    fBaja.Nombre = u.Nombre;
+                    */
+                    DialogResult result = fBaja.ShowDialog();
+                    if (result == DialogResult.Yes)
+                    {
+                        if (_logica.DarBajaUsuario(u))
+                        {
+                            MessageBox.Show("Usuario eliminado correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar el usuario");
+                        }
+                    }
+                }
+                else
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Quieres introducir otro?", "No existe un usuario con este DNI", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        f.ShowDialog();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
+            }
+        }
         private void busquedaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FIntroducirClave f = new FIntroducirClave("DNI");
@@ -66,7 +112,9 @@ namespace Presentacion.Personal
             {
                 if (_logica.ConsultarUsuarioPorDni(f.Clave) != null)
                 {
-                    FBusquedaUsuario fBusqueda = new FBusquedaUsuario(f.Clave, _logica);
+                    FBusquedaUsuario fBusqueda = new FBusquedaUsuario();
+                    fBusqueda.Dni = f.Clave;
+                    fBusqueda.Nombre = _logica.ConsultarUsuarioPorDni(f.Clave).Nombre;
                     fBusqueda.ShowDialog();
                 }
                 else
@@ -84,6 +132,31 @@ namespace Presentacion.Personal
 
             }
         }
+        private void búsquedaPorDNIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FBusquedaDni f = new FBusquedaDni();
+            f.Show();
+        }
+
+        private void listadoPorDNIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FListadoDNI f = new FListadoDNI();
+            f.Show();
+        }
+
+        private void listadoPorOrdenAlfabéticoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FListadoAlfabetico f = new FListadoAlfabetico();
+            f.Show();
+        }
+
+        private void recorridoUnoAUnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FRecorrido f = new FRecorrido();
+            f.Show();
+        }
+
+        
     }
 }
 

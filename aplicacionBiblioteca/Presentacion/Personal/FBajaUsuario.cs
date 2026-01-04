@@ -1,4 +1,4 @@
-﻿using LogicaNegocio.InterfacesLN;
+﻿using modeloDominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,37 +13,28 @@ namespace Presentacion.Personal
 {
     public partial class FBajaUsuario : Form
     {
-        private LogicaNegocio.InterfacesLN.ILNPersonal _logica;
-        private string DNI;
-        public FBajaUsuario(string dni, ILNPersonal logica)
+        /*
+         public string Dni { set { txtDNI.Text = value; } }
+         public string Nombre { set { txtNombre.Text = value; } }         
+        */
+        public FBajaUsuario(Usuario u) //PREGUNTAR SI ES MEJOR PASAR NOMBRE;DNI
         {
             InitializeComponent();
-            DNI = dni;
-            _logica = logica;
-
-            tbDNI.Text = DNI;
+            tbDNI.Text = u.DNI;
             tbDNI.Enabled = false;
-            tbNombre.Text = logica.ConsultarUsuarioPorDni(DNI).Nombre;
+            tbNombre.Text = u.Nombre;
             tbNombre.Enabled = false;
         }
 
         private void btAceptar_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show("¿Está seguro que quiere dar de baja al usuario?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
-            {
-                if (_logica.DarBajaUsuario(new modeloDominio.Usuario(DNI)))
-                {
-                    MessageBox.Show("Usuario correctamente eliminado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            } else
-            {
-                Close();
-            }
+            this.DialogResult = respuesta;
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             Close();
         }
     }

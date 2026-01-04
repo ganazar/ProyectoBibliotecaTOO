@@ -88,6 +88,30 @@
     <Compile Include="FIntroducirClave.Designer.cs">
       <DependentUpon>FIntroducirClave.cs</DependentUpon>
     </Compile>
+    <Compile Include="Personal\FBusquedaDni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\FBusquedaDni.Designer.cs">
+      <DependentUpon>FBusquedaDni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\FListadoDNI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\FListadoDNI.Designer.cs">
+      <DependentUpon>FListadoDNI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\FListadoAlfabetico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\FListadoAlfabetico.Designer.cs">
+      <DependentUpon>FListadoAlfabetico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\FRecorrido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\FRecorrido.Designer.cs">
+      <DependentUpon>FRecorrido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Personal\FPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\FBajaUsuario.resx">
       <DependentUpon>FBajaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\FBusquedaDni.resx">
+      <DependentUpon>FBusquedaDni.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\FBusquedaUsuario.resx">
       <DependentUpon>FBusquedaUsuario.cs</DependentUpon>
