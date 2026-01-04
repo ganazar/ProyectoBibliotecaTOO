@@ -78,7 +78,7 @@
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.lbDni);
             this.Name = "FBusquedaDni";
-            this.Text = "Búsqueda por Dni";
+            this.Text = "Búsqueda por DNI";
             this.ResumeLayout(false);
             this.PerformLayout();
 

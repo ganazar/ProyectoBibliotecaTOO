@@ -134,19 +134,20 @@ namespace Presentacion.Personal
         }
         private void búsquedaPorDNIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FBusquedaDni f = new FBusquedaDni();
-            f.Show();
+            List<Usuario> listadoUsuarios = _logica.GetAllUsuarios();
+            Dictionary<string, string> dicUsuarios = new Dictionary<string, string>();
+            foreach (Usuario u in listadoUsuarios)
+            {
+                dicUsuarios.Add(u.DNI, u.Nombre);
+            }
+
+            FBusquedaDni f = new FBusquedaDni(dicUsuarios);
+            f.ShowDialog();
         }
 
-        private void listadoPorDNIToolStripMenuItem_Click(object sender, EventArgs e)
+        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FListadoDNI f = new FListadoDNI();
-            f.Show();
-        }
-
-        private void listadoPorOrdenAlfabéticoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FListadoAlfabetico f = new FListadoAlfabetico();
+            FListado f = new FListado();
             f.Show();
         }
 

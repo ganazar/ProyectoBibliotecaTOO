@@ -100,17 +100,11 @@
     <Compile Include="Personal\FBusquedaDni.Designer.cs">
       <DependentUpon>FBusquedaDni.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal\FListadoDNI.cs">
+    <Compile Include="Personal\FListado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personal\FListadoDNI.Designer.cs">
-      <DependentUpon>FListadoDNI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Personal\FListadoAlfabetico.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Personal\FListadoAlfabetico.Designer.cs">
-      <DependentUpon>FListadoAlfabetico.cs</DependentUpon>
+    <Compile Include="Personal\FListado.Designer.cs">
+      <DependentUpon>FListado.cs</DependentUpon>
     </Compile>
     <Compile Include="Personal\FRecorrido.cs">
       <SubType>Form</SubType>
@@ -155,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FIntroducirClave.resx">
       <DependentUpon>FIntroducirClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\FListado.resx">
+      <DependentUpon>FListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>

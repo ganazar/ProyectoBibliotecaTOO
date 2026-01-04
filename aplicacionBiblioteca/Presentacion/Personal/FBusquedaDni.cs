@@ -12,15 +12,24 @@ namespace Presentacion.Personal
 {
     public partial class FBusquedaDni : Form
     {
-        public FBusquedaDni()
+        public FBusquedaDni(Dictionary<string,string> listadoUsuarios)
         {
             InitializeComponent();
+            BindingSource b = new BindingSource();
+            b.DataSource = listadoUsuarios;
+            cbDni.DataSource = b;
+            cbDni.DisplayMember = "Dni";
+            cbDni.ValueMember = "Nombre";
 
+            tbNombre.ReadOnly = true;
         }
 
         private void cbDni_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataBindings 
+            if (cbDni.SelectedValue != null)
+            {
+                tbNombre.Text = cbDni.SelectedValue.ToString();
+            }
         }
     }
 }

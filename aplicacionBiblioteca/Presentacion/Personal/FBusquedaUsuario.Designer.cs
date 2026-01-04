@@ -71,7 +71,6 @@
             this.Controls.Add(this.lbNombre);
             this.Name = "FBusquedaUsuario";
             this.Text = "Búsqueda de usuario";
-            this.Load += new System.EventHandler(this.FBusquedaUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
