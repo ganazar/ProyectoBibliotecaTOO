@@ -11,13 +11,13 @@ namespace Persistencia.Datos
     {
         private string dni;
         private DateTime fecha;
-        private string isbn;
+        private string codEjemplar;
 
-        public ClavePrestamoEjemplar(string dni, DateTime fecha, string isbn)
+        public ClavePrestamoEjemplar(string dni, DateTime fecha, string codEjemplar)
         {
             this.dni = dni;
             this.fecha = fecha;
-            this.isbn = isbn;
+            this.codEjemplar = codEjemplar;
         }
         public string Dni
         {
@@ -31,11 +31,11 @@ namespace Persistencia.Datos
                 return this.fecha;
             }
         }
-        public string Isbn
+        public string CodEjemplar
         {
             get
             {
-                return this.isbn;
+                return this.codEjemplar;
             }
         }
     }
