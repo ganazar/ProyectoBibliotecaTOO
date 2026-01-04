@@ -35,13 +35,13 @@ namespace Presentacion.Personal
 
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FIntroducirDNI f = new FIntroducirDNI();
+            FIntroducirClave f = new FIntroducirClave("DNI");
             f.ShowDialog();
             if (f.DialogResult == DialogResult.OK)
             {
-                if (_logica.ConsultarUsuarioPorDni(f.Dni) == null)
+                if (_logica.ConsultarUsuarioPorDni(f.Clave) == null)
                 {
-                    FAltaUsuario fAlta = new FAltaUsuario(f.Dni, _logica);
+                    FAltaUsuario fAlta = new FAltaUsuario(f.Clave, _logica);
                 }
                 else
                 {
@@ -60,13 +60,13 @@ namespace Presentacion.Personal
 
         private void busquedaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FIntroducirDNI f = new FIntroducirDNI();
+            FIntroducirClave f = new FIntroducirClave("DNI");
             f.ShowDialog();
             if(f.DialogResult == DialogResult.OK)
             {
-                if (_logica.ConsultarUsuarioPorDni(f.Dni) != null)
+                if (_logica.ConsultarUsuarioPorDni(f.Clave) != null)
                 {
-                    FBusquedaUsuario fBusqueda = new FBusquedaUsuario(f.Dni, _logica);
+                    FBusquedaUsuario fBusqueda = new FBusquedaUsuario(f.Clave, _logica);
                     fBusqueda.ShowDialog();
                 }
                 else

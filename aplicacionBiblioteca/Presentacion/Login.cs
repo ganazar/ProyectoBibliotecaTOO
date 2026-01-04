@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Persistencia.Repositorios;
 
 namespace Presentacion
 {
@@ -45,7 +46,7 @@ namespace Presentacion
                 }
                 else if (rbPersonalAdquisicion.Checked)
                 {
-                    ILNPersonalAdquisiciones logica = new LNPersonalAdquisiciones((IPersistenciaAdquisiciones) _persistencia);
+                    ILNPersonalAdquisiciones logica = new LNPersonalAdquisiciones(new PersistenciaAdquisiciones());
                     FPrincipalAdquisicion form = new FPrincipalAdquisicion(nombre, logica);
                     form.Show();
                 }
