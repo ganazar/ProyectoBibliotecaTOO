@@ -43,6 +43,7 @@ namespace Presentacion.PersonalAdquisiciones
             documentosToolStripMenuItem.DropDownItems.Add(bajaDocumentoToolStripMenuItem);
             busquedaDocumentoToolStripMenuItem = new ToolStripMenuItem("Busqueda");
             busquedaDocumentoToolStripMenuItem.Click += busquedaDocumentoToolStripMenuItem_Clicked;
+            documentosToolStripMenuItem.DropDownItems.Add(busquedaDocumentoToolStripMenuItem);
         }
         private void altaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
@@ -72,31 +73,25 @@ namespace Presentacion.PersonalAdquisiciones
         }
         public void bajaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
-            /*
-            DialogResult dr;
-            do
+            FIntroducirClave form = new FIntroducirClave("ISBN");
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
             {
-                FIntroducirClave form = new FIntroducirClave("DNI");
-                dr = form.ShowDialog();
-                if (dr == DialogResult.OK)
+                Documento aux = logicaAdq.ConsultarDocumento();
+                if (aux != null)
                 {
-                    Cliente aux = lnAd.GclA.BusquedaCliente(new Cliente(null, form.Clave));
-                    if (aux != null)
+                    FBajaDocumento form1 = new FBajaDocumento(aux);
+                    dr = form1.ShowDialog();
+                    if (dr == DialogResult.OK)
                     {
-                        FGestionClientes form1 = new FGestionClientes(aux);
-                        dr = form1.ShowDialog();
-                        if (dr == DialogResult.OK)
-                        {
-                            lnAd.GclA.BajaCliente(aux);
-                        }
-                    }
-                    else
-                    {
-                        dr = MessageBox.Show("Quieres Introducir otro?", "No existe un cliente con ese DNI", MessageBoxButtons.YesNo);
+                        logicaAdq.DarBajaDocumento(aux);
                     }
                 }
-            } while (dr == DialogResult.Yes);
-            */
+                else
+                {
+                    MessageBox.Show("No existe un documento con ese ISBN");
+                }
+            }
         }
         private void busquedaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
