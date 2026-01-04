@@ -59,7 +59,9 @@
     <Compile Include="Interfaces\IPersistenciaPersonal.cs" />
     <Compile Include="Interfaces\IPersistenciaSala.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\PersistenciaAdquisiciones.cs" />
     <Compile Include="Repositorios\PersistenciaPersonal.cs" />
+    <Compile Include="Repositorios\PersistenciaSala.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
