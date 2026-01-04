@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PersonalAdquisiciones\FAltaDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FAltaDocumento.Designer.cs">
+      <DependentUpon>FAltaDocumento.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonalAdquisiciones\FPrincipalAdquisicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +82,11 @@
     <Compile Include="Personal\FBusquedaUsuario.Designer.cs">
       <DependentUpon>FBusquedaUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal\FIntroducirDNI.cs">
+    <Compile Include="FIntroducirClave.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personal\FIntroducirDNI.Designer.cs">
-      <DependentUpon>FIntroducirDNI.cs</DependentUpon>
+    <Compile Include="FIntroducirClave.Designer.cs">
+      <DependentUpon>FIntroducirClave.cs</DependentUpon>
     </Compile>
     <Compile Include="Personal\FPrincipal.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PersonalAdquisiciones\FAltaDocumento.resx">
+      <DependentUpon>FAltaDocumento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonalSala\FPrincipalSala.resx">
       <DependentUpon>FPrincipalSala.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,8 +117,8 @@
     <EmbeddedResource Include="Personal\FBusquedaUsuario.resx">
       <DependentUpon>FBusquedaUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personal\FIntroducirDNI.resx">
-      <DependentUpon>FIntroducirDNI.cs</DependentUpon>
+    <EmbeddedResource Include="FIntroducirClave.resx">
+      <DependentUpon>FIntroducirClave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>

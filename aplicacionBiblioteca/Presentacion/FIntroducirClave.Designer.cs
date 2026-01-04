@@ -1,6 +1,6 @@
 ﻿namespace Presentacion.Personal
 {
-    partial class FIntroducirDNI
+    partial class FIntroducirClave
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tbDNI = new System.Windows.Forms.TextBox();
+            this.tbClave = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lbDNI = new System.Windows.Forms.Label();
+            this.lbClave = new System.Windows.Forms.Label();
             this.btAceptar = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tbDNI
+            // tbClave
             // 
-            this.tbDNI.Location = new System.Drawing.Point(196, 76);
-            this.tbDNI.Name = "tbDNI";
-            this.tbDNI.Size = new System.Drawing.Size(100, 22);
-            this.tbDNI.TabIndex = 0;
+            this.tbClave.Location = new System.Drawing.Point(147, 62);
+            this.tbClave.Margin = new System.Windows.Forms.Padding(2);
+            this.tbClave.Name = "tbClave";
+            this.tbClave.Size = new System.Drawing.Size(76, 20);
+            this.tbClave.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -49,20 +50,22 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // lbDNI
+            // lbClave
             // 
-            this.lbDNI.AutoSize = true;
-            this.lbDNI.Location = new System.Drawing.Point(59, 79);
-            this.lbDNI.Name = "lbDNI";
-            this.lbDNI.Size = new System.Drawing.Size(90, 16);
-            this.lbDNI.TabIndex = 2;
-            this.lbDNI.Text = "Introducir DNI:";
+            this.lbClave.AutoSize = true;
+            this.lbClave.Location = new System.Drawing.Point(44, 64);
+            this.lbClave.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClave.Name = "lbClave";
+            this.lbClave.Size = new System.Drawing.Size(76, 13);
+            this.lbClave.TabIndex = 2;
+            this.lbClave.Text = "Introducir DNI:";
             // 
             // btAceptar
             // 
-            this.btAceptar.Location = new System.Drawing.Point(62, 136);
+            this.btAceptar.Location = new System.Drawing.Point(46, 110);
+            this.btAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btAceptar.Name = "btAceptar";
-            this.btAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btAceptar.Size = new System.Drawing.Size(56, 19);
             this.btAceptar.TabIndex = 3;
             this.btAceptar.Text = "Aceptar";
             this.btAceptar.UseVisualStyleBackColor = true;
@@ -70,26 +73,27 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(196, 136);
+            this.btCancelar.Location = new System.Drawing.Point(147, 110);
+            this.btCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btCancelar.Size = new System.Drawing.Size(61, 19);
             this.btCancelar.TabIndex = 4;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
-            // FIntroducirDNI
+            // FIntroducirClave
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 253);
+            this.ClientSize = new System.Drawing.Size(280, 206);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAceptar);
-            this.Controls.Add(this.lbDNI);
-            this.Controls.Add(this.tbDNI);
-            this.Name = "FIntroducirDNI";
+            this.Controls.Add(this.lbClave);
+            this.Controls.Add(this.tbClave);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FIntroducirClave";
             this.Text = "Introducir DNI";
-            this.Load += new System.EventHandler(this.FIntroducirDNI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,9 +101,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbDNI;
+        private System.Windows.Forms.TextBox tbClave;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label lbDNI;
+        private System.Windows.Forms.Label lbClave;
         private System.Windows.Forms.Button btAceptar;
         private System.Windows.Forms.Button btCancelar;
     }

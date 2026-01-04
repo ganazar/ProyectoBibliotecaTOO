@@ -1,4 +1,6 @@
 ﻿using LogicaNegocio.InterfacesLN;
+using modeloDominio;
+using Presentacion.Personal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +15,92 @@ namespace Presentacion.PersonalAdquisiciones
 {
     public partial class FPrincipalAdquisicion : Personal.FPrincipal
     {
+        protected ILNPersonalAdquisiciones logicaAdq;
+        protected System.Windows.Forms.ToolStripMenuItem documentosToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem altaDocumentoToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem bajaDocumentoToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem busquedaDocumentoToolStripMenuItem;
         public FPrincipalAdquisicion()
         {
             InitializeComponent();
         }
 
-        public FPrincipalAdquisicion(string nombre, ILNPersonalAdquisiciones logicaAdq) : base(nombre, logicaAdq)
+        public FPrincipalAdquisicion(string nombre, ILNPersonalAdquisiciones _logicaAdq) : base(nombre, _logicaAdq)
         {
+            logicaAdq = _logicaAdq;
             InitializeComponent();
+            Inicializar();
         }
-        
+        private void Inicializar()
+        {
+            documentosToolStripMenuItem = new ToolStripMenuItem("Documentos");
+            menuStrip1.Items.Add(documentosToolStripMenuItem);
+            altaDocumentoToolStripMenuItem = new ToolStripMenuItem("Alta");
+            altaDocumentoToolStripMenuItem.Click += altaDocumentoToolStripMenuItem_Clicked;
+            documentosToolStripMenuItem.DropDownItems.Add(altaDocumentoToolStripMenuItem);
+            bajaDocumentoToolStripMenuItem = new ToolStripMenuItem("Baja");
+            bajaDocumentoToolStripMenuItem.Click += bajaDocumentoToolStripMenuItem_Clicked;
+            documentosToolStripMenuItem.DropDownItems.Add(bajaDocumentoToolStripMenuItem);
+            busquedaDocumentoToolStripMenuItem = new ToolStripMenuItem("Busqueda");
+            busquedaDocumentoToolStripMenuItem.Click += busquedaDocumentoToolStripMenuItem_Clicked;
+        }
+        private void altaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+            FIntroducirClave form = new FIntroducirClave("ISBN");
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Documento aux = logicaAdq.ConsultarDocumento();
+                if (aux == null)
+                {
+                    FAltaDocumento form1 = new FAltaDocumento(form.Clave);
+                    dr = form1.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        Documento doc = null;
+                        if (form1.TipoDocumento.Equals("Fisico"))
+                        {
+                            doc = new Fisico(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion);
+                        }else if (form1.TipoDocumento.Equals("Audiolibro"))
+                        {
+                            doc = new Audiolibro(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion, form1.Duracion, form1.Formato);
+                        }
+                        logicaAdq.DarAltaDocumento(doc);
+                    }
+                }
+            }
+        }
+        public void bajaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+            /*
+            DialogResult dr;
+            do
+            {
+                FIntroducirClave form = new FIntroducirClave("DNI");
+                dr = form.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    Cliente aux = lnAd.GclA.BusquedaCliente(new Cliente(null, form.Clave));
+                    if (aux != null)
+                    {
+                        FGestionClientes form1 = new FGestionClientes(aux);
+                        dr = form1.ShowDialog();
+                        if (dr == DialogResult.OK)
+                        {
+                            lnAd.GclA.BajaCliente(aux);
+                        }
+                    }
+                    else
+                    {
+                        dr = MessageBox.Show("Quieres Introducir otro?", "No existe un cliente con ese DNI", MessageBoxButtons.YesNo);
+                    }
+                }
+            } while (dr == DialogResult.Yes);
+            */
+        }
+        private void busquedaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
