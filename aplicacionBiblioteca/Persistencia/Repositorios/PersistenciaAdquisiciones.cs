@@ -168,5 +168,61 @@ namespace Persistencia.Repositorios
         {
             return BD.BD.tablaUsuarios.Select(u => Transformers.Usuario(u)).ToList();
         }
+
+        public bool CreateEjemplar(Ejemplar ejemplar)
+        {
+            if (BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return false;
+
+            var ejemplarDato = Transformers.EjemplarDato(ejemplar);
+            BD.BD.tablaEjemplares.Add(ejemplarDato);
+            return true;
+        }
+
+        public Ejemplar ReadEjemplar(Ejemplar ejemplar)
+        {
+            if (!BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return null;
+
+            var eDato = BD.BD.tablaEjemplares[ejemplar.CodEjemplar];
+
+            Documento doc = null;
+            if (BD.BD.tablaAudiolibros.Contains(eDato.Id))
+                doc = Transformers.Audiolibro(BD.BD.tablaAudiolibros[eDato.Id]);
+            else if (BD.BD.tablaFisicos.Contains(eDato.Id))
+                doc = Transformers.Fisico(BD.BD.tablaFisicos[eDato.Id]);
+
+            if (doc == null) return null;
+
+            return Transformers.Ejemplar(eDato, doc);
+        }
+
+        public bool UpdateEjemplar(Ejemplar ejemplar)
+        {
+            if (!BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return false;
+
+            BD.BD.tablaEjemplares.Remove(ejemplar.CodEjemplar);
+            BD.BD.tablaEjemplares.Add(Transformers.EjemplarDato(ejemplar));
+            return true;
+        }
+
+        public bool DeleteEjemplar(Ejemplar ejemplar)
+        {
+            if (!BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return false;
+
+            BD.BD.tablaEjemplares.Remove(ejemplar.CodEjemplar);
+            return true;
+        }
+
+        public List<Ejemplar> GetAllEjemplares()
+        {
+            List<Ejemplar> lista = new List<Ejemplar>();
+
+            foreach (var eDato in BD.BD.tablaEjemplares)
+            {
+                var eDominio = ReadEjemplar(new Ejemplar(eDato.Id));
+                if (eDominio != null) lista.Add(eDominio);
+            }
+
+            return lista;
+        }
     }
 }
