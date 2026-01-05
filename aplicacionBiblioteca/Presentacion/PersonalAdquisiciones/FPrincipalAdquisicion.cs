@@ -45,14 +45,13 @@ namespace Presentacion.PersonalAdquisiciones
             busquedaDocumentoToolStripMenuItem.Click += busquedaDocumentoToolStripMenuItem_Clicked;
             documentosToolStripMenuItem.DropDownItems.Add(busquedaDocumentoToolStripMenuItem);
         }
-        
         private void altaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
             FIntroducirClave form = new FIntroducirClave("ISBN");
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Documento aux = new Audiolibro("1234");//logicaAdq.ConsultarDocumento();
+                Documento aux = logicaAdq.ConsultarDocumento();
                 if (aux == null)
                 {
                     FAltaDocumento form1 = new FAltaDocumento(form.Clave);
@@ -78,8 +77,7 @@ namespace Presentacion.PersonalAdquisiciones
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Documento aux = new Audiolibro("1234");
-                //Documento aux = logicaAdq.ConsultarDocumento();
+                Documento aux = logicaAdq.ConsultarDocumento();
                 if (aux != null)
                 {
                     FBajaDocumento form1 = new FBajaDocumento(aux);
