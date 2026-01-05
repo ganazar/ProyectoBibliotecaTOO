@@ -41,10 +41,5 @@ namespace Presentacion.Personal
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
-        private void FIntroducirClave_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

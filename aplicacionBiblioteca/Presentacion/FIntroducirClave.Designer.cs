@@ -93,7 +93,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FIntroducirClave";
             this.Text = "Introducir DNI";
-            this.Load += new System.EventHandler(this.FIntroducirClave_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
