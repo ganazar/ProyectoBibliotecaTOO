@@ -21,7 +21,7 @@ namespace Presentacion.Personal
         {
             InitializeComponent();
             Text = "Introducir " + nombre;
-            lbClave.Text = nombre;
+            lbClave.Text = nombre+":";
             tbClave.Focus();
         }
         private void btAceptar_Click(object sender, EventArgs e)
@@ -32,20 +32,14 @@ namespace Presentacion.Personal
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(tbClave.Text))
-            {
-                MessageBox.Show("Introduzca un DNI", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!DniValido(tbClave.Text))
-            {
-                MessageBox.Show("El formato del DNI no es válido o la letra es incorrecta.\nEjemplo: 12345678Z",
-                                "DNI Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tbClave.SelectAll();
-                tbClave.Focus();
-                return;
-            }
+            //if (!DniValido(tbClave.Text))
+            //{
+            //    MessageBox.Show("El formato del DNI no es válido o la letra es incorrecta.\nEjemplo: 12345678Z",
+            //                    "DNI Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    tbClave.SelectAll();
+            //    tbClave.Focus();
+            //    return;
+            //}
 
             clave = tbClave.Text;
             this.DialogResult = DialogResult.OK;

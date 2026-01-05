@@ -16,10 +16,17 @@ namespace Presentacion.PersonalAdquisiciones
     public partial class FPrincipalAdquisicion : Personal.FPrincipal
     {
         protected ILNPersonalAdquisiciones logicaAdq;
+
         protected System.Windows.Forms.ToolStripMenuItem documentosToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem altaDocumentoToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem bajaDocumentoToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem busquedaDocumentoToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem listadoDocumentoToolStripMenuItem;
+
+        protected System.Windows.Forms.ToolStripMenuItem ejemplaresToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem altaEjemplarToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem bajaEjemplarToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem busquedaEjemplarToolStripMenuItem;
         public FPrincipalAdquisicion()
         {
             InitializeComponent();
@@ -44,6 +51,22 @@ namespace Presentacion.PersonalAdquisiciones
             busquedaDocumentoToolStripMenuItem = new ToolStripMenuItem("Busqueda");
             busquedaDocumentoToolStripMenuItem.Click += busquedaDocumentoToolStripMenuItem_Clicked;
             documentosToolStripMenuItem.DropDownItems.Add(busquedaDocumentoToolStripMenuItem);
+
+            listadoDocumentoToolStripMenuItem = new ToolStripMenuItem("Listado");
+            listadoDocumentoToolStripMenuItem.Click += listadoDocumentoToolStripMenuItem_Clicked;
+            documentosToolStripMenuItem.DropDownItems.Add(listadoDocumentoToolStripMenuItem);
+
+            ejemplaresToolStripMenuItem = new ToolStripMenuItem("Ejemplares");
+            menuStrip1.Items.Add(ejemplaresToolStripMenuItem);
+            altaEjemplarToolStripMenuItem = new ToolStripMenuItem("Alta");
+            altaEjemplarToolStripMenuItem.Click += altaEjemplarToolStripMenuItem_Clicked;
+            ejemplaresToolStripMenuItem.DropDownItems.Add(altaEjemplarToolStripMenuItem);
+            bajaEjemplarToolStripMenuItem = new ToolStripMenuItem("Baja");
+            bajaEjemplarToolStripMenuItem.Click += bajaEjemplarToolStripMenuItem_Clicked;
+            ejemplaresToolStripMenuItem.DropDownItems.Add(bajaEjemplarToolStripMenuItem);
+            busquedaEjemplarToolStripMenuItem = new ToolStripMenuItem("Busqueda");
+            busquedaEjemplarToolStripMenuItem.Click += busquedaEjemplarToolStripMenuItem_Clicked;
+            ejemplaresToolStripMenuItem.DropDownItems.Add(busquedaEjemplarToolStripMenuItem);
         }
         private void altaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
@@ -51,7 +74,7 @@ namespace Presentacion.PersonalAdquisiciones
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Documento aux = logicaAdq.ConsultarDocumento();
+                Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
                 if (aux == null)
                 {
                     FAltaDocumento form1 = new FAltaDocumento(form.Clave);
@@ -71,13 +94,13 @@ namespace Presentacion.PersonalAdquisiciones
                 }
             }
         }
-        public void bajaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
+        private void bajaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
             FIntroducirClave form = new FIntroducirClave("ISBN");
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Documento aux = logicaAdq.ConsultarDocumento();
+                Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
                 if (aux != null)
                 {
                     FBajaDocumento form1 = new FBajaDocumento(aux);
@@ -95,7 +118,78 @@ namespace Presentacion.PersonalAdquisiciones
         }
         private void busquedaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
+            FIntroducirClave form = new FIntroducirClave("ISBN");
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
+                if (aux != null)
+                {
+                    FBusquedaDocumento form1 = new FBusquedaDocumento(aux);
+                    form1.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No existe un documento con ese ISBN");
+                }
+            }
+        }
+        private void listadoDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+            FListadoDocumentos form = new FListadoDocumentos(logicaAdq.GetAllDocumentos());
+            form.ShowDialog();
+        }
 
+        private void altaEjemplarToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+            FAltaEjemplar form1 = new FAltaEjemplar(logicaAdq.GetAllDocumentos());
+            DialogResult dr = form1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Ejemplar ejemplar = new Ejemplar(form1.Documento);
+                ejemplar.Prestado = form1.Prestado;
+                logicaAdq.DarAltaEjemplar(ejemplar);
+            }
+        }
+        private void bajaEjemplarToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+            FIntroducirClave form = new FIntroducirClave("Código");
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Ejemplar aux = logicaAdq.ConsultarEjemplar(new Ejemplar(form.Clave));
+                if (aux != null)
+                {
+                    FBajaEjemplar form1 = new FBajaEjemplar(aux);
+                    dr = form1.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        logicaAdq.DarBajaEjemplar(aux);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No existe un ejemplar con ese codigo");
+                }
+            }
+        }
+        private void busquedaEjemplarToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+            FIntroducirClave form = new FIntroducirClave("Código");
+            DialogResult dr = form.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Ejemplar aux = logicaAdq.ConsultarEjemplar(new Ejemplar(form.Clave));
+                if (aux != null)
+                {
+                    FBusquedaEjemplar form1 = new FBusquedaEjemplar(aux);
+                    form1.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No existe un documento con ese código");
+                }
+            }
         }
     }
 }

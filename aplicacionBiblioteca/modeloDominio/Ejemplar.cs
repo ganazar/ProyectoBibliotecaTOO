@@ -16,12 +16,13 @@ namespace modeloDominio
         {
             this.codEjemplar = doc.Titulo + doc.CantEjemplares;
             this.prestado = false;
+            this.doc = doc;
             doc.CantEjemplares += 1;
         }
 
         public Ejemplar(string codEjemplar)
         {
-            this.codEjemplar.Equals(codEjemplar);
+            this.codEjemplar = codEjemplar;
         }
 
         public string CodEjemplar {

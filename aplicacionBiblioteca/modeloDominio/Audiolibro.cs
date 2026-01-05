@@ -20,6 +20,11 @@ namespace modeloDominio
             this.duracion = duracion;
             this.formato = formato;
         }
+        public Audiolibro(string isbn, string titulo, string autor, string editorial, int añoEdicion, int cantEjemplares, int duracion, string formato) : base(isbn, titulo, autor, editorial, añoEdicion, cantEjemplares)
+        {
+            this.duracion = duracion;
+            this.formato = formato;
+        }
 
         public string Formato {
             get{  return this.formato; }

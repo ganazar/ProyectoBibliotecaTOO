@@ -1,6 +1,6 @@
 ﻿namespace Presentacion.PersonalAdquisiciones
 {
-    partial class FBajaDocumento
+    partial class FBusquedaDocumento
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,6 @@
             this.tbEditorial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btAceptar = new System.Windows.Forms.Button();
-            this.btCancelar = new System.Windows.Forms.Button();
             this.tbAnoEdicion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -191,23 +190,13 @@
             // 
             // btAceptar
             // 
-            this.btAceptar.Location = new System.Drawing.Point(225, 291);
+            this.btAceptar.Location = new System.Drawing.Point(316, 286);
             this.btAceptar.Name = "btAceptar";
             this.btAceptar.Size = new System.Drawing.Size(75, 23);
             this.btAceptar.TabIndex = 13;
-            this.btAceptar.Text = "Dar baja";
+            this.btAceptar.Text = "Aceptar";
             this.btAceptar.UseVisualStyleBackColor = true;
             this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
-            // 
-            // btCancelar
-            // 
-            this.btCancelar.Location = new System.Drawing.Point(316, 291);
-            this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btCancelar.TabIndex = 14;
-            this.btCancelar.Text = "Cancelar";
-            this.btCancelar.UseVisualStyleBackColor = true;
-            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // tbAnoEdicion
             // 
@@ -226,14 +215,13 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "AñoEdicion:";
             // 
-            // FBajaDocumento
+            // FBusquedaDocumento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 349);
             this.Controls.Add(this.tbAnoEdicion);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAceptar);
             this.Controls.Add(this.tbEditorial);
             this.Controls.Add(this.label4);
@@ -244,8 +232,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbISBN);
             this.Controls.Add(this.label1);
-            this.Name = "FBajaDocumento";
-            this.Text = "Baja de documento";
+            this.Name = "FBusquedaDocumento";
+            this.Text = "Busqueda de documento";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -267,7 +255,6 @@
         private System.Windows.Forms.TextBox tbEditorial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btAceptar;
-        private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.TextBox tbFormato;
         private System.Windows.Forms.TextBox tbDuracion;
         private System.Windows.Forms.Label label6;
