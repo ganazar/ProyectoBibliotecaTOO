@@ -24,12 +24,12 @@ namespace Presentacion.Personal
             bNavigator.BindingSource = b;
 
             lDni.DataSource = b;
-            lDni.DisplayMember = "Dni";
-            lDni.ValueMember = "Nombre";
+            lDni.DisplayMember = "Key";
+            lDni.ValueMember = "Value";
 
             lNombre.DataSource = b;
-            lNombre.DisplayMember = "Nombre";
-            lNombre.ValueMember = "Dni";
+            lNombre.DisplayMember = "Value";
+            lNombre.ValueMember = "Key";
         }   
     }
 }

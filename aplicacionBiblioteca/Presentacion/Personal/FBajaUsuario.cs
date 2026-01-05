@@ -13,16 +13,13 @@ namespace Presentacion.Personal
 {
     public partial class FBajaUsuario : Form
     {
-        /*
-         public string Dni { set { txtDNI.Text = value; } }
-         public string Nombre { set { txtNombre.Text = value; } }         
-        */
-        public FBajaUsuario(Usuario u) //PREGUNTAR SI ES MEJOR PASAR NOMBRE;DNI
+        public string Dni { set { tbDNI.Text = value; } }
+        public string Nombre { set { tbNombre.Text = value; } }         
+        
+        public FBajaUsuario() 
         {
             InitializeComponent();
-            tbDNI.Text = u.DNI;
             tbDNI.Enabled = false;
-            tbNombre.Text = u.Nombre;
             tbNombre.Enabled = false;
         }
 

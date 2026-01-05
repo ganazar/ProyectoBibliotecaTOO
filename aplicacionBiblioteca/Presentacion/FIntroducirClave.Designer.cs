@@ -38,10 +38,10 @@
             // 
             // tbClave
             // 
-            this.tbClave.Location = new System.Drawing.Point(147, 62);
-            this.tbClave.Margin = new System.Windows.Forms.Padding(2);
+            this.tbClave.Location = new System.Drawing.Point(196, 76);
+            this.tbClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbClave.Name = "tbClave";
-            this.tbClave.Size = new System.Drawing.Size(76, 20);
+            this.tbClave.Size = new System.Drawing.Size(100, 22);
             this.tbClave.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -53,19 +53,18 @@
             // lbClave
             // 
             this.lbClave.AutoSize = true;
-            this.lbClave.Location = new System.Drawing.Point(44, 64);
-            this.lbClave.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClave.Location = new System.Drawing.Point(59, 79);
             this.lbClave.Name = "lbClave";
-            this.lbClave.Size = new System.Drawing.Size(76, 13);
+            this.lbClave.Size = new System.Drawing.Size(90, 16);
             this.lbClave.TabIndex = 2;
             this.lbClave.Text = "Introducir DNI:";
             // 
             // btAceptar
             // 
-            this.btAceptar.Location = new System.Drawing.Point(46, 110);
-            this.btAceptar.Margin = new System.Windows.Forms.Padding(2);
+            this.btAceptar.Location = new System.Drawing.Point(61, 135);
+            this.btAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btAceptar.Name = "btAceptar";
-            this.btAceptar.Size = new System.Drawing.Size(56, 19);
+            this.btAceptar.Size = new System.Drawing.Size(75, 23);
             this.btAceptar.TabIndex = 3;
             this.btAceptar.Text = "Aceptar";
             this.btAceptar.UseVisualStyleBackColor = true;
@@ -73,10 +72,10 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(147, 110);
-            this.btCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btCancelar.Location = new System.Drawing.Point(196, 135);
+            this.btCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(61, 19);
+            this.btCancelar.Size = new System.Drawing.Size(81, 23);
             this.btCancelar.TabIndex = 4;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
@@ -84,16 +83,17 @@
             // 
             // FIntroducirClave
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 206);
+            this.ClientSize = new System.Drawing.Size(373, 254);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAceptar);
             this.Controls.Add(this.lbClave);
             this.Controls.Add(this.tbClave);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FIntroducirClave";
             this.Text = "Introducir DNI";
+            this.Load += new System.EventHandler(this.FIntroducirClave_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

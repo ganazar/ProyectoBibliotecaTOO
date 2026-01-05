@@ -17,9 +17,10 @@ namespace Presentacion.Personal
             InitializeComponent();
             BindingSource b = new BindingSource();
             b.DataSource = listadoUsuarios;
+
+            cbDni.DisplayMember = "Key";
+            cbDni.ValueMember = "Value";
             cbDni.DataSource = b;
-            cbDni.DisplayMember = "Dni";
-            cbDni.ValueMember = "Nombre";
 
             tbNombre.ReadOnly = true;
         }

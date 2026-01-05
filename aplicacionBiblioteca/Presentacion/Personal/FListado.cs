@@ -22,12 +22,12 @@ namespace Presentacion.Personal
             b.DataSource = lista;
 
             lbDNI.DataSource = b;
-            lbDNI.DisplayMember = "Dni";
-            lbDNI.ValueMember = "Nombre";
+            lbDNI.DisplayMember = "Key";
+            lbDNI.ValueMember = "Value";
 
             lbNombre.DataSource = b;
-            lbNombre.DisplayMember = "Nombre";
-            lbNombre.ValueMember = "Dni";
+            lbNombre.DisplayMember = "Value";
+            lbNombre.ValueMember = "Key";
         }
         
         private void btDNi_Click(object sender, EventArgs e)

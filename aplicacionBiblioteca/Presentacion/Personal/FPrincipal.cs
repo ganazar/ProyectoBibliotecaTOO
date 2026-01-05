@@ -45,6 +45,7 @@ namespace Presentacion.Personal
                 if (_logica.ConsultarUsuarioPorDni(f.Clave) == null)
                 {
                     FAltaUsuario fAlta = new FAltaUsuario(f.Clave);
+                    fAlta.ShowDialog();
                     if (fAlta.DialogResult == DialogResult.OK)
                     {
                         Usuario u = new Usuario(fAlta.Dni, fAlta.Nombre);
@@ -81,11 +82,10 @@ namespace Presentacion.Personal
                 Usuario u = _logica.ConsultarUsuarioPorDni(f.Clave);
                 if (u != null)
                 {
-                    FBajaUsuario fBaja = new FBajaUsuario(u);
-                    /*
+                    FBajaUsuario fBaja = new FBajaUsuario();
                     fBaja.Dni = u.DNI;
                     fBaja.Nombre = u.Nombre;
-                    */
+                    
                     DialogResult result = fBaja.ShowDialog();
                     if (result == DialogResult.Yes)
                     {

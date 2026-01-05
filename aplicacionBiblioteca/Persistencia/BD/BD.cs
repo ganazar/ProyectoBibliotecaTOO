@@ -1,4 +1,5 @@
-﻿using Persistencia.Datos;
+﻿using modeloDominio;
+using Persistencia.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,23 @@ namespace Persistencia.BD
         private static Tabla<ClavePrestamo, PrestamoDato> tablaprestamos;
         private static Tabla<ClavePrestamoEjemplar, PrestamoEjemplar> tablaprestamosEjemplares;
         private static Tabla<string, UsuarioDato> tablausuarios;
+        static BD()
+        {
+            UsuarioDato u1 = new UsuarioDato("11111111A", "Ana Álvarez");
+            tablaUsuarios.Add(u1);
 
+            UsuarioDato u2 = new UsuarioDato("22222222B", "Javier Bueno");
+            tablaUsuarios.Add(u2);
+
+            UsuarioDato u3 = new UsuarioDato("99999999Z", "Zacarías Flores");
+            tablaUsuarios.Add(u3);
+
+            UsuarioDato u4 = new UsuarioDato("55555555X", "Javier Bueno"); // Mismo nombre
+            tablaUsuarios.Add(u4);
+
+            UsuarioDato u5 = new UsuarioDato("00000001R", "Beatriz Primera");
+            tablaUsuarios.Add(u5);
+        }
         public static Tabla<string, EjemplarDato> tablaEjemplares
         {
             get
