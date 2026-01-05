@@ -45,16 +45,17 @@
             // 
             // lbDNI
             // 
+            this.lbDNI.Enabled = false;
             this.lbDNI.FormattingEnabled = true;
             this.lbDNI.ItemHeight = 16;
             this.lbDNI.Location = new System.Drawing.Point(151, 115);
             this.lbDNI.Name = "lbDNI";
             this.lbDNI.Size = new System.Drawing.Size(120, 212);
             this.lbDNI.TabIndex = 3;
-            this.lbDNI.SelectedIndexChanged += new System.EventHandler(this.lbDNI_SelectedIndexChanged);
             // 
             // lbNombre
             // 
+            this.lbNombre.Enabled = false;
             this.lbNombre.FormattingEnabled = true;
             this.lbNombre.ItemHeight = 16;
             this.lbNombre.Location = new System.Drawing.Point(454, 115);
@@ -70,6 +71,7 @@
             this.btDNi.TabIndex = 1;
             this.btDNi.Text = "DNI";
             this.btDNi.UseVisualStyleBackColor = true;
+            this.btDNi.Click += new System.EventHandler(this.btDNi_Click);
             // 
             // btnombre
             // 
@@ -79,6 +81,7 @@
             this.btnombre.TabIndex = 3;
             this.btnombre.Text = "Nombre";
             this.btnombre.UseVisualStyleBackColor = true;
+            this.btnombre.Click += new System.EventHandler(this.btnombre_Click);
             // 
             // btCerrar
             // 
@@ -88,6 +91,7 @@
             this.btCerrar.TabIndex = 5;
             this.btCerrar.Text = "Cerrar";
             this.btCerrar.UseVisualStyleBackColor = true;
+            this.btCerrar.Click += new System.EventHandler(this.btCerrar_Click);
             // 
             // FListado
             // 

@@ -29,11 +29,22 @@ namespace Presentacion.Personal
             lbNombre.DisplayMember = "Nombre";
             lbNombre.ValueMember = "Dni";
         }
-
         
-        private void lbDNI_SelectedIndexChanged(object sender, EventArgs e)
+        private void btDNi_Click(object sender, EventArgs e)
         {
+            lista = lista.OrderBy(x => x.Key).ToList();
+            b.DataSource = lista;
+        }
 
+        private void btnombre_Click(object sender, EventArgs e)
+        {
+            lista = lista.OrderBy(x => x.Value).ToList();
+            b.DataSource = lista;
+        }
+
+        private void btCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

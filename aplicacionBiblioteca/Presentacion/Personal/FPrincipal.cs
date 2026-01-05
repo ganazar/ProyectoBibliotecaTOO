@@ -27,6 +27,15 @@ namespace Presentacion.Personal
             this.Text = nombre + " - Gestión de biblioteca";
             _logica = logica;
         }
+        private Dictionary<string, string> ListadoADiccionario(List<Usuario> lista)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            foreach (Usuario u in lista)
+            {
+                dic.Add(u.DNI, u.Nombre);
+            }
+            return dic;
+        }
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FIntroducirClave f = new FIntroducirClave("DNI");
@@ -57,7 +66,7 @@ namespace Presentacion.Personal
                     }
                     else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             } 
@@ -99,7 +108,7 @@ namespace Presentacion.Personal
                     }
                     else
                     {
-                        this.Close();
+                        return;
                     }
                 }
             }
@@ -110,11 +119,12 @@ namespace Presentacion.Personal
             f.ShowDialog();
             if(f.DialogResult == DialogResult.OK)
             {
-                if (_logica.ConsultarUsuarioPorDni(f.Clave) != null)
+                Usuario u = _logica.ConsultarUsuarioPorDni(f.Clave);
+                if (u !=null)
                 {
                     FBusquedaUsuario fBusqueda = new FBusquedaUsuario();
-                    fBusqueda.Dni = f.Clave;
-                    fBusqueda.Nombre = _logica.ConsultarUsuarioPorDni(f.Clave).Nombre;
+                    fBusqueda.Dni = u.DNI;
+                    fBusqueda.Nombre = u.Nombre;
                     fBusqueda.ShowDialog();
                 }
                 else
@@ -126,7 +136,7 @@ namespace Presentacion.Personal
                     }
                     else
                     {
-                        this.Close();
+                        return;
                     }
                 }
 
@@ -147,17 +157,28 @@ namespace Presentacion.Personal
 
         private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FListado f = new FListado();
-            f.Show();
+            var listadoUsuarios = _logica.GetAllUsuarios();
+            Dictionary<string, string> dicUsuarios = ListadoADiccionario(listadoUsuarios);
+            
+            if (listadoUsuarios.Count == 0)
+            {
+                MessageBox.Show("No hay datos para mostar");
+            }
+            else
+            {
+                FListado f = new FListado(dicUsuarios);
+                f.ShowDialog();
+            }
         }
 
         private void recorridoUnoAUnoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FRecorrido f = new FRecorrido();
+            var listadoUsuarios = _logica.GetAllUsuarios();
+            Dictionary<string, string> dicUsuarios = ListadoADiccionario(listadoUsuarios);
+            
+            FRecorrido f = new FRecorrido(dicUsuarios);
             f.Show();
         }
-
-        
     }
 }
 
