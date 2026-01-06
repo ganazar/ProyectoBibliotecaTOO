@@ -14,14 +14,17 @@ namespace Presentacion.PersonalSala
     public partial class FPrincipalSala : Personal.FPrincipal
 
     {
+        protected ILNPersonalSala logicaSala;
         public FPrincipalSala()
         {
             InitializeComponent();
         }
 
-        public FPrincipalSala(string nombre, ILNPersonalSala logicaSala) : base(nombre, logicaSala) 
+        public FPrincipalSala(string nombre, ILNPersonalSala _logicaSala) : base(nombre, _logicaSala) 
         {
+            logicaSala = _logicaSala;
             InitializeComponent();
+            //Inicializar();
         }
 
         private void FPrincipalSala_Load(object sender, EventArgs e)

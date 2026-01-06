@@ -20,12 +20,12 @@ namespace Presentacion
 {
     public partial class Login : Form
     {
-        private readonly IPersistenciaPersonal _persistencia;
+        private readonly IPersistenciaPersonal persistencia;
 
-        public Login( IPersistenciaPersonal persistencia)
+        public Login( IPersistenciaPersonal _persistencia)
         {
             InitializeComponent();
-            _persistencia = persistencia;
+            persistencia = _persistencia;
         }
 
         private void btEntrar_Click(object sender, EventArgs e)
@@ -41,8 +41,7 @@ namespace Presentacion
                 string nombre = tbNombre.Text;
                 if (rbPersonalSala.Checked)
                 {
-                    PersistenciaSala p = new PersistenciaSala(); 
-                    ILNPersonalSala logica =  new LNPersonalSala(p );
+                    ILNPersonalSala logica =  new LNPersonalSala(new PersistenciaSala());
                     FPrincipalSala form = new FPrincipalSala(nombre, logica);
                     form.Show();
                 }
