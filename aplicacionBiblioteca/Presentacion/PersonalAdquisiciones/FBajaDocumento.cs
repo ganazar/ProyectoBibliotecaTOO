@@ -14,19 +14,10 @@ namespace Presentacion.PersonalAdquisiciones
 {
     public partial class FBajaDocumento : Form
     {
-        private string titulo, autor, editorial, tipoDocumento, formato;
-        private int anoEdicion, duracion;
-        public string Titulo { get { return titulo; } }
-        public string Autor { get { return autor; } }
-        public string Editorial { get { return editorial; } }
-        public int AnoEdicion { get { return anoEdicion; } }
-        public string TipoDocumento { get { return tipoDocumento; } }
-        public int Duracion { get { return duracion; } }
-        public string Formato { get { return formato; } }
         private void tbAnoEdicion_TextChanged(object sender, EventArgs e)
         {
 
-            if (System.Text.RegularExpressions.Regex.IsMatch(tbAnoEdicion.Text, "^[0-9]*$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(tbAnoEdicion.Text, "^[0-9]*$"))
             {
                 MessageBox.Show("Please enter only numbers.");
                 tbAnoEdicion.Text = string.Empty;
@@ -34,7 +25,7 @@ namespace Presentacion.PersonalAdquisiciones
         }
         private void tbDuracion_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(tbDuracion.Text, "^[0-9]*$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(tbDuracion.Text, "^[0-9]*$"))
             {
                 MessageBox.Show("Please enter only numbers.");
                 tbDuracion.Text = string.Empty;
@@ -53,6 +44,7 @@ namespace Presentacion.PersonalAdquisiciones
             tbEditorial.Text = doc.Editorial;
             tbEditorial.ReadOnly = true;
             tbAnoEdicion.Text = doc.AñoEdicion.ToString();
+            tbAnoEdicion.ReadOnly = true;
             var audioLibro = doc as Audiolibro;
             if (audioLibro != null)
             {
@@ -66,6 +58,8 @@ namespace Presentacion.PersonalAdquisiciones
             {
                 rbLibro.Checked = true;
             }
+            rbAudiolibro.Enabled = false;
+            rbLibro.Enabled = false;
         }
 
         private void rbAudiolibro_CheckedChanged(object sender, EventArgs e)
@@ -85,23 +79,16 @@ namespace Presentacion.PersonalAdquisiciones
                 tbFormato.Visible = false;
             }
         }
-
-        private void FAltaDocumento_FormClosed(object sender, FormClosedEventArgs e)
+        private void btAceptar_Click(object sender, EventArgs e)
         {
-            titulo = tbTitulo.Text;
-            autor = tbAutor.Text;
-            editorial = tbEditorial.Text;
-            anoEdicion = int.Parse(tbAnoEdicion.Text);
-            if (rbLibro.Checked)
-            {
-                tipoDocumento = "Fisico";
-            }
-            if (rbAudiolibro.Checked)
-            {
-                tipoDocumento = "Audiolibro";
-                duracion = int.Parse(tbDuracion.Text);
-                formato = tbFormato.Text;
-            }
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

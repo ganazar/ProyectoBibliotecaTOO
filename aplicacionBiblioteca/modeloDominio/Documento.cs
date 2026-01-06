@@ -26,7 +26,16 @@ namespace modeloDominio
             this.autor = autor;
             this.editorial = editorial;
             this.añoEdicion = añoEdicion ;
-            this.cantEjemplares = 0;
+            this.cantEjemplares = 1;
+        }
+        public Documento(string isbn, string titulo, string autor, string editorial, int añoEdicion, int cantEjemplares)
+        {
+            this.isbn = isbn;
+            this.titulo = titulo;
+            this.autor = autor;
+            this.editorial = editorial;
+            this.añoEdicion = añoEdicion;
+            this.cantEjemplares = cantEjemplares;
         }
         public string ISBN {
             get { return this.isbn; }

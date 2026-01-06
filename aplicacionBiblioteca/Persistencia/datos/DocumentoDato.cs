@@ -12,12 +12,14 @@ namespace Persistencia.Datos
         private string autor;
         private string editorial;
         private int añoEdicion;
-        public DocumentoDato(string isbn, string titulo, string autor, string editorial, int añoEdicion) : base(isbn)
+        private int cantEjemplares;
+        public DocumentoDato(string isbn, string titulo, string autor, string editorial, int añoEdicion, int cantEjemplares) : base(isbn)
         {
             this.titulo = titulo;
             this.autor = autor;
             this.editorial = editorial;
             this.añoEdicion = añoEdicion;
+            this.cantEjemplares = cantEjemplares;
         }
         public string Titulo
         {
@@ -38,6 +40,11 @@ namespace Persistencia.Datos
         {
             get { return this.añoEdicion; }
             set { this.añoEdicion = value; }
+        }
+        public int CantEjemplares
+        {
+            get { return this.cantEjemplares; }
+            set { this.cantEjemplares = value; }
         }
     }
 }

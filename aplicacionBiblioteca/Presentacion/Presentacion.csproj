@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FListadoGenerico.cs">
+    <Compile Include="PersonalAdquisiciones\FBusquedaEjemplar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FListadoGenerico.Designer.cs">
-      <DependentUpon>FListadoGenerico.cs</DependentUpon>
+    <Compile Include="PersonalAdquisiciones\FBusquedaEjemplar.Designer.cs">
+      <DependentUpon>FBusquedaEjemplar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FBajaEjemplar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FBajaEjemplar.Designer.cs">
+      <DependentUpon>FBajaEjemplar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FAltaEjemplar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FAltaEjemplar.Designer.cs">
+      <DependentUpon>FAltaEjemplar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FBusquedaDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FBusquedaDocumento.Designer.cs">
+      <DependentUpon>FBusquedaDocumento.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonalAdquisiciones\FBajaDocumento.cs">
       <SubType>Form</SubType>
@@ -63,6 +81,12 @@
     </Compile>
     <Compile Include="PersonalAdquisiciones\FAltaDocumento.Designer.cs">
       <DependentUpon>FAltaDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FListadoDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalAdquisiciones\FListadoDocumentos.Designer.cs">
+      <DependentUpon>FListadoDocumentos.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonalAdquisiciones\FPrincipalAdquisicion.cs">
       <SubType>Form</SubType>
@@ -120,14 +144,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FListadoGenerico.resx">
-      <DependentUpon>FListadoGenerico.cs</DependentUpon>
+    <EmbeddedResource Include="PersonalAdquisiciones\FBusquedaEjemplar.resx">
+      <DependentUpon>FBusquedaEjemplar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalAdquisiciones\FBajaEjemplar.resx">
+      <DependentUpon>FBajaEjemplar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalAdquisiciones\FAltaEjemplar.resx">
+      <DependentUpon>FAltaEjemplar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalAdquisiciones\FBusquedaDocumento.resx">
+      <DependentUpon>FBusquedaDocumento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonalAdquisiciones\FBajaDocumento.resx">
       <DependentUpon>FBajaDocumento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonalAdquisiciones\FAltaDocumento.resx">
       <DependentUpon>FAltaDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalAdquisiciones\FListadoDocumentos.resx">
+      <DependentUpon>FListadoDocumentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonalSala\FPrincipalSala.resx">
       <DependentUpon>FPrincipalSala.cs</DependentUpon>

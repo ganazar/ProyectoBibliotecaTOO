@@ -8,8 +8,8 @@ namespace Persistencia.Datos
 {
     internal class FisicoDato : DocumentoDato
     {
-        public FisicoDato(string isbn, string titulo, string autor, string editorial, int añoEdicion) 
-            : base(isbn, titulo, autor, editorial, añoEdicion) 
+        public FisicoDato(string isbn, string titulo, string autor, string editorial, int añoEdicion, int cantEjemplares) 
+            : base(isbn, titulo, autor, editorial, añoEdicion, cantEjemplares) 
         { }
     }
 }

@@ -20,13 +20,9 @@ namespace Presentacion
 {
     public partial class Login : Form
     {
-        private readonly IPersistenciaPersonal _persistencia;
-        public string NombreUsuario{ get; private set; }
-
-        public Login( IPersistenciaPersonal persistencia)
+        public Login()
         {
             InitializeComponent();
-            _persistencia = persistencia;
         }
 
         private void btEntrar_Click(object sender, EventArgs e)

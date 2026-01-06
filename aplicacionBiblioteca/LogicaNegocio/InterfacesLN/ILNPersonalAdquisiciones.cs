@@ -18,6 +18,12 @@ namespace LogicaNegocio.InterfacesLN
         /// <param name="d">Documento que contiene el criterio de búsqueda (normalmente el ISBN).</param>
         /// <returns>El Documento completo con sus datos, o null si no existe.</returns>
         Documento ConsultarDocumento(Documento d);
+        /// <summary>
+        /// Obtiene la información detallada de un ejemplar específico del catálogo.
+        /// </summary>
+        /// <param name="e">Ejemplar que contiene el codigo identificatorio.</param>
+        /// <returns>El Ejemplar completo con sus datos, o null si no existe.</returns>
+        Ejemplar ConsultarEjemplar(Ejemplar e);
 
         /// <summary>
         /// Registra la entrada de una nueva unidad física (ejemplar) de un documento en la biblioteca.

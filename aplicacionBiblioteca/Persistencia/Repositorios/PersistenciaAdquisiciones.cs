@@ -174,6 +174,7 @@ namespace Persistencia.Repositorios
             if (BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return false;
 
             var ejemplarDato = Transformers.EjemplarDato(ejemplar);
+            UpdateDocumento(ejemplar.Doc);
             BD.BD.tablaEjemplares.Add(ejemplarDato);
             return true;
         }
@@ -185,10 +186,10 @@ namespace Persistencia.Repositorios
             var eDato = BD.BD.tablaEjemplares[ejemplar.CodEjemplar];
 
             Documento doc = null;
-            if (BD.BD.tablaAudiolibros.Contains(eDato.Id))
-                doc = Transformers.Audiolibro(BD.BD.tablaAudiolibros[eDato.Id]);
-            else if (BD.BD.tablaFisicos.Contains(eDato.Id))
-                doc = Transformers.Fisico(BD.BD.tablaFisicos[eDato.Id]);
+            if (BD.BD.tablaAudiolibros.Contains(eDato.Doc))
+                doc = Transformers.Audiolibro(BD.BD.tablaAudiolibros[eDato.Doc]);
+            else if (BD.BD.tablaFisicos.Contains(eDato.Doc))
+                doc = Transformers.Fisico(BD.BD.tablaFisicos[eDato.Doc]);
 
             if (doc == null) return null;
 

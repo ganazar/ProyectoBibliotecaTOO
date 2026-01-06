@@ -15,10 +15,9 @@ namespace Presentacion
         [STAThread]
         static void Main()
         {
-            IPersistenciaPersonal BD = new Persistencia.Repositorios.PersistenciaPersonal();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login(BD));
+            Application.Run(new Login());
         }
     }
 }
