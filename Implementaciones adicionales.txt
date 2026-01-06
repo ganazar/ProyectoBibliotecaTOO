@@ -1,0 +1,21 @@
+Implementación de validación de formatos de entrada:
+
+Se ha incorporado una lógica de validación en los formularios de entrada de datos (FIntroducirClave y formularios de Alta) para asegurar la integridad de la información antes de llegar a la capa de persistencia.
+
+1. Validación de DNI:
+	- Se verifica el formato visual (8 dígitos seguidos de una letra) mediante expresiones regulares.
+   	- Se implementa la validación matemática del algoritmo del Ministerio del Interior (Módulo 23) para asegurar que la letra introducida corresponde a los números del DNI.
+
+2. Validación de ISBN:
+   	- El sistema admite el estándar actual (ISBN-13).
+   	- Se realiza una limpieza previa de la cadena (eliminación de guiones y espacios).
+   	- Se comprueba la longitud correcta y que los caracteres sean numéricos.
+   	- Se calcula el dígito de control mediante los algoritmos estándar (Módulo 10) para evitar errores de transcripción al dar de alta documentos.
+
+Implementación de funcionalidades extra en la parte de Documentos y Ejemplares:
+
+1. Eliminación de Documentos(Baja Documento):
+	- Elimina el documento del catálogo de la biblioteca únicamente si ya no hay ejemplares de dicho documento.
+
+2. Eliminación de Ejemplares(Baja Ejemplar):
+	- Elimina un ejemplar del inventario de la biblioteca unicamente si el ejemplar no froma parte de un préstamo activo.
