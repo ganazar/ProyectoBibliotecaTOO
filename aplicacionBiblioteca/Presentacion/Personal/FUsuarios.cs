@@ -63,8 +63,7 @@ namespace Presentacion.Personal
                     break;
             }
         }
-
-        private void btnAccion_Click(object sender, EventArgs e)
+        private void btAceptar_Click(object sender, EventArgs e)
         {
             if (tipo == TipoForm.Alta && string.IsNullOrWhiteSpace(tNombre.Text))
             {
@@ -74,7 +73,8 @@ namespace Presentacion.Personal
 
             if (tipo == TipoForm.Baja)
             {
-                if (MessageBox.Show("¿Está seguro que quiere dar de baja al usuario?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) {
+                if (MessageBox.Show("¿Está seguro que quiere dar de baja al usuario?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                {
                     return;
                 }
             }
@@ -82,15 +82,9 @@ namespace Presentacion.Personal
             this.Close();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void btAceptar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

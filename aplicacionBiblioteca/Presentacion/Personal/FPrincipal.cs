@@ -23,7 +23,7 @@ namespace Presentacion.Personal
         {
             InitializeComponent();
         }
-        public FPrincipal(string nombre, LogicaNegocio.InterfacesLN.ILNPersonal logica)  : this()
+        public FPrincipal(string nombre, LogicaNegocio.InterfacesLN.ILNPersonal logica) : this()
         {
             this.Text = nombre + " - Gestión de biblioteca";
             _logica = logica;
@@ -45,6 +45,13 @@ namespace Presentacion.Personal
             {
                 if (_logica.ConsultarUsuarioPorDni(f.Clave) == null)
                 {
+                    if (!DniValido(f.Clave))
+                    {
+                        MessageBox.Show("El formato del DNI no es válido o la letra es incorrecta.\nEjemplo: 12345678Z",
+                                        "DNI Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     FUsuarios fAlta = new FUsuarios(f.Clave,"", TipoForm.Alta);
                     fAlta.ShowDialog();
                     if (fAlta.DialogResult == DialogResult.OK)
@@ -85,7 +92,7 @@ namespace Presentacion.Personal
                 {
                     FUsuarios fBaja = new FUsuarios(u.DNI, u.Nombre, TipoForm.Baja);
                     DialogResult result = fBaja.ShowDialog();
-                    if (result == DialogResult.Yes)
+                    if (result == DialogResult.OK)
                     {
                         if (_logica.DarBajaUsuario(u))
                         {
@@ -113,36 +120,50 @@ namespace Presentacion.Personal
         }
         private void busquedaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FIntroducirClave f = new FIntroducirClave("DNI");
-            f.ShowDialog();
-            if(f.DialogResult == DialogResult.OK)
-            {
+            bool continuar = true;
+            do {
+                FIntroducirClave f = new FIntroducirClave("DNI");
+
+                if (f.ShowDialog() != DialogResult.OK)
+                {
+                    continuar = false;
+                    break;
+                }
+
                 if (!DniValido(f.Clave))
                 {
-                    MessageBox.Show("El formato del DNI no es válido o la letra es incorrecta.\nEjemplo: 12345678Z",
-                                    "DNI Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MessageBox.Show("El formato del DNI no es válido.\nEjemplo: 12345678Z",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    continue;
                 }
+
                 Usuario u = _logica.ConsultarUsuarioPorDni(f.Clave);
-                if (u !=null)
+
+                if (u != null)
                 {
-                    FUsuarios fBusqueda = new FUsuarios(u.DNI,u.Nombre,TipoForm.Busqueda);
+                    FUsuarios fBusqueda = new FUsuarios(u.DNI, u.Nombre, TipoForm.Busqueda);
                     fBusqueda.ShowDialog();
+
+                    continuar = false;
                 }
                 else
                 {
-                    DialogResult respuesta = MessageBox.Show("¿Quieres introducir otro?", "No existe un usuario con este DNI", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (respuesta == DialogResult.Yes)
+                    DialogResult respuesta = MessageBox.Show(
+                        "No existe un usuario con este DNI.\n¿Quieres introducir otro?",
+                        "Búsqueda fallida",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (respuesta == DialogResult.No)
                     {
-                        f.ShowDialog();
-                    }
-                    else
+                        continuar = false;
+                    } else
                     {
-                        return;
+                        f.Close();
                     }
                 }
 
-            }
+            } while (continuar);
         }
         private void búsquedaPorDNIToolStripMenuItem_Click(object sender, EventArgs e)
         {

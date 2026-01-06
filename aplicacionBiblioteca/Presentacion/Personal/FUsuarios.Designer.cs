@@ -38,18 +38,19 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(299, 186);
+            this.btCancelar.Location = new System.Drawing.Point(286, 186);
             this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btCancelar.Size = new System.Drawing.Size(100, 23);
             this.btCancelar.TabIndex = 11;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // btAceptar
             // 
-            this.btAceptar.Location = new System.Drawing.Point(161, 186);
+            this.btAceptar.Location = new System.Drawing.Point(133, 186);
             this.btAceptar.Name = "btAceptar";
-            this.btAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btAceptar.Size = new System.Drawing.Size(88, 23);
             this.btAceptar.TabIndex = 10;
             this.btAceptar.Text = "Aceptar";
             this.btAceptar.UseVisualStyleBackColor = true;
@@ -99,7 +100,7 @@
             this.Controls.Add(this.lbDNI);
             this.Controls.Add(this.lbNombre);
             this.Name = "FUsuarios";
-            this.Text = "Form1";
+            this.Text = "- Gestión de biblioteca";
             this.ResumeLayout(false);
             this.PerformLayout();
 
