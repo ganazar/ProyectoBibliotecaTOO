@@ -42,6 +42,12 @@ namespace LogicaNegocio.ClasesLN
 
             return _persistenciaAdq.ReadDocumento(d);
         }
+        public Ejemplar ConsultarEjemplar(Ejemplar e)
+        {
+            if (e == null) return null;
+
+            return _persistenciaAdq.ReadEjemplar(e);
+        }
 
         public bool DarAltaEjemplar(Ejemplar e)
         {

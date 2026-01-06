@@ -11,6 +11,9 @@ namespace modeloDominio
         public Fisico(string isbn, string titulo, string autor, string editorial, int añoEdicion) 
             : base(isbn, titulo, autor, editorial, añoEdicion) 
         { }
+        public Fisico(string isbn, string titulo, string autor, string editorial, int añoEdicion, int cantEjemplares)
+            : base(isbn, titulo, autor, editorial, añoEdicion, cantEjemplares)
+        { }
         public Fisico(string isbn) : base(isbn) { }
     }
 }

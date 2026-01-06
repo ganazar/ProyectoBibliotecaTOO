@@ -12,17 +12,20 @@ namespace Persistencia.BD
     {
         public static Audiolibro Audiolibro(AudiolibroDato a)
         {
-            return new Audiolibro(a.Id,a.Titulo, a.Autor,a.Editorial,a.AñoEdicion,a.Duracion,a.Formato);
+            return new Audiolibro(a.Id,a.Titulo, a.Autor,a.Editorial,a.AñoEdicion, a.CantEjemplares,a.Duracion,a.Formato);
         }
 
         public static AudiolibroDato AudiolibroDato(Audiolibro a)
         {
-            return new AudiolibroDato(a.ISBN,a.Titulo,a.Autor,a.Editorial,a.AñoEdicion,a.Formato,a.Duracion);
+            return new AudiolibroDato(a.ISBN,a.Titulo,a.Autor,a.Editorial,a.AñoEdicion, a.CantEjemplares,a.Formato,a.Duracion);
         }
 
         public static Ejemplar Ejemplar(EjemplarDato e, Documento d)
         {
-            return new Ejemplar(d);
+            Ejemplar aux = new Ejemplar(e.Id);
+            aux.Doc = d;
+            aux.Prestado = e.Prestado;
+            return aux;
         }
 
         public static EjemplarDato EjemplarDato(Ejemplar e)
@@ -32,12 +35,12 @@ namespace Persistencia.BD
 
         public static FisicoDato FisicoDato(Fisico f)
         {
-            return new FisicoDato(f.ISBN,f.Titulo,f.Autor,f.Editorial,f.AñoEdicion);
+            return new FisicoDato(f.ISBN,f.Titulo,f.Autor,f.Editorial,f.AñoEdicion, f.CantEjemplares);
         }
 
         public static Fisico Fisico(FisicoDato f)
         {
-            return new Fisico(f.Id,f.Titulo,f.Autor,f.Editorial,f.AñoEdicion);
+            return new Fisico(f.Id,f.Titulo,f.Autor,f.Editorial,f.AñoEdicion, f.CantEjemplares);
         }
 
         public static PersonalAdquisicionDato PersonalAdquisicionDato(PersonalAdquisiciones p)

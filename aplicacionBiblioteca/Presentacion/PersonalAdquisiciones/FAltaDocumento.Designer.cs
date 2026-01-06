@@ -31,6 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbISBN = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbFormato = new System.Windows.Forms.TextBox();
+            this.tbDuracion = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.rbAudiolibro = new System.Windows.Forms.RadioButton();
             this.rbLibro = new System.Windows.Forms.RadioButton();
             this.tbTitulo = new System.Windows.Forms.TextBox();
@@ -39,12 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbEditorial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbDuracion = new System.Windows.Forms.TextBox();
-            this.tbFormato = new System.Windows.Forms.TextBox();
+            this.btAceptar = new System.Windows.Forms.Button();
+            this.btCancelar = new System.Windows.Forms.Button();
             this.tbAnoEdicion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -80,6 +80,43 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de documento";
+            // 
+            // tbFormato
+            // 
+            this.tbFormato.Location = new System.Drawing.Point(237, 54);
+            this.tbFormato.Name = "tbFormato";
+            this.tbFormato.Size = new System.Drawing.Size(100, 20);
+            this.tbFormato.TabIndex = 5;
+            this.tbFormato.Visible = false;
+            // 
+            // tbDuracion
+            // 
+            this.tbDuracion.Location = new System.Drawing.Point(237, 20);
+            this.tbDuracion.Name = "tbDuracion";
+            this.tbDuracion.Size = new System.Drawing.Size(100, 20);
+            this.tbDuracion.TabIndex = 4;
+            this.tbDuracion.Visible = false;
+            this.tbDuracion.TextChanged += new System.EventHandler(this.tbDuracion_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(182, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Formato:";
+            this.label6.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(182, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Duración:";
+            this.label5.Visible = false;
             // 
             // rbAudiolibro
             // 
@@ -152,60 +189,25 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Editorial:";
             // 
-            // button2
+            // btAceptar
             // 
-            this.button2.Location = new System.Drawing.Point(225, 291);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Dar alta";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btAceptar.Location = new System.Drawing.Point(225, 291);
+            this.btAceptar.Name = "btAceptar";
+            this.btAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btAceptar.TabIndex = 13;
+            this.btAceptar.Text = "Dar alta";
+            this.btAceptar.UseVisualStyleBackColor = true;
+            this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
             // 
-            // button3
+            // btCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(316, 291);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(182, 23);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Duración:";
-            this.label5.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(182, 57);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Formato:";
-            this.label6.Visible = false;
-            // 
-            // tbDuracion
-            // 
-            this.tbDuracion.Location = new System.Drawing.Point(237, 20);
-            this.tbDuracion.Name = "tbDuracion";
-            this.tbDuracion.Size = new System.Drawing.Size(100, 20);
-            this.tbDuracion.TabIndex = 4;
-            this.tbDuracion.Visible = false;
-            this.tbDuracion.TextChanged += new System.EventHandler(this.tbDuracion_TextChanged);
-            // 
-            // tbFormato
-            // 
-            this.tbFormato.Location = new System.Drawing.Point(237, 54);
-            this.tbFormato.Name = "tbFormato";
-            this.tbFormato.Size = new System.Drawing.Size(100, 20);
-            this.tbFormato.TabIndex = 5;
-            this.tbFormato.Visible = false;
+            this.btCancelar.Location = new System.Drawing.Point(316, 291);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btCancelar.TabIndex = 14;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // tbAnoEdicion
             // 
@@ -231,8 +233,8 @@
             this.ClientSize = new System.Drawing.Size(473, 349);
             this.Controls.Add(this.tbAnoEdicion);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btCancelar);
+            this.Controls.Add(this.btAceptar);
             this.Controls.Add(this.tbEditorial);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbAutor);
@@ -265,8 +267,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbEditorial;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btAceptar;
+        private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.TextBox tbFormato;
         private System.Windows.Forms.TextBox tbDuracion;
         private System.Windows.Forms.Label label6;

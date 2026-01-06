@@ -10,8 +10,8 @@ namespace Persistencia.Datos
     {
         private string formato;
         private int duracion;
-        public AudiolibroDato(string isbn, string titulo, string autor, string editorial, int añoEdicion, string formato, int duracion)
-            : base(isbn, titulo, autor, editorial, añoEdicion)
+        public AudiolibroDato(string isbn, string titulo, string autor, string editorial, int añoEdicion, int cantEjemplares, string formato, int duracion)
+            : base(isbn, titulo, autor, editorial, añoEdicion, cantEjemplares)
         {
             this.duracion = duracion;
             this.formato = formato;

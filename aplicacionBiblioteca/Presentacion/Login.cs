@@ -1,7 +1,5 @@
 ﻿using LogicaNegocio;
 using LogicaNegocio.InterfacesLN;
-using Persistencia;
-using Persistencia.Interfaces;
 using Presentacion.PersonalSala;
 using Presentacion.PersonalAdquisiciones;
 using System;
@@ -20,12 +18,10 @@ namespace Presentacion
 {
     public partial class Login : Form
     {
-        private readonly IPersistenciaPersonal persistencia;
-
-        public Login( IPersistenciaPersonal _persistencia)
+        string NombreUsuario { get; set; }
+        public Login()
         {
             InitializeComponent();
-            persistencia = _persistencia;
         }
 
         private void btEntrar_Click(object sender, EventArgs e)
@@ -38,17 +34,18 @@ namespace Presentacion
                 tbNombre.Focus();
             } else
             {
-                string nombre = tbNombre.Text;
+                this.NombreUsuario = tbNombre.Text;
                 if (rbPersonalSala.Checked)
                 {
-                    ILNPersonalSala logica =  new LNPersonalSala(new PersistenciaSala());
-                    FPrincipalSala form = new FPrincipalSala(nombre, logica);
+                    PersistenciaSala p = new PersistenciaSala(); 
+                    ILNPersonalSala logica =  new LNPersonalSala(p );
+                    FPrincipalSala form = new FPrincipalSala(NombreUsuario, logica);
                     form.Show();
                 }
                 else if (rbPersonalAdquisicion.Checked)
                 {
                     ILNPersonalAdquisiciones logica = new LNPersonalAdquisiciones(new PersistenciaAdquisiciones());
-                    FPrincipalAdquisicion form = new FPrincipalAdquisicion(nombre, logica);
+                    FPrincipalAdquisicion form = new FPrincipalAdquisicion(NombreUsuario, logica);
                     form.Show();
                 }
                 else
@@ -56,16 +53,6 @@ namespace Presentacion
                     MessageBox.Show("Seleccione un tipo de empleado.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbNombre_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
