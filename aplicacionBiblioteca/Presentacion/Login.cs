@@ -21,6 +21,7 @@ namespace Presentacion
     public partial class Login : Form
     {
         private readonly IPersistenciaPersonal _persistencia;
+        public string NombreUsuario{ get; private set; }
 
         public Login( IPersistenciaPersonal persistencia)
         {
@@ -38,18 +39,18 @@ namespace Presentacion
                 tbNombre.Focus();
             } else
             {
-                string nombre = tbNombre.Text;
+                this.NombreUsuario = tbNombre.Text;
                 if (rbPersonalSala.Checked)
                 {
                     PersistenciaSala p = new PersistenciaSala(); 
                     ILNPersonalSala logica =  new LNPersonalSala(p );
-                    FPrincipalSala form = new FPrincipalSala(nombre, logica);
+                    FPrincipalSala form = new FPrincipalSala(NombreUsuario, logica);
                     form.Show();
                 }
                 else if (rbPersonalAdquisicion.Checked)
                 {
                     ILNPersonalAdquisiciones logica = new LNPersonalAdquisiciones(new PersistenciaAdquisiciones());
-                    FPrincipalAdquisicion form = new FPrincipalAdquisicion(nombre, logica);
+                    FPrincipalAdquisicion form = new FPrincipalAdquisicion(NombreUsuario, logica);
                     form.Show();
                 }
                 else

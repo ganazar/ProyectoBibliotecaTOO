@@ -45,7 +45,7 @@ namespace Presentacion.Personal
             {
                 if (_logica.ConsultarUsuarioPorDni(f.Clave) == null)
                 {
-                    FAltaUsuario fAlta = new FAltaUsuario(f.Clave);
+                    FUsuarios fAlta = new FUsuarios(f.Clave,"", TipoForm.Alta);
                     fAlta.ShowDialog();
                     if (fAlta.DialogResult == DialogResult.OK)
                     {
@@ -83,10 +83,7 @@ namespace Presentacion.Personal
                 Usuario u = _logica.ConsultarUsuarioPorDni(f.Clave);
                 if (u != null)
                 {
-                    FBajaUsuario fBaja = new FBajaUsuario();
-                    fBaja.Dni = u.DNI;
-                    fBaja.Nombre = u.Nombre;
-                    
+                    FUsuarios fBaja = new FUsuarios(u.DNI, u.Nombre, TipoForm.Baja);
                     DialogResult result = fBaja.ShowDialog();
                     if (result == DialogResult.Yes)
                     {
@@ -123,9 +120,7 @@ namespace Presentacion.Personal
                 Usuario u = _logica.ConsultarUsuarioPorDni(f.Clave);
                 if (u !=null)
                 {
-                    FBusquedaUsuario fBusqueda = new FBusquedaUsuario();
-                    fBusqueda.Dni = u.DNI;
-                    fBusqueda.Nombre = u.Nombre;
+                    FUsuarios fBusqueda = new FUsuarios(u.DNI,u.Nombre,TipoForm.Busqueda);
                     fBusqueda.ShowDialog();
                 }
                 else
@@ -176,14 +171,9 @@ namespace Presentacion.Personal
         {
             var listadoUsuarios = _logica.GetAllUsuarios();
             Dictionary<string, string> dicUsuarios = ListadoADiccionario(listadoUsuarios);
-            
+
             FRecorrido f = new FRecorrido(dicUsuarios);
             f.Show();
-        }
-
-        private void FPrincipal_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

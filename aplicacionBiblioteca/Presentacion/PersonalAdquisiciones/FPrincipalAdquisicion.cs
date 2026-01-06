@@ -51,6 +51,7 @@ namespace Presentacion.PersonalAdquisiciones
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
+                /*
                 Documento aux = logicaAdq.ConsultarDocumento();
                 if (aux == null)
                 {
@@ -67,8 +68,9 @@ namespace Presentacion.PersonalAdquisiciones
                             doc = new Audiolibro(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion, form1.Duracion, form1.Formato);
                         }
                         logicaAdq.DarAltaDocumento(doc);
-                    }
+                    } 
                 }
+                */
             }
         }
         public void bajaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
@@ -77,7 +79,7 @@ namespace Presentacion.PersonalAdquisiciones
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Documento aux = logicaAdq.ConsultarDocumento();
+                /*Documento aux = logicaAdq.ConsultarDocumento();
                 if (aux != null)
                 {
                     FBajaDocumento form1 = new FBajaDocumento(aux);
@@ -91,6 +93,7 @@ namespace Presentacion.PersonalAdquisiciones
                 {
                     MessageBox.Show("No existe un documento con ese ISBN");
                 }
+                */
             }
         }
         private void busquedaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
