@@ -20,6 +20,7 @@ namespace Presentacion
 {
     public partial class Login : Form
     {
+        string NombreUsuario { get; set; }
         public Login()
         {
             InitializeComponent();

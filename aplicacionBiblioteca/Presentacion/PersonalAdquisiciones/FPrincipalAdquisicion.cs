@@ -85,14 +85,14 @@ namespace Presentacion.PersonalAdquisiciones
                         if (form1.TipoDocumento.Equals("Fisico"))
                         {
                             doc = new Fisico(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion);
-                        }else if (form1.TipoDocumento.Equals("Audiolibro"))
+                        }
+                        else if (form1.TipoDocumento.Equals("Audiolibro"))
                         {
                             doc = new Audiolibro(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion, form1.Duracion, form1.Formato);
                         }
                         logicaAdq.DarAltaDocumento(doc);
-                    } 
+                    }
                 }
-                */
             }
         }
         private void bajaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
@@ -115,7 +115,6 @@ namespace Presentacion.PersonalAdquisiciones
                 {
                     MessageBox.Show("No existe un documento con ese ISBN");
                 }
-                */
             }
         }
         private void busquedaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
