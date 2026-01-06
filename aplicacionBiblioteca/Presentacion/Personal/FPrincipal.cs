@@ -22,10 +22,11 @@ namespace Presentacion.Personal
         {
             InitializeComponent();
         }
-        protected FPrincipal(string nombre, LogicaNegocio.InterfacesLN.ILNPersonal logica) : this()
+        protected FPrincipal(string nombre, LogicaNegocio.InterfacesLN.ILNPersonal logica) 
         {
             this.Text = nombre + " - Gestión de biblioteca";
             _logica = logica;
+            InitializeComponent();
         }
         private Dictionary<string, string> ListadoADiccionario(List<Usuario> lista)
         {
@@ -178,6 +179,11 @@ namespace Presentacion.Personal
             
             FRecorrido f = new FRecorrido(dicUsuarios);
             f.Show();
+        }
+
+        private void FPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
