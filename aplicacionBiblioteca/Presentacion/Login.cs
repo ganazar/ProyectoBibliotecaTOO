@@ -1,7 +1,5 @@
 ﻿using LogicaNegocio;
 using LogicaNegocio.InterfacesLN;
-using Persistencia;
-using Persistencia.Interfaces;
 using Presentacion.PersonalSala;
 using Presentacion.PersonalAdquisiciones;
 using System;
@@ -55,16 +53,6 @@ namespace Presentacion
                     MessageBox.Show("Seleccione un tipo de empleado.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbNombre_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
