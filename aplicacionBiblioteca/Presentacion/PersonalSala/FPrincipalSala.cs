@@ -56,7 +56,7 @@ namespace Presentacion.PersonalSala
             prestamosToolStripMenuItem.DropDownItems.Add(listadoPrestamosToolStripMenuItem);
         }
         private void altaPrestamoToolStripMenuItem_Clicked(object sender, EventArgs e)
-        {
+        {/*
             FIntroducirClave form = new FIntroducirClave("ISBN");
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
@@ -80,10 +80,10 @@ namespace Presentacion.PersonalSala
                         logicaAdq.DarAltaDocumento(doc);
                     }
                 }
-            }
+            }*/
         }
         private void bajaPrestamoToolStripMenuItem_Clicked(object sender, EventArgs e)
-        {
+        {/*
             FIntroducirClave form = new FIntroducirClave("ISBN");
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
@@ -102,10 +102,10 @@ namespace Presentacion.PersonalSala
                 {
                     MessageBox.Show("No existe un documento con ese ISBN");
                 }
-            }
+            }*/
         }
         private void busquedaPrestamoToolStripMenuItem_Clicked(object sender, EventArgs e)
-        {
+        {/*
             FIntroducirClave form = new FIntroducirClave("ISBN");
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
@@ -120,12 +120,12 @@ namespace Presentacion.PersonalSala
                 {
                     MessageBox.Show("No existe un documento con ese ISBN");
                 }
-            }
+            }*/
         }
-        private void listadoPrestamoToolStripMenuItem_Clicked(object sender, EventArgs e)
+        private void listadoPrestamosToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
-            FListadoPrestamo form = new FListadoPrestamo(logicaSala.GetAllPrestamos());
-            form.ShowDialog();
+            //FListadoPrestamo form = new FListadoPrestamo(logicaSala.GetAllPrestamos());
+            //form.ShowDialog();
         }
     }
 }

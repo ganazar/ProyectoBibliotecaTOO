@@ -39,6 +39,16 @@ namespace modeloDominio
             get { return this.prestado; }
             set { this.prestado = value; }
         }
+        public string InfoMostrar
+        {
+            get
+            {
+                return $"Codigo: {codEjemplar} Documento: ISBN: {doc.ISBN} Titulo: {doc.Titulo}";
+            }
+        }
+    }
+
+}
         public string ISBN { get { return doc.ISBN; } }
         
     }

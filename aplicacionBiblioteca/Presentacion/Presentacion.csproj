@@ -100,6 +100,12 @@
     <Compile Include="PersonalAdquisiciones\FRecorridoDocumentos.Designer.cs">
       <DependentUpon>FRecorridoDocumentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonalSala\FElejirEjemplar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalSala\FElejirEjemplar.Designer.cs">
+      <DependentUpon>FElejirEjemplar.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonalSala\FPrincipalSala.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PersonalAdquisiciones\FRecorridoDocumentos.resx">
       <DependentUpon>FRecorridoDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalSala\FAltaPrestamo.resx">
+      <DependentUpon>FAltaPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalSala\FElejirEjemplar.resx">
+      <DependentUpon>FElejirEjemplar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonalSala\FPrincipalSala.resx">
       <DependentUpon>FPrincipalSala.cs</DependentUpon>

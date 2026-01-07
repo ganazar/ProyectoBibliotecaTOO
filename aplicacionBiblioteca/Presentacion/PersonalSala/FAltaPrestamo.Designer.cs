@@ -28,12 +28,158 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.tbFecha = new System.Windows.Forms.TextBox();
+            this.cbUsuario = new System.Windows.Forms.ComboBox();
+            this.btAceptar = new System.Windows.Forms.Button();
+            this.btCancelar = new System.Windows.Forms.Button();
+            this.btAñadirEjem = new System.Windows.Forms.Button();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.gbEjemplares = new System.Windows.Forms.GroupBox();
+            this.rbPrestado = new System.Windows.Forms.RadioButton();
+            this.lblIdEjemp = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.gbEjemplares.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tbFecha
+            // 
+            this.tbFecha.Enabled = false;
+            this.tbFecha.Location = new System.Drawing.Point(265, 90);
+            this.tbFecha.Name = "tbFecha";
+            this.tbFecha.Size = new System.Drawing.Size(192, 31);
+            this.tbFecha.TabIndex = 1;
+            // 
+            // cbUsuario
+            // 
+            this.cbUsuario.FormattingEnabled = true;
+            this.cbUsuario.Location = new System.Drawing.Point(265, 165);
+            this.cbUsuario.Name = "cbUsuario";
+            this.cbUsuario.Size = new System.Drawing.Size(192, 33);
+            this.cbUsuario.TabIndex = 2;
+            // 
+            // btAceptar
+            // 
+            this.btAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btAceptar.Location = new System.Drawing.Point(453, 549);
+            this.btAceptar.Name = "btAceptar";
+            this.btAceptar.Size = new System.Drawing.Size(173, 50);
+            this.btAceptar.TabIndex = 3;
+            this.btAceptar.Text = "Aceptar";
+            this.btAceptar.UseVisualStyleBackColor = true;
+            // 
+            // btCancelar
+            // 
+            this.btCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btCancelar.Location = new System.Drawing.Point(704, 549);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(173, 50);
+            this.btCancelar.TabIndex = 4;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btAñadirEjem
+            // 
+            this.btAñadirEjem.Location = new System.Drawing.Point(72, 278);
+            this.btAñadirEjem.Name = "btAñadirEjem";
+            this.btAñadirEjem.Size = new System.Drawing.Size(385, 38);
+            this.btAñadirEjem.TabIndex = 5;
+            this.btAñadirEjem.Text = "Añadir ejemplar";
+            this.btAñadirEjem.UseVisualStyleBackColor = true;
+            this.btAñadirEjem.Click += new System.EventHandler(this.btAñadirEjem_Click);
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(67, 96);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(78, 25);
+            this.lblFecha.TabIndex = 7;
+            this.lblFecha.Text = "Fecha:";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(67, 173);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(92, 25);
+            this.lblUsuario.TabIndex = 8;
+            this.lblUsuario.Text = "Usuario:";
+            // 
+            // gbEjemplares
+            // 
+            this.gbEjemplares.Controls.Add(this.textBox1);
+            this.gbEjemplares.Controls.Add(this.lblIdEjemp);
+            this.gbEjemplares.Controls.Add(this.rbPrestado);
+            this.gbEjemplares.Location = new System.Drawing.Point(566, 90);
+            this.gbEjemplares.Name = "gbEjemplares";
+            this.gbEjemplares.Size = new System.Drawing.Size(737, 410);
+            this.gbEjemplares.TabIndex = 9;
+            this.gbEjemplares.TabStop = false;
+            this.gbEjemplares.Text = "Ejemplares añadidos";
+            // 
+            // rbPrestado
+            // 
+            this.rbPrestado.AutoSize = true;
+            this.rbPrestado.Checked = true;
+            this.rbPrestado.Enabled = false;
+            this.rbPrestado.Location = new System.Drawing.Point(562, 75);
+            this.rbPrestado.Name = "rbPrestado";
+            this.rbPrestado.Size = new System.Drawing.Size(129, 29);
+            this.rbPrestado.TabIndex = 0;
+            this.rbPrestado.TabStop = true;
+            this.rbPrestado.Text = "Prestado";
+            this.rbPrestado.UseVisualStyleBackColor = true;
+            // 
+            // lblIdEjemp
+            // 
+            this.lblIdEjemp.AutoSize = true;
+            this.lblIdEjemp.Location = new System.Drawing.Point(44, 79);
+            this.lblIdEjemp.Name = "lblIdEjemp";
+            this.lblIdEjemp.Size = new System.Drawing.Size(128, 25);
+            this.lblIdEjemp.TabIndex = 1;
+            this.lblIdEjemp.Text = "ID Ejemplar:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(196, 76);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(330, 31);
+            this.textBox1.TabIndex = 2;
+            // 
+            // FAltaPrestamo
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1419, 715);
+            this.Controls.Add(this.gbEjemplares);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.btAñadirEjem);
+            this.Controls.Add(this.btCancelar);
+            this.Controls.Add(this.btAceptar);
+            this.Controls.Add(this.cbUsuario);
+            this.Controls.Add(this.tbFecha);
+            this.Name = "FAltaPrestamo";
             this.Text = "FAltaPrestamo";
+            this.gbEjemplares.ResumeLayout(false);
+            this.gbEjemplares.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+        private System.Windows.Forms.TextBox tbFecha;
+        private System.Windows.Forms.ComboBox cbUsuario;
+        private System.Windows.Forms.Button btAceptar;
+        private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.Button btAñadirEjem;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.GroupBox gbEjemplares;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblIdEjemp;
+        private System.Windows.Forms.RadioButton rbPrestado;
     }
 }

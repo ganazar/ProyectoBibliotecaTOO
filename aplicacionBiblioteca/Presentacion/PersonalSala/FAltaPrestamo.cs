@@ -1,4 +1,5 @@
-﻿using System;
+﻿using modeloDominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,22 @@ namespace Presentacion.PersonalSala
 {
     public partial class FAltaPrestamo : Form
     {
-        public FAltaPrestamo()
+        private List<Ejemplar> ej;
+        public FAltaPrestamo(List<Ejemplar> _ej, List<Usuario> usur)
         {
+            this.ej = _ej;
             InitializeComponent();
+
+            BindingSource us = new BindingSource();
+            us.DataSource = usur;
+
+            cbUsuario.DataSource = us;
+            cbUsuario.DisplayMember = "DNI";
+        }
+
+        private void btAñadirEjem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
