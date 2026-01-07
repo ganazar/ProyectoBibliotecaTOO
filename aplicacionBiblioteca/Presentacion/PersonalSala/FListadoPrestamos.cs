@@ -26,7 +26,6 @@ namespace Presentacion.PersonalSala
                 Width = 100
             });
 
-            // Columna para la Fecha
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "FechaPrestamo",
@@ -35,7 +34,6 @@ namespace Presentacion.PersonalSala
                 DefaultCellStyle = { Format = "dd/MM/yyyy" }
             });
 
-            // Columna para el Estado
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Estado",
@@ -43,8 +41,6 @@ namespace Presentacion.PersonalSala
                 ReadOnly = true
             });
 
-            // Columna para ver cuántos ejemplares hay en ese préstamo
-            // Asumiendo que Ejemplares es una List, podemos mostrar el conteo
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "CantidadEjemplares",
