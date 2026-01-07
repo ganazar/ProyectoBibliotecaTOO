@@ -38,5 +38,6 @@ namespace Persistencia.Interfaces
         /// <returns>True si se ha borrado correctamente false en caso contrario</returns>
         bool DeletePrestamo(Prestamo user);
         List<Prestamo> GetAllPrestamos();
+        bool UpdateEjemplar(Ejemplar ejemplar);
     }
 }

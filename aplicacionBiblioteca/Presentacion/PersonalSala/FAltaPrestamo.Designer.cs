@@ -36,9 +36,7 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.gbEjemplares = new System.Windows.Forms.GroupBox();
-            this.rbPrestado = new System.Windows.Forms.RadioButton();
-            this.lblIdEjemp = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.gbEjemplares.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,9 +106,7 @@
             // 
             // gbEjemplares
             // 
-            this.gbEjemplares.Controls.Add(this.textBox1);
-            this.gbEjemplares.Controls.Add(this.lblIdEjemp);
-            this.gbEjemplares.Controls.Add(this.rbPrestado);
+            this.gbEjemplares.Controls.Add(this.flowLayoutPanel1);
             this.gbEjemplares.Location = new System.Drawing.Point(566, 90);
             this.gbEjemplares.Name = "gbEjemplares";
             this.gbEjemplares.Size = new System.Drawing.Size(737, 410);
@@ -118,34 +114,14 @@
             this.gbEjemplares.TabStop = false;
             this.gbEjemplares.Text = "Ejemplares añadidos";
             // 
-            // rbPrestado
+            // flowLayoutPanel1
             // 
-            this.rbPrestado.AutoSize = true;
-            this.rbPrestado.Checked = true;
-            this.rbPrestado.Enabled = false;
-            this.rbPrestado.Location = new System.Drawing.Point(562, 75);
-            this.rbPrestado.Name = "rbPrestado";
-            this.rbPrestado.Size = new System.Drawing.Size(129, 29);
-            this.rbPrestado.TabIndex = 0;
-            this.rbPrestado.TabStop = true;
-            this.rbPrestado.Text = "Prestado";
-            this.rbPrestado.UseVisualStyleBackColor = true;
-            // 
-            // lblIdEjemp
-            // 
-            this.lblIdEjemp.AutoSize = true;
-            this.lblIdEjemp.Location = new System.Drawing.Point(44, 79);
-            this.lblIdEjemp.Name = "lblIdEjemp";
-            this.lblIdEjemp.Size = new System.Drawing.Size(128, 25);
-            this.lblIdEjemp.TabIndex = 1;
-            this.lblIdEjemp.Text = "ID Ejemplar:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(196, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(330, 31);
-            this.textBox1.TabIndex = 2;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(16, 43);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(702, 343);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // FAltaPrestamo
             // 
@@ -162,8 +138,8 @@
             this.Controls.Add(this.tbFecha);
             this.Name = "FAltaPrestamo";
             this.Text = "FAltaPrestamo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FAltaPrestamo_FormClosing);
             this.gbEjemplares.ResumeLayout(false);
-            this.gbEjemplares.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,8 +154,6 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.GroupBox gbEjemplares;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblIdEjemp;
-        private System.Windows.Forms.RadioButton rbPrestado;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

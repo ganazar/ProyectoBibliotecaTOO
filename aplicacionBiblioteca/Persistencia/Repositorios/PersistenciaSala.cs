@@ -12,6 +12,7 @@ namespace Persistencia.Repositorios
     {
         public bool CreatePrestamo(Prestamo prestamo)
         {
+            prestamo.FechaPrestamo = prestamo.FechaPrestamo.Date;
             var clave = new ClavePrestamo(prestamo.Usuario.DNI, prestamo.FechaPrestamo);
 
             if (BD.BD.tablaPrestamos.Contains(clave)) return false;
@@ -42,7 +43,7 @@ namespace Persistencia.Repositorios
             var pDominio = Transformers.Prestamo(pDato);
 
             var ejemplaresAsociados = BD.BD.tablaPrestamoEjemplar
-                .Where(pe => pe.Id.Dni == clave.Dni && pe.Id.Fecha == clave.Fecha)
+                .Where(pe => pe.Id.Dni == clave.Dni && pe.Id.Fecha.Date == clave.Fecha.Date)
                 .ToList();
 
             foreach (var rel in ejemplaresAsociados)
@@ -52,10 +53,14 @@ namespace Persistencia.Repositorios
                     var eDato = BD.BD.tablaEjemplares[rel.Id.CodEjemplar];
 
                     Documento doc = null;
-                    if (BD.BD.tablaAudiolibros.Contains(eDato.Id))
-                        doc = Transformers.Audiolibro(BD.BD.tablaAudiolibros[eDato.Id]);
-                    else if (BD.BD.tablaFisicos.Contains(eDato.Id))
-                        doc = Transformers.Fisico(BD.BD.tablaFisicos[eDato.Id]);
+                    if (BD.BD.tablaAudiolibros.Contains(eDato.Doc))
+                    {
+                        doc = Transformers.Audiolibro(BD.BD.tablaAudiolibros[eDato.Doc]);
+                    }
+                    else if (BD.BD.tablaFisicos.Contains(eDato.Doc))
+                    {
+                        doc = Transformers.Fisico(BD.BD.tablaFisicos[eDato.Doc]);
+                    }
 
                     if (doc != null)
                     {
@@ -104,6 +109,15 @@ namespace Persistencia.Repositorios
             }
 
             return listaCompleta;
+        }
+
+        public bool UpdateEjemplar(Ejemplar ejemplar)
+        {
+            if (!BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return false;
+
+            BD.BD.tablaEjemplares.Remove(ejemplar.CodEjemplar);
+            BD.BD.tablaEjemplares.Add(Transformers.EjemplarDato(ejemplar));
+            return true;
         }
     }
 }

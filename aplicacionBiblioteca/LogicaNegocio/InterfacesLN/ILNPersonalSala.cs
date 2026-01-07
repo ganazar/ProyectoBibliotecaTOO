@@ -29,21 +29,14 @@ namespace LogicaNegocio.InterfacesLN
         /// </summary>
         /// <param name="e">El ejemplar específico que será prestado.</param>
         /// <param name="u">El usuario que solicita el préstamo.</param>
-        /// <returns>El objeto <see cref="Prestamo"/> generado.</returns>
-        Prestamo iniciarPrestamo(List<Ejemplar> le, Usuario u);
+        /// <returns>Verdader si se ha guardo el prestamo y falso en caso contrario</returns>
+        bool iniciarPrestamo(Prestamo p);
 
         /// <summary>
         /// Finaliza el préstamo asociado a un ejemplar, marcándolo como devuelto.
         /// </summary>
         /// <param name="e">El ejemplar que está siendo devuelto a la sala.</param>
         void devolverPrestamo(Ejemplar e);
-
-        /// <summary>
-        /// Obtiene el usuario asociado a un préstamo específico.
-        /// </summary>
-        /// <param name="p">El préstamo del cual se quiere conocer el titular.</param>
-        /// <returns>El objeto <see cref="Usuario"/> asociado al préstamo.</returns>
-        Usuario usuarioDePrestamo(Prestamo p);
 
         /// <summary>
         /// Consulta el estado actual de un préstamo (enProceso,Finalizado).
@@ -82,5 +75,9 @@ namespace LogicaNegocio.InterfacesLN
         /// </summary>
         /// <returns>Una lista genérica (List) con todos los objetos Prestamo encontrados.</returns>
         List<Prestamo> GetAllPrestamos();
+
+        List<Ejemplar> GetAllEjemplares();
+
+        bool ActualizarEjemplar(Ejemplar ejemplar);
     }
 }

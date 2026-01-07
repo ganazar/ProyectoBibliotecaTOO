@@ -70,7 +70,10 @@ namespace Persistencia.BD
 
         public static Prestamo Prestamo(PrestamoDato p)
         {
-            return new Prestamo(new Usuario(p.Id.Dni), p.Id.Fecha);
+            var pDominio = new Prestamo(new Usuario(p.Id.Dni), p.Id.Fecha);
+            pDominio.Estado = p.Estado;
+            pDominio.Ejemplares = new List<Ejemplar>();
+            return pDominio;
         }
 
         public static UsuarioDato UsuarioDato(Usuario u)

@@ -100,11 +100,23 @@
     <Compile Include="PersonalAdquisiciones\FRecorridoDocumentos.Designer.cs">
       <DependentUpon>FRecorridoDocumentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonalSala\FBusquedaPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalSala\FBusquedaPrestamo.Designer.cs">
+      <DependentUpon>FBusquedaPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonalSala\FElejirEjemplar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PersonalSala\FElejirEjemplar.Designer.cs">
       <DependentUpon>FElejirEjemplar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalSala\FListadoPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalSala\FListadoPrestamos.Designer.cs">
+      <DependentUpon>FListadoPrestamos.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonalSala\FPrincipalSala.cs">
       <SubType>Form</SubType>
@@ -117,6 +129,12 @@
     </Compile>
     <Compile Include="FIntroducirClave.Designer.cs">
       <DependentUpon>FIntroducirClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalSala\UCRenglonEjemplar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PersonalSala\UCRenglonEjemplar.Designer.cs">
+      <DependentUpon>UCRenglonEjemplar.cs</DependentUpon>
     </Compile>
     <Compile Include="Personal\FBusquedaDni.cs">
       <SubType>Form</SubType>
@@ -180,11 +198,20 @@
     <EmbeddedResource Include="PersonalSala\FAltaPrestamo.resx">
       <DependentUpon>FAltaPrestamo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PersonalSala\FBusquedaPrestamo.resx">
+      <DependentUpon>FBusquedaPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonalSala\FElejirEjemplar.resx">
       <DependentUpon>FElejirEjemplar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PersonalSala\FListadoPrestamos.resx">
+      <DependentUpon>FListadoPrestamos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonalSala\FPrincipalSala.resx">
       <DependentUpon>FPrincipalSala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalSala\UCRenglonEjemplar.resx">
+      <DependentUpon>UCRenglonEjemplar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\FBusquedaDni.resx">
       <DependentUpon>FBusquedaDni.cs</DependentUpon>

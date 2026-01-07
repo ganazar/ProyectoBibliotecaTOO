@@ -58,9 +58,9 @@ namespace LogicaNegocio
         /// </summary>
         /// <param name="e">El ejemplar específico que será prestado.</param>
         /// <param name="u">El usuario que solicita el préstamo.</param>
-        /// <returns>El objeto <see cref="Prestamo"/> generado.</returns>
-        public Prestamo iniciarPrestamo(List<Ejemplar> le, Usuario u) {
-            return new Prestamo(u, le, DateTime.Today);
+        /// <returns>Verdader si se ha guardo el prestamo y falso en caso contrario</returns>
+        public bool iniciarPrestamo(Prestamo p) {
+            return persistencia.CreatePrestamo(p); ;
         }
 
         /// <summary>
@@ -77,16 +77,8 @@ namespace LogicaNegocio
                 {
                     prestamo.Estado = EstadoPrestamo.Finalizado;
                 }
+                persistencia.UpdatePrestamo(prestamo);
             } 
-        }
-
-        /// <summary>
-        /// Obtiene el usuario asociado a un préstamo específico.
-        /// </summary>
-        /// <param name="p">El préstamo del cual se quiere conocer el titular.</param>
-        /// <returns>El objeto <see cref="Usuario"/> asociado al préstamo.</returns>
-        public Usuario usuarioDePrestamo(Prestamo p) { 
-            return p.Usuario;
         }
 
         /// <summary>
@@ -96,6 +88,7 @@ namespace LogicaNegocio
         /// <returns>Un valor de tipo <see cref="EstadoPrestamo"/>.</returns>
         public EstadoPrestamo estadoPrestamo(Prestamo p)
         {
+            p = persistencia.ReadPrestamo(p);
             return p.Estado;
         }
 
@@ -139,6 +132,16 @@ namespace LogicaNegocio
         public List<Prestamo> GetAllPrestamos()
         {
             return persistencia.GetAllPrestamos();
+        }
+
+        public List<Ejemplar> GetAllEjemplares()
+        {
+            return persistencia.GetAllEjemplares();
+        }
+
+        public bool ActualizarEjemplar(Ejemplar ejemplar)
+        {
+            return persistencia.UpdateEjemplar(ejemplar);
         }
     }
 }

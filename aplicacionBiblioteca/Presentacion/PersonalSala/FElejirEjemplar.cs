@@ -13,6 +13,8 @@ namespace Presentacion.PersonalSala
 {
     public partial class FElejirEjemplar : Form
     {
+        private Ejemplar seleccionado;
+        public Ejemplar Ejemplar { get { return seleccionado; } }
         public FElejirEjemplar(List<Ejemplar> ejemp)
         {
             InitializeComponent();
@@ -25,7 +27,11 @@ namespace Presentacion.PersonalSala
 
         private void FElejirEjemplar_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            if (cbEjemplares.SelectedItem != null)
+            {
+                seleccionado = cbEjemplares.SelectedItem as Ejemplar;
+                seleccionado.Prestado = true;
+            }
         }
     }
 }

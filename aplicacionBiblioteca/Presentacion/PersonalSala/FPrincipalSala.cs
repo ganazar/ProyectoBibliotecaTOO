@@ -20,7 +20,6 @@ namespace Presentacion.PersonalSala
     {
         protected System.Windows.Forms.ToolStripMenuItem prestamosToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem altaPrestamoToolStripMenuItem;
-        protected System.Windows.Forms.ToolStripMenuItem bajaPrestamoToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem busquedaPrestamoToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem listadoPrestamosToolStripMenuItem;
 
@@ -44,9 +43,6 @@ namespace Presentacion.PersonalSala
             altaPrestamoToolStripMenuItem = new ToolStripMenuItem("Alta");
             altaPrestamoToolStripMenuItem.Click += altaPrestamoToolStripMenuItem_Clicked;
             prestamosToolStripMenuItem.DropDownItems.Add(altaPrestamoToolStripMenuItem);
-            bajaPrestamoToolStripMenuItem = new ToolStripMenuItem("Baja");
-            bajaPrestamoToolStripMenuItem.Click += bajaPrestamoToolStripMenuItem_Clicked;
-            prestamosToolStripMenuItem.DropDownItems.Add(bajaPrestamoToolStripMenuItem);
             busquedaPrestamoToolStripMenuItem = new ToolStripMenuItem("Busqueda");
             busquedaPrestamoToolStripMenuItem.Click += busquedaPrestamoToolStripMenuItem_Clicked;
             prestamosToolStripMenuItem.DropDownItems.Add(busquedaPrestamoToolStripMenuItem);
@@ -56,76 +52,52 @@ namespace Presentacion.PersonalSala
             prestamosToolStripMenuItem.DropDownItems.Add(listadoPrestamosToolStripMenuItem);
         }
         private void altaPrestamoToolStripMenuItem_Clicked(object sender, EventArgs e)
-        {/*
-            FIntroducirClave form = new FIntroducirClave("ISBN");
-            DialogResult dr = form.ShowDialog();
-            if (dr == DialogResult.OK)
+        {
+            List<Ejemplar> ejemDisponibles = logicaSala.GetAllEjemplares()
+                                           .Where(j => j.Prestado == false)
+                                           .ToList();
+            if(!(ejemDisponibles.Count == 0))
             {
-                Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
-                if (aux == null)
+                FAltaPrestamo form1 = new FAltaPrestamo(ejemDisponibles, logicaSala.GetAllUsuarios());
+                DialogResult dr = form1.ShowDialog();
+                if (dr == DialogResult.OK)
                 {
-                    FAltaDocumento form1 = new FAltaDocumento(form.Clave);
-                    dr = form1.ShowDialog();
-                    if (dr == DialogResult.OK)
+                    Prestamo prestamo = form1.Prestamo;
+                    bool exito = logicaSala.iniciarPrestamo(prestamo);
+                    List<Ejemplar> ejemplares = form1.Ejemplares;
+                    foreach(Ejemplar ejAux in ejemplares)
                     {
-                        Documento doc = null;
-                        if (form1.TipoDocumento.Equals("Fisico"))
-                        {
-                            doc = new Fisico(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion);
-                        }
-                        else if (form1.TipoDocumento.Equals("Audiolibro"))
-                        {
-                            doc = new Audiolibro(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion, form1.Duracion, form1.Formato);
-                        }
-                        logicaAdq.DarAltaDocumento(doc);
+                        logicaSala.ActualizarEjemplar(ejAux);
                     }
                 }
-            }*/
-        }
-        private void bajaPrestamoToolStripMenuItem_Clicked(object sender, EventArgs e)
-        {/*
-            FIntroducirClave form = new FIntroducirClave("ISBN");
-            DialogResult dr = form.ShowDialog();
-            if (dr == DialogResult.OK)
+            }
+            else
             {
-                Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
-                if (aux != null)
-                {
-                    FBajaDocumento form1 = new FBajaDocumento(aux);
-                    dr = form1.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        logicaAdq.DarBajaDocumento(aux);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No existe un documento con ese ISBN");
-                }
-            }*/
+                MessageBox.Show("No hay Ejemplares disponibles");
+            }
         }
         private void busquedaPrestamoToolStripMenuItem_Clicked(object sender, EventArgs e)
-        {/*
-            FIntroducirClave form = new FIntroducirClave("ISBN");
-            DialogResult dr = form.ShowDialog();
-            if (dr == DialogResult.OK)
-            {
-                Documento aux = logicaSala.ConsultarDocumento(new Fisico(form.Clave));
-                if (aux != null)
-                {
-                    FBusquedaDocumento form1 = new FBusquedaDocumento(aux);
-                    form1.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("No existe un documento con ese ISBN");
-                }
-            }*/
+        {
+            var listaUsuarios = logicaSala.GetAllUsuarios();
+            var listaPrestamos = logicaSala.GetAllPrestamos();
+            FBusquedaPrestamo formBusqueda = new FBusquedaPrestamo(listaUsuarios, listaPrestamos);
+            DialogResult dr = formBusqueda.ShowDialog();
         }
         private void listadoPrestamosToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
-            //FListadoPrestamo form = new FListadoPrestamo(logicaSala.GetAllPrestamos());
-            //form.ShowDialog();
+            List<Prestamo> lista = logicaSala.GetAllPrestamos();
+
+            if (lista != null && lista.Count > 0)
+            {
+                FListadoPrestamos formListado = new FListadoPrestamos(lista);
+
+                formListado.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay préstamos registrados en el sistema.",
+                                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

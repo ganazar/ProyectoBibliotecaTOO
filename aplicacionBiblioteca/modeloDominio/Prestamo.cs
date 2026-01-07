@@ -17,13 +17,14 @@ namespace modeloDominio
         {
             this.usuario = u;
             this.fechaPrestamo = fecha;
+            this.ejemplares = new List<Ejemplar>();
         }
 
         public Prestamo(Usuario usuario, List<Ejemplar> ejemplares, DateTime fecha)
         {
             this.usuario = usuario;
             this.ejemplares = ejemplares;
-            this.fechaPrestamo = fecha;
+            this.fechaPrestamo = fecha; 
             this.estado = EstadoPrestamo.EnProceso;
         }
 
@@ -33,6 +34,7 @@ namespace modeloDominio
         }
         public DateTime FechaPrestamo{
             get {return this.fechaPrestamo; }
+            set { this.fechaPrestamo = value;}
         }
         public List<Ejemplar> Ejemplares
         {
@@ -55,6 +57,10 @@ namespace modeloDominio
             {
                 return fechaPrestamo.AddDays(15);
             } 
+        }
+        public int CantidadEjemplares
+        {
+            get { return Ejemplares != null ? Ejemplares.Count : 0; }
         }
 
     }

@@ -29,5 +29,9 @@ namespace modeloDominio
             get { return this.nombre; }
             set { this.nombre= value; }
         }
+        public override string ToString()
+        {
+            return this.dni;
+        }
     }
 }

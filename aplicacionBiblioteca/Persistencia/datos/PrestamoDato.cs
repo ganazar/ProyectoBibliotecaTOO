@@ -14,7 +14,7 @@ namespace Persistencia.Datos
         public ClavePrestamo(string dni, DateTime fecha)
         {
             this.dni = dni;
-            this.fecha = fecha;
+            this.fecha = fecha.Date;
         }
         public string Dni { 
             get { 
@@ -22,6 +22,26 @@ namespace Persistencia.Datos
             } 
         }
         public DateTime Fecha { get { return this.fecha; } }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            ClavePrestamo otra = (ClavePrestamo)obj;
+            return string.Equals(this.dni, otra.dni, StringComparison.OrdinalIgnoreCase)
+                   && this.fecha == otra.fecha;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + (dni != null ? dni.ToLower().GetHashCode() : 0);
+                hash = hash * 23 + fecha.GetHashCode();
+                return hash;
+            }
+        }
     }
 
     internal class PrestamoDato : Entity<ClavePrestamo>
