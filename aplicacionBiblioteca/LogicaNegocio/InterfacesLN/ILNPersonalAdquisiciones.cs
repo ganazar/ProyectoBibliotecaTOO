@@ -79,5 +79,10 @@ namespace LogicaNegocio.InterfacesLN
         /// </summary>
         /// <returns>Una lista genérica (List) con todos los objetos Documento encontrados.</returns>
         List<Documento> GetAllDocumentos();
+        /// <summary>
+        /// Obtiene el listado completo de todos los ejemplares registrados en la base de datos.
+        /// </summary>
+        /// <returns>Una lista genérica (List) con todos los objetos Ejemplar encontrados.</returns>
+        List<Ejemplar> GetAllEjemplares();
     }
 }

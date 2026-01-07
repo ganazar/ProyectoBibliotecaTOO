@@ -1,4 +1,5 @@
-﻿using System;
+﻿using modeloDominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentacion.PersonalAdquisiciones
 {
-    public partial class FAltaDocumento : Form
+    public partial class FGestionDocumento : Form
     {
         private string titulo, autor, editorial, tipoDocumento, formato;
         private int anoEdicion, duracion;
@@ -40,13 +41,54 @@ namespace Presentacion.PersonalAdquisiciones
             }
         }
 
-        public FAltaDocumento(string isbn)
+        public FGestionDocumento(string isbn)
         {
             InitializeComponent();
+            Text = "Alta de documento";
             tbISBN.Text = isbn;
             tbISBN.ReadOnly = true;
         }
+        public FGestionDocumento(Documento doc, bool isBaja)
+        {
+            InitializeComponent();
+            tbISBN.Text = doc.ISBN;
+            tbISBN.ReadOnly = true;
+            tbTitulo.Text = doc.Titulo;
+            tbTitulo.ReadOnly = true;
+            tbAutor.Text = doc.Autor;
+            tbAutor.ReadOnly = true;
+            tbEditorial.Text = doc.Editorial;
+            tbEditorial.ReadOnly = true;
+            tbAnoEdicion.Text = doc.AñoEdicion.ToString();
+            tbAnoEdicion.ReadOnly = true;
+            var audioLibro = doc as Audiolibro;
+            if (audioLibro != null)
+            {
+                rbAudiolibro.Checked = true;
+                tbDuracion.Text = audioLibro.Duracion.ToString();
+                tbDuracion.ReadOnly = true;
+                tbFormato.Text = audioLibro.Formato;
+                tbFormato.ReadOnly = true;
+            }
+            else if (doc is Fisico)
+            {
+                rbLibro.Checked = true;
+            }
+            rbAudiolibro.Enabled = false;
+            rbLibro.Enabled = false;
+            if (isBaja)
+            {
+                btAceptar.Text = "Dar baja";
+                Text = "Baja de documento";
+            }
+            else
+            {
+                btCancelar.Visible = false;
+                btAceptar.Text = "Aceptar";
+                Text = "Busqueda de documento";
 
+            }
+        }
         private void rbAudiolibro_CheckedChanged(object sender, EventArgs e)
         {
             if (rbAudiolibro.Checked)

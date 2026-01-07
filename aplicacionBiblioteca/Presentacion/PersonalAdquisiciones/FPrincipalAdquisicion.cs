@@ -22,11 +22,14 @@ namespace Presentacion.PersonalAdquisiciones
         protected System.Windows.Forms.ToolStripMenuItem bajaDocumentoToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem busquedaDocumentoToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem listadoDocumentoToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem recorridoDocumentoToolStripMenuItem;
 
         protected System.Windows.Forms.ToolStripMenuItem ejemplaresToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem altaEjemplarToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem bajaEjemplarToolStripMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem busquedaEjemplarToolStripMenuItem;
+        protected System.Windows.Forms.ToolStripMenuItem listadoEjemplarToolStripMenuItem;
+
         public FPrincipalAdquisicion()
         {
             InitializeComponent();
@@ -51,10 +54,12 @@ namespace Presentacion.PersonalAdquisiciones
             busquedaDocumentoToolStripMenuItem = new ToolStripMenuItem("Busqueda");
             busquedaDocumentoToolStripMenuItem.Click += busquedaDocumentoToolStripMenuItem_Clicked;
             documentosToolStripMenuItem.DropDownItems.Add(busquedaDocumentoToolStripMenuItem);
-
             listadoDocumentoToolStripMenuItem = new ToolStripMenuItem("Listado");
             listadoDocumentoToolStripMenuItem.Click += listadoDocumentoToolStripMenuItem_Clicked;
             documentosToolStripMenuItem.DropDownItems.Add(listadoDocumentoToolStripMenuItem);
+            recorridoDocumentoToolStripMenuItem = new ToolStripMenuItem("Recorrido uno a uno");
+            recorridoDocumentoToolStripMenuItem.Click += recorridoDocumentoToolStripMenuItem_Clicked;
+            documentosToolStripMenuItem.DropDownItems.Add(recorridoDocumentoToolStripMenuItem);
 
             ejemplaresToolStripMenuItem = new ToolStripMenuItem("Ejemplares");
             menuStrip1.Items.Add(ejemplaresToolStripMenuItem);
@@ -67,6 +72,9 @@ namespace Presentacion.PersonalAdquisiciones
             busquedaEjemplarToolStripMenuItem = new ToolStripMenuItem("Busqueda");
             busquedaEjemplarToolStripMenuItem.Click += busquedaEjemplarToolStripMenuItem_Clicked;
             ejemplaresToolStripMenuItem.DropDownItems.Add(busquedaEjemplarToolStripMenuItem);
+            listadoEjemplarToolStripMenuItem = new ToolStripMenuItem("Listado");
+            listadoEjemplarToolStripMenuItem.Click += listadoEjemplarToolStripMenuItem_Clicked;
+            ejemplaresToolStripMenuItem.DropDownItems.Add(listadoEjemplarToolStripMenuItem);
         }
         private void altaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
@@ -74,26 +82,33 @@ namespace Presentacion.PersonalAdquisiciones
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
-                if (aux == null)
+                if (IsbnValido(form.Clave))
                 {
-                    FAltaDocumento form1 = new FAltaDocumento(form.Clave);
-                    dr = form1.ShowDialog();
-                    if (dr == DialogResult.OK)
+                    Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
+                    if (aux == null)
                     {
-                        Documento doc = null;
-                        if (form1.TipoDocumento.Equals("Fisico"))
+                        FGestionDocumento form1 = new FGestionDocumento(form.Clave);
+                        dr = form1.ShowDialog();
+                        if (dr == DialogResult.OK)
                         {
-                            doc = new Fisico(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion);
+                            Documento doc = null;
+                            if (form1.TipoDocumento.Equals("Fisico"))
+                            {
+                                doc = new Fisico(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion);
+                            }
+                            else if (form1.TipoDocumento.Equals("Audiolibro"))
+                            {
+                                doc = new Audiolibro(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion, form1.Duracion, form1.Formato);
+                            }
+                            logicaAdq.DarAltaDocumento(doc);
                         }
-                        else if (form1.TipoDocumento.Equals("Audiolibro"))
-                        {
-                            doc = new Audiolibro(form.Clave, form1.Titulo, form1.Autor, form1.Editorial, form1.AnoEdicion, form1.Duracion, form1.Formato);
-                        }
-                        logicaAdq.DarAltaDocumento(doc);
                     }
                 }
-            }
+                else
+                {
+                    MessageBox.Show("Formato ISBN incorrecto Ej: 978-3-16-148410-0");
+                }
+        }
         }
         private void bajaDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
@@ -101,19 +116,27 @@ namespace Presentacion.PersonalAdquisiciones
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
-                if (aux != null)
+                if (IsbnValido(form.Clave))
                 {
-                    FBajaDocumento form1 = new FBajaDocumento(aux);
-                    dr = form1.ShowDialog();
-                    if (dr == DialogResult.OK)
+
+                    Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
+                    if (aux != null)
                     {
-                        logicaAdq.DarBajaDocumento(aux);
+                        FGestionDocumento form1 = new FGestionDocumento(aux, true);
+                        dr = form1.ShowDialog();
+                        if (dr == DialogResult.OK)
+                        {
+                            logicaAdq.DarBajaDocumento(aux);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe un documento con ese ISBN");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No existe un documento con ese ISBN");
+                    MessageBox.Show("Formato ISBN incorrecto Ej: 978-3-16-148410-0");
                 }
             }
         }
@@ -123,21 +146,33 @@ namespace Presentacion.PersonalAdquisiciones
             DialogResult dr = form.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
-                if (aux != null)
+                if (IsbnValido(form.Clave))
                 {
-                    FBusquedaDocumento form1 = new FBusquedaDocumento(aux);
-                    form1.ShowDialog();
+                    Documento aux = logicaAdq.ConsultarDocumento(new Fisico(form.Clave));
+                    if (aux != null)
+                    {
+                        FGestionDocumento form1 = new FGestionDocumento(aux, false);
+                        form1.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe un documento con ese ISBN");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No existe un documento con ese ISBN");
+                    MessageBox.Show("Formato ISBN incorrecto Ej: 978-3-16-148410-0");
                 }
-            }
+        }
         }
         private void listadoDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
         {
             FListadoDocumentos form = new FListadoDocumentos(logicaAdq.GetAllDocumentos());
+            form.ShowDialog();
+        }
+        private void recorridoDocumentoToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+            FRecorridoDocumentos form = new FRecorridoDocumentos(logicaAdq.GetAllDocumentos());
             form.ShowDialog();
         }
 
@@ -191,6 +226,37 @@ namespace Presentacion.PersonalAdquisiciones
                     MessageBox.Show("No existe un documento con ese código");
                 }
             }
+        }
+        private void listadoEjemplarToolStripMenuItem_Clicked(object sender, EventArgs e)
+        {
+            FListadoEjemplares form = new FListadoEjemplares(logicaAdq.GetAllEjemplares());
+            form.ShowDialog();
+        }
+
+        private bool IsbnValido(string isbnInput)
+        {
+            string isbn = isbnInput.Replace("-", "").Replace(" ", "").ToUpper();
+
+            if (isbn.Length == 13)
+            {
+                if (!long.TryParse(isbn, out _)) return false;
+
+                long suma = 0;
+                for (int i = 0; i < 12; i++)
+                {
+                    int digito = int.Parse(isbn[i].ToString());
+                    suma += (i % 2 == 0) ? digito * 1 : digito * 3;
+                }
+
+                int resto = (int)(suma % 10);
+                int digitoControlCalculado = 10 - resto;
+                if (digitoControlCalculado == 10) digitoControlCalculado = 0;
+
+                int digitoControlReal = int.Parse(isbn[12].ToString());
+
+                return digitoControlCalculado == digitoControlReal;
+            }
+            return false; // Longitud incorrecta
         }
     }
 }

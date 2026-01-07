@@ -1,6 +1,6 @@
 ﻿namespace Presentacion.PersonalAdquisiciones
 {
-    partial class FBajaDocumento
+    partial class FGestionDocumento
     {
         /// <summary>
         /// Required designer variable.
@@ -195,7 +195,7 @@
             this.btAceptar.Name = "btAceptar";
             this.btAceptar.Size = new System.Drawing.Size(75, 23);
             this.btAceptar.TabIndex = 13;
-            this.btAceptar.Text = "Dar baja";
+            this.btAceptar.Text = "Dar alta";
             this.btAceptar.UseVisualStyleBackColor = true;
             this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
             // 
@@ -226,7 +226,7 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "AñoEdicion:";
             // 
-            // FBajaDocumento
+            // FAltaDocumento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,8 +244,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbISBN);
             this.Controls.Add(this.label1);
-            this.Name = "FBajaDocumento";
-            this.Text = "Baja de documento";
+            this.Name = "FAltaDocumento";
+            this.Text = "Alta de documento";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FAltaDocumento_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

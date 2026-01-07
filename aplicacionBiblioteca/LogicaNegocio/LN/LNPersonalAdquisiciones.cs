@@ -114,5 +114,9 @@ namespace LogicaNegocio.ClasesLN
         {
             return _persistenciaAdq.GetAllDocumentos();
         }
+        public List<Ejemplar> GetAllEjemplares()
+        {
+            return _persistenciaAdq.GetAllEjemplares();
+        }
     }
 }

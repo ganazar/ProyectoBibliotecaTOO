@@ -36,6 +36,12 @@ namespace Persistencia.BD
 
             UsuarioDato u5 = new UsuarioDato("00000001R", "Beatriz Primera");
             tablaUsuarios.Add(u5);
+
+            FisicoDato f = new FisicoDato("978-0-13-110163-0", "LibroFisico","Pepe","Santillana",2004,1);
+            tablaFisicos.Add(f);
+
+            AudiolibroDato al = new AudiolibroDato("978-0-345-39180-3", "AudioLibro", "Zacarias", "Planeta", 1986, 1, ".mp5", 120);
+            tablaAudiolibros.Add(al);
         }
         public static Tabla<string, EjemplarDato> tablaEjemplares
         {

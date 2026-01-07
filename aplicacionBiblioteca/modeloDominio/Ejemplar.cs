@@ -39,6 +39,7 @@ namespace modeloDominio
             get { return this.prestado; }
             set { this.prestado = value; }
         }
+        public string ISBN { get { return doc.ISBN; } }
         
     }
 }
