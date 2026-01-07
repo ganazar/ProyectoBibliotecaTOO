@@ -59,5 +59,35 @@ namespace Persistencia.Repositorios
         {
             return BD.BD.tablaUsuarios.Select(u => Transformers.Usuario(u)).ToList();
         }
+
+        public Ejemplar ReadEjemplar(Ejemplar ejemplar)
+        {
+            if (!BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return null;
+
+            var eDato = BD.BD.tablaEjemplares[ejemplar.CodEjemplar];
+
+            Documento doc = null;
+            if (BD.BD.tablaAudiolibros.Contains(eDato.Doc))
+                doc = Transformers.Audiolibro(BD.BD.tablaAudiolibros[eDato.Doc]);
+            else if (BD.BD.tablaFisicos.Contains(eDato.Doc))
+                doc = Transformers.Fisico(BD.BD.tablaFisicos[eDato.Doc]);
+
+            if (doc == null) return null;
+
+            return Transformers.Ejemplar(eDato, doc);
+        }
+
+        public List<Ejemplar> GetAllEjemplares()
+        {
+            List<Ejemplar> lista = new List<Ejemplar>();
+
+            foreach (var eDato in BD.BD.tablaEjemplares)
+            {
+                var eDominio = ReadEjemplar(new Ejemplar(eDato.Id));
+                if (eDominio != null) lista.Add(eDominio);
+            }
+
+            return lista;
+        }
     }
 }

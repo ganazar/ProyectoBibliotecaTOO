@@ -8,46 +8,8 @@ using System.Linq;
 
 namespace Persistencia.Repositorios
 {
-    public class PersistenciaSala : IPersistenciaSala
+    public class PersistenciaSala : PersistenciaPersonal, IPersistenciaSala
     {
-        public bool CreateUsuario(Usuario user)
-        {
-            if (BD.BD.tablaUsuarios.Contains(user.DNI)) return false;
-
-            BD.BD.tablaUsuarios.Add(Transformers.UsuarioDato(user));
-            return true;
-        }
-
-        public Usuario ReadUsuario(Usuario user)
-        {
-            if (BD.BD.tablaUsuarios.Contains(user.DNI))
-            {
-                return Transformers.Usuario(BD.BD.tablaUsuarios[user.DNI]);
-            }
-            return null;
-        }
-
-        public bool UpdateUsuario(Usuario user)
-        {
-            if (!BD.BD.tablaUsuarios.Contains(user.DNI)) return false;
-
-            BD.BD.tablaUsuarios.Remove(user.DNI);
-            BD.BD.tablaUsuarios.Add(Transformers.UsuarioDato(user));
-            return true;
-        }
-
-        public bool DeleteUsuario(Usuario user)
-        {
-            if (!BD.BD.tablaUsuarios.Contains(user.DNI)) return false;
-
-            BD.BD.tablaUsuarios.Remove(user.DNI);
-            return true;
-        }
-
-        public List<Usuario> GetAllUsuarios()
-        {
-            return BD.BD.tablaUsuarios.Select(u => Transformers.Usuario(u)).ToList();
-        }
         public bool CreatePrestamo(Prestamo prestamo)
         {
             var clave = new ClavePrestamo(prestamo.Usuario.DNI, prestamo.FechaPrestamo);

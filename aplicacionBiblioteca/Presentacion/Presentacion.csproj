@@ -94,6 +94,12 @@
     <Compile Include="PersonalAdquisiciones\FPrincipalAdquisicion.Designer.cs">
       <DependentUpon>FPrincipalAdquisicion.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonalSala\FAltaPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalSala\FAltaPrestamo.Designer.cs">
+      <DependentUpon>FAltaPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonalSala\FPrincipalSala.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -37,5 +37,18 @@ namespace Persistencia
         /// <returns>True si se ha borrado correctamente false en caso contrario</returns>
         bool DeleteUsuario(Usuario user);
         List<Usuario> GetAllUsuarios();
+
+        /// <summary>
+        /// Recupera la información de un ejemplar específico.
+        /// </summary>
+        /// <param name="e">El ejemplar que contiene el identificador a buscar.</param>
+        /// <returns>El objeto Ejemplar completo con sus datos cargados, o null si no se encuentra.</returns>
+        Ejemplar ReadEjemplar(Ejemplar e);
+
+        /// <summary>
+        /// Obtiene la lista completa de todos los ejemplares registrados.
+        /// </summary>
+        /// <returns>Una lista de objetos Ejemplar.</returns>
+        List<Ejemplar> GetAllEjemplares();
     }
 }

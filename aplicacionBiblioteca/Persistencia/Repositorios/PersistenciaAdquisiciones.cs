@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Persistencia.Repositorios
 {
-    public class PersistenciaAdquisiciones : IPersistenciaAdquisiciones
+    public class PersistenciaAdquisiciones : PersistenciaPersonal, IPersistenciaAdquisiciones
     {
         public bool CreateAudiolibro(Audiolibro audiolibro)
         {
@@ -130,45 +130,6 @@ namespace Persistencia.Repositorios
             lista.AddRange(GetAllFisicos());
             return lista;
         }
-        public bool CreateUsuario(Usuario user)
-        {
-            if (BD.BD.tablaUsuarios.Contains(user.DNI)) return false;
-
-            BD.BD.tablaUsuarios.Add(Transformers.UsuarioDato(user));
-            return true;
-        }
-
-        public Usuario ReadUsuario(Usuario user)
-        {
-            if (BD.BD.tablaUsuarios.Contains(user.DNI))
-            {
-                return Transformers.Usuario(BD.BD.tablaUsuarios[user.DNI]);
-            }
-            return null;
-        }
-
-        public bool UpdateUsuario(Usuario user)
-        {
-            if (!BD.BD.tablaUsuarios.Contains(user.DNI)) return false;
-
-            BD.BD.tablaUsuarios.Remove(user.DNI);
-            BD.BD.tablaUsuarios.Add(Transformers.UsuarioDato(user));
-            return true;
-        }
-
-        public bool DeleteUsuario(Usuario user)
-        {
-            if (!BD.BD.tablaUsuarios.Contains(user.DNI)) return false;
-
-            BD.BD.tablaUsuarios.Remove(user.DNI);
-            return true;
-        }
-
-        public List<Usuario> GetAllUsuarios()
-        {
-            return BD.BD.tablaUsuarios.Select(u => Transformers.Usuario(u)).ToList();
-        }
-
         public bool CreateEjemplar(Ejemplar ejemplar)
         {
             if (BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return false;
@@ -177,23 +138,6 @@ namespace Persistencia.Repositorios
             UpdateDocumento(ejemplar.Doc);
             BD.BD.tablaEjemplares.Add(ejemplarDato);
             return true;
-        }
-
-        public Ejemplar ReadEjemplar(Ejemplar ejemplar)
-        {
-            if (!BD.BD.tablaEjemplares.Contains(ejemplar.CodEjemplar)) return null;
-
-            var eDato = BD.BD.tablaEjemplares[ejemplar.CodEjemplar];
-
-            Documento doc = null;
-            if (BD.BD.tablaAudiolibros.Contains(eDato.Doc))
-                doc = Transformers.Audiolibro(BD.BD.tablaAudiolibros[eDato.Doc]);
-            else if (BD.BD.tablaFisicos.Contains(eDato.Doc))
-                doc = Transformers.Fisico(BD.BD.tablaFisicos[eDato.Doc]);
-
-            if (doc == null) return null;
-
-            return Transformers.Ejemplar(eDato, doc);
         }
 
         public bool UpdateEjemplar(Ejemplar ejemplar)
@@ -211,19 +155,6 @@ namespace Persistencia.Repositorios
 
             BD.BD.tablaEjemplares.Remove(ejemplar.CodEjemplar);
             return true;
-        }
-
-        public List<Ejemplar> GetAllEjemplares()
-        {
-            List<Ejemplar> lista = new List<Ejemplar>();
-
-            foreach (var eDato in BD.BD.tablaEjemplares)
-            {
-                var eDominio = ReadEjemplar(new Ejemplar(eDato.Id));
-                if (eDominio != null) lista.Add(eDominio);
-            }
-
-            return lista;
         }
     }
 }

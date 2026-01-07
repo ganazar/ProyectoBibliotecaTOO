@@ -1,6 +1,6 @@
 ﻿namespace Presentacion.PersonalSala
 {
-    partial class FPrincipalSala
+    partial class FAltaPrestamo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FPrincipalSala
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 703);
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "FPrincipalSala";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "FAltaPrestamo";
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem ejemplaresToolStripMenuItem;
     }
 }

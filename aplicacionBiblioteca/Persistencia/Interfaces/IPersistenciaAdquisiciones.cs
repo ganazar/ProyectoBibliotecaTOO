@@ -105,13 +105,6 @@ namespace Persistencia.Interfaces
         bool CreateEjemplar(Ejemplar e);
 
         /// <summary>
-        /// Recupera la información de un ejemplar específico.
-        /// </summary>
-        /// <param name="e">El ejemplar que contiene el identificador a buscar.</param>
-        /// <returns>El objeto Ejemplar completo con sus datos cargados, o null si no se encuentra.</returns>
-        Ejemplar ReadEjemplar(Ejemplar e);
-
-        /// <summary>
         /// Actualiza los datos de un ejemplar existente.
         /// </summary>
         /// <param name="e">El ejemplar con los datos actualizados.</param>
@@ -124,11 +117,5 @@ namespace Persistencia.Interfaces
         /// <param name="e">El ejemplar a eliminar.</param>
         /// <returns>True si se eliminó correctamente; False si no se encontró en el sistema.</returns>
         bool DeleteEjemplar(Ejemplar e);
-
-        /// <summary>
-        /// Obtiene la lista completa de todos los ejemplares registrados.
-        /// </summary>
-        /// <returns>Una lista de objetos Ejemplar.</returns>
-        List<Ejemplar> GetAllEjemplares();
     }
 }
