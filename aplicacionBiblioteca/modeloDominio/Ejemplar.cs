@@ -46,10 +46,7 @@ namespace modeloDominio
                 return $"Codigo: {codEjemplar} Documento: ISBN: {doc.ISBN} Titulo: {doc.Titulo}";
             }
         }
+        public string ISBN { get { return doc.ISBN; } }
     }
 
-}
-        public string ISBN { get { return doc.ISBN; } }
-        
-    }
 }
